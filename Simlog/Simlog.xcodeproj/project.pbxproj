@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		EA0869812AC1675700285838 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0869802AC1675700285838 /* AppDelegate.swift */; };
 		EA0869832AC1675700285838 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0869822AC1675700285838 /* SceneDelegate.swift */; };
-		EA0869852AC1675700285838 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0869842AC1675700285838 /* ViewController.swift */; };
+		EA0869852AC1675700285838 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0869842AC1675700285838 /* CalendarViewController.swift */; };
 		EA0869882AC1675700285838 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA0869862AC1675700285838 /* Main.storyboard */; };
 		EA08698A2AC1675800285838 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA0869892AC1675800285838 /* Assets.xcassets */; };
 		EA08698D2AC1675800285838 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA08698B2AC1675800285838 /* LaunchScreen.storyboard */; };
+		EA0869952AC208D400285838 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0869942AC208D400285838 /* TabBarController.swift */; };
+		EA0869972AC209BA00285838 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0869962AC209BA00285838 /* StatisticsViewController.swift */; };
+		EA08699A2AC209FA00285838 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0869992AC209FA00285838 /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EA08697D2AC1675700285838 /* Simlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Simlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0869802AC1675700285838 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA0869822AC1675700285838 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EA0869842AC1675700285838 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EA0869842AC1675700285838 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		EA0869872AC1675700285838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EA0869892AC1675800285838 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA08698C2AC1675800285838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA08698E2AC1675800285838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA0869942AC208D400285838 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		EA0869962AC209BA00285838 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		EA0869992AC209FA00285838 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +64,24 @@
 			children = (
 				EA0869802AC1675700285838 /* AppDelegate.swift */,
 				EA0869822AC1675700285838 /* SceneDelegate.swift */,
-				EA0869842AC1675700285838 /* ViewController.swift */,
+				EA0869982AC209BD00285838 /* ViewControllers */,
+				EA0869942AC208D400285838 /* TabBarController.swift */,
 				EA0869862AC1675700285838 /* Main.storyboard */,
 				EA0869892AC1675800285838 /* Assets.xcassets */,
 				EA08698B2AC1675800285838 /* LaunchScreen.storyboard */,
 				EA08698E2AC1675800285838 /* Info.plist */,
 			);
 			path = Simlog;
+			sourceTree = "<group>";
+		};
+		EA0869982AC209BD00285838 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EA0869842AC1675700285838 /* CalendarViewController.swift */,
+				EA0869962AC209BA00285838 /* StatisticsViewController.swift */,
+				EA0869992AC209FA00285838 /* SettingViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +155,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA0869852AC1675700285838 /* ViewController.swift in Sources */,
+				EA0869852AC1675700285838 /* CalendarViewController.swift in Sources */,
+				EA0869972AC209BA00285838 /* StatisticsViewController.swift in Sources */,
+				EA0869952AC208D400285838 /* TabBarController.swift in Sources */,
 				EA0869812AC1675700285838 /* AppDelegate.swift in Sources */,
 				EA0869832AC1675700285838 /* SceneDelegate.swift in Sources */,
+				EA08699A2AC209FA00285838 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
