@@ -20,6 +20,7 @@
 		EA0869A32AC227D200285838 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = EA0869A22AC227D200285838 /* Realm */; };
 		EA0869A52AC227D200285838 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EA0869A42AC227D200285838 /* RealmSwift */; };
 		EA0869A82AC227EB00285838 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EA0869A72AC227EB00285838 /* SnapKit */; };
+		EA0869AE2AC229CC00285838 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0869AD2AC229CC00285838 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		EA0869942AC208D400285838 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		EA0869962AC209BA00285838 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		EA0869992AC209FA00285838 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		EA0869AD2AC229CC00285838 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			children = (
 				EA0869802AC1675700285838 /* AppDelegate.swift */,
 				EA0869822AC1675700285838 /* SceneDelegate.swift */,
+				EA0869AC2AC2294E00285838 /* Utility */,
 				EA0869982AC209BD00285838 /* ViewControllers */,
 				EA0869942AC208D400285838 /* TabBarController.swift */,
 				EA0869892AC1675800285838 /* Assets.xcassets */,
@@ -89,6 +92,14 @@
 				EA0869992AC209FA00285838 /* SettingViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		EA0869AC2AC2294E00285838 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				EA0869AD2AC229CC00285838 /* Color.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +190,7 @@
 				EA0869952AC208D400285838 /* TabBarController.swift in Sources */,
 				EA0869812AC1675700285838 /* AppDelegate.swift in Sources */,
 				EA0869832AC1675700285838 /* SceneDelegate.swift in Sources */,
+				EA0869AE2AC229CC00285838 /* Color.swift in Sources */,
 				EA08699A2AC209FA00285838 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
