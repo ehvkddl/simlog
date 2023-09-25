@@ -7,12 +7,10 @@
 
 import UIKit
 
-class StatisticsViewController: UIViewController {
+class StatisticsViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .darkGray
     }
 
 }

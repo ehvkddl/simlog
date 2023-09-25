@@ -59,7 +59,7 @@ class TabBarController: UITabBarController {
     }
     
     private func designTabBar() {
-        self.tabBar.tintColor = UIColor.black
+        self.tabBar.tintColor = Constants.BaseColor.accent
         
         if let items = self.tabBar.items {
             GNBCategory.allCases.enumerated().forEach { idx, item in
