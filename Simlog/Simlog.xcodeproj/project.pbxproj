@@ -16,6 +16,11 @@
 		EA0869952AC208D400285838 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0869942AC208D400285838 /* TabBarController.swift */; };
 		EA0869972AC209BA00285838 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0869962AC209BA00285838 /* StatisticsViewController.swift */; };
 		EA08699A2AC209FA00285838 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0869992AC209FA00285838 /* SettingViewController.swift */; };
+		EA08699D2AC227A000285838 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EA08699C2AC227A000285838 /* Alamofire */; };
+		EA0869A02AC227B500285838 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EA08699F2AC227B500285838 /* Kingfisher */; };
+		EA0869A32AC227D200285838 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = EA0869A22AC227D200285838 /* Realm */; };
+		EA0869A52AC227D200285838 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EA0869A42AC227D200285838 /* RealmSwift */; };
+		EA0869A82AC227EB00285838 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EA0869A72AC227EB00285838 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +42,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA0869A52AC227D200285838 /* RealmSwift in Frameworks */,
+				EA0869A32AC227D200285838 /* Realm in Frameworks */,
+				EA0869A02AC227B500285838 /* Kingfisher in Frameworks */,
+				EA08699D2AC227A000285838 /* Alamofire in Frameworks */,
+				EA0869A82AC227EB00285838 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +110,13 @@
 			dependencies = (
 			);
 			name = Simlog;
+			packageProductDependencies = (
+				EA08699C2AC227A000285838 /* Alamofire */,
+				EA08699F2AC227B500285838 /* Kingfisher */,
+				EA0869A22AC227D200285838 /* Realm */,
+				EA0869A42AC227D200285838 /* RealmSwift */,
+				EA0869A72AC227EB00285838 /* SnapKit */,
+			);
 			productName = Simlog;
 			productReference = EA08697D2AC1675700285838 /* Simlog.app */;
 			productType = "com.apple.product-type.application";
@@ -128,6 +145,12 @@
 				Base,
 			);
 			mainGroup = EA0869742AC1675700285838;
+			packageReferences = (
+				EA08699B2AC227A000285838 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				EA08699E2AC227B500285838 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				EA0869A12AC227D200285838 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				EA0869A62AC227EA00285838 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = EA08697E2AC1675700285838 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -386,6 +409,69 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EA08699B2AC227A000285838 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		EA08699E2AC227B500285838 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		EA0869A12AC227D200285838 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		EA0869A62AC227EA00285838 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EA08699C2AC227A000285838 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA08699B2AC227A000285838 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		EA08699F2AC227B500285838 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA08699E2AC227B500285838 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		EA0869A22AC227D200285838 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA0869A12AC227D200285838 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		EA0869A42AC227D200285838 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA0869A12AC227D200285838 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		EA0869A72AC227EB00285838 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA0869A62AC227EA00285838 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EA0869752AC1675700285838 /* Project object */;
 }
