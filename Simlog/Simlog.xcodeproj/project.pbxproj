@@ -23,6 +23,7 @@
 		EA0869AB2AC2293600285838 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0869AA2AC2293600285838 /* BaseViewController.swift */; };
 		EA0869AE2AC229CC00285838 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0869AD2AC229CC00285838 /* Color.swift */; };
 		EA0869B02AC22C0300285838 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0869AF2AC22C0300285838 /* BaseCollectionViewCell.swift */; };
+		EA0869B42AC321ED00285838 /* AddDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0869B32AC321ED00285838 /* AddDiaryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		EA0869AA2AC2293600285838 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EA0869AD2AC229CC00285838 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		EA0869AF2AC22C0300285838 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		EA0869B32AC321ED00285838 /* AddDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiaryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				EA0869842AC1675700285838 /* CalendarViewController.swift */,
+				EA0869B32AC321ED00285838 /* AddDiaryViewController.swift */,
 				EA0869962AC209BA00285838 /* StatisticsViewController.swift */,
 				EA0869992AC209FA00285838 /* SettingViewController.swift */,
 			);
@@ -207,6 +210,7 @@
 				EA0869832AC1675700285838 /* SceneDelegate.swift in Sources */,
 				EA0869AE2AC229CC00285838 /* Color.swift in Sources */,
 				EA0869AB2AC2293600285838 /* BaseViewController.swift in Sources */,
+				EA0869B42AC321ED00285838 /* AddDiaryViewController.swift in Sources */,
 				EA08699A2AC209FA00285838 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
