@@ -19,6 +19,13 @@ class AddDiaryViewController: BaseViewController {
     }()
     var dataSource: UICollectionViewDiffableDataSource<Int, String>!
     
+    let addBedTimeButton = {
+        let btn = UIButton()
+        btn.setTitle("수면 시간 추가하기", for: .normal)
+        btn.backgroundColor = .black
+        return btn
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,12 +36,18 @@ class AddDiaryViewController: BaseViewController {
     override func configureView() {
         view.backgroundColor = Constants.BaseColor.grayBackground
         
-        [collectionView].forEach { view.addSubview($0) }
+        addBedTimeButton.addTarget(self, action: #selector(addBedTimeButtonClicked), for: .touchUpInside)
+        [collectionView, addBedTimeButton].forEach { view.addSubview($0) }
     }
     
     override func setConstraints() {
         collectionView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        addBedTimeButton.snp.makeConstraints { make in
+            make.top.equalTo(collectionView.snp.top)
+            make.centerX.equalTo(view)
         }
     }
     
@@ -50,6 +63,13 @@ extension AddDiaryViewController {
     
     @objc private func closeButtonClicked() {
         dismiss(animated: true)
+    }
+    
+    @objc private func addBedTimeButtonClicked() {
+        let vc = BedTimeViewController()
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true)
     }
     
 }
