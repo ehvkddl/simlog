@@ -26,6 +26,7 @@
 		EA0869B42AC321ED00285838 /* AddDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0869B32AC321ED00285838 /* AddDiaryViewController.swift */; };
 		EA0869B72AC3503600285838 /* AddDiaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0869B62AC3503600285838 /* AddDiaryCollectionViewCell.swift */; };
 		EA0869BA2AC4719B00285838 /* HGCircularSlider in Frameworks */ = {isa = PBXBuildFile; productRef = EA0869B92AC4719B00285838 /* HGCircularSlider */; };
+		EA0869BF2AC4A2F500285838 /* BedTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0869BE2AC4A2F500285838 /* BedTimeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		EA0869AF2AC22C0300285838 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA0869B32AC321ED00285838 /* AddDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiaryViewController.swift; sourceTree = "<group>"; };
 		EA0869B62AC3503600285838 /* AddDiaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiaryCollectionViewCell.swift; sourceTree = "<group>"; };
+		EA0869BE2AC4A2F500285838 /* BedTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedTimeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				EA0869842AC1675700285838 /* CalendarViewController.swift */,
 				EA0869B32AC321ED00285838 /* AddDiaryViewController.swift */,
+				EA0869BE2AC4A2F500285838 /* BedTimeViewController.swift */,
 				EA0869962AC209BA00285838 /* StatisticsViewController.swift */,
 				EA0869992AC209FA00285838 /* SettingViewController.swift */,
 			);
@@ -220,6 +223,7 @@
 				EA0869852AC1675700285838 /* CalendarViewController.swift in Sources */,
 				EA0869972AC209BA00285838 /* StatisticsViewController.swift in Sources */,
 				EA0869B02AC22C0300285838 /* BaseCollectionViewCell.swift in Sources */,
+				EA0869BF2AC4A2F500285838 /* BedTimeViewController.swift in Sources */,
 				EA0869952AC208D400285838 /* TabBarController.swift in Sources */,
 				EA0869812AC1675700285838 /* AppDelegate.swift in Sources */,
 				EA0869B72AC3503600285838 /* AddDiaryCollectionViewCell.swift in Sources */,
