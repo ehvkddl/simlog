@@ -25,6 +25,7 @@
 		EA0869B02AC22C0300285838 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0869AF2AC22C0300285838 /* BaseCollectionViewCell.swift */; };
 		EA0869B42AC321ED00285838 /* AddDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0869B32AC321ED00285838 /* AddDiaryViewController.swift */; };
 		EA0869B72AC3503600285838 /* AddDiaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0869B62AC3503600285838 /* AddDiaryCollectionViewCell.swift */; };
+		EA0869BA2AC4719B00285838 /* HGCircularSlider in Frameworks */ = {isa = PBXBuildFile; productRef = EA0869B92AC4719B00285838 /* HGCircularSlider */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 				EA0869A02AC227B500285838 /* Kingfisher in Frameworks */,
 				EA08699D2AC227A000285838 /* Alamofire in Frameworks */,
 				EA0869A82AC227EB00285838 /* SnapKit in Frameworks */,
+				EA0869BA2AC4719B00285838 /* HGCircularSlider in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +154,7 @@
 				EA0869A22AC227D200285838 /* Realm */,
 				EA0869A42AC227D200285838 /* RealmSwift */,
 				EA0869A72AC227EB00285838 /* SnapKit */,
+				EA0869B92AC4719B00285838 /* HGCircularSlider */,
 			);
 			productName = Simlog;
 			productReference = EA08697D2AC1675700285838 /* Simlog.app */;
@@ -186,6 +189,7 @@
 				EA08699E2AC227B500285838 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				EA0869A12AC227D200285838 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				EA0869A62AC227EA00285838 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				EA0869B82AC4719B00285838 /* XCRemoteSwiftPackageReference "HGCircularSlider" */,
 			);
 			productRefGroup = EA08697E2AC1675700285838 /* Products */;
 			projectDirPath = "";
@@ -473,6 +477,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		EA0869B82AC4719B00285838 /* XCRemoteSwiftPackageReference "HGCircularSlider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/HamzaGhazouani/HGCircularSlider.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -500,6 +512,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EA0869A62AC227EA00285838 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		EA0869B92AC4719B00285838 /* HGCircularSlider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA0869B82AC4719B00285838 /* XCRemoteSwiftPackageReference "HGCircularSlider" */;
+			productName = HGCircularSlider;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
