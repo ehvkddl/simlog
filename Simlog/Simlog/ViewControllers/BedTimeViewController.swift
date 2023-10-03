@@ -10,6 +10,20 @@ import HGCircularSlider
 
 class BedTimeViewController: BaseViewController {
 
+    var durationText: String  = "총 수면시간 00:00" {
+        didSet {
+            durationLabel.text = durationText
+            
+            guard let text = durationLabel.text else { return }
+            
+            let attributeString = NSMutableAttributedString(string: text)
+            let font = UIFont.systemFont(ofSize: 14, weight: .regular)
+            
+            attributeString.addAttribute(.font, value: font, range: (text as NSString).range(of: "총 수면시간"))
+            durationLabel.attributedText = attributeString
+        }
+    }
+    
     lazy var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
@@ -45,27 +59,54 @@ class BedTimeViewController: BaseViewController {
     let bedTimeTitleLabel = {
         let lbl = UILabel()
         lbl.text = "취침시간"
+        lbl.textColor = Constants.BaseColor.text
+        lbl.font = UIFont.systemFont(ofSize: 14)
         return lbl
     }()
     
     let bedTimeLabel = {
         let lbl = UILabel()
-        lbl.text = "00:00"
-        lbl.textColor = .black
+        lbl.textColor = Constants.BaseColor.text
+        lbl.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         return lbl
+    }()
+    
+    let bedTimeStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.alignment = .center
+        view.spacing = 3
+        return view
     }()
     
     let wakeupTimeTitleLabel = {
         let lbl = UILabel()
         lbl.text = "기상시간"
+        lbl.textColor = Constants.BaseColor.text
+        lbl.font = UIFont.systemFont(ofSize: 14)
         return lbl
     }()
     
     let wakeupTimeLabel = {
         let lbl = UILabel()
-        lbl.text = "00:00"
-        lbl.textColor = .black
+        lbl.textColor = Constants.BaseColor.text
+        lbl.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         return lbl
+    }()
+    
+    let wakeupTimeStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.alignment = .center
+        view.spacing = 3
+        return view
+    }()
+    
+    let timeStackView = {
+        let view = UIStackView()
+        view.axis = .horizontal
+        view.distribution = .fillEqually
+        return view
     }()
     
     lazy var rangeCircularSlider = {
@@ -97,6 +138,7 @@ class BedTimeViewController: BaseViewController {
     
     let durationLabel = {
         let lbl = UILabel()
+        lbl.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         return lbl
     }()
     
@@ -130,7 +172,11 @@ class BedTimeViewController: BaseViewController {
         rangeCircularSlider.addTarget(self, action: #selector(updateTimeTexts), for: .valueChanged)
         
         [backgroundView, contentsView].forEach { view.addSubview($0) }
-        [closeButton, bedTimeLabel, wakeupTimeLabel, rangeCircularSlider, clockImageView, saveButton].forEach { contentsView.addSubview($0) }
+        [closeButton, timeStackView, rangeCircularSlider, clockImageView, durationLabel, saveButton].forEach { contentsView.addSubview($0) }
+        
+        [bedTimeStackView, wakeupTimeStackView].forEach { timeStackView.addArrangedSubview($0) }
+        [bedTimeTitleLabel, bedTimeLabel].forEach { bedTimeStackView.addArrangedSubview($0) }
+        [wakeupTimeTitleLabel, wakeupTimeLabel].forEach { wakeupTimeStackView.addArrangedSubview($0) }
     }
     
     override func setConstraints() {
@@ -149,12 +195,10 @@ class BedTimeViewController: BaseViewController {
             make.size.equalTo(30)
         }
         
-        bedTimeLabel.snp.makeConstraints { make in
-            make.top.leading.equalTo(contentsView).inset(10)
-        }
-        
-        wakeupTimeLabel.snp.makeConstraints { make in
-            make.top.trailing.equalTo(contentsView).inset(10)
+        timeStackView.snp.makeConstraints { make in
+            make.width.equalTo(contentsView).multipliedBy(0.8)
+            make.centerX.equalTo(contentsView)
+            make.bottom.equalTo(rangeCircularSlider.snp.top).offset(-20)
         }
         
         rangeCircularSlider.snp.makeConstraints { make in
@@ -165,6 +209,11 @@ class BedTimeViewController: BaseViewController {
         clockImageView.snp.makeConstraints { make in
             make.center.equalTo(contentsView)
             make.size.equalTo(contentsView.snp.width).multipliedBy(0.57)
+        }
+        
+        durationLabel.snp.makeConstraints { make in
+            make.top.equalTo(rangeCircularSlider.snp.bottom).offset(16)
+            make.centerX.equalTo(contentsView)
         }
         
         saveButton.snp.makeConstraints { make in
@@ -198,7 +247,7 @@ extension BedTimeViewController {
         let duration = wake - bedtime
         let durationDate = Date(timeIntervalSinceReferenceDate: duration)
         dateFormatter.dateFormat = "HH:mm"
-        durationLabel.text = dateFormatter.string(from: durationDate)
+        durationText = "총 수면시간 \(dateFormatter.string(from: durationDate))"
         dateFormatter.dateFormat = "hh:mm a"
     }
     
