@@ -14,6 +14,7 @@ extension Constants {
         static let background = UIColor(named: "Background")!
         static let grayBackground = UIColor(named: "GrayBackground")!
         static let containerBackground = UIColor(named: "ContainerBackground")!
+        static let ButtonBackground = UIColor(named: "ButtonBackground")!
         static let tick = UIColor(named: "Tick")!
         static let border = UIColor.label.cgColor
         static let text = UIColor.label
