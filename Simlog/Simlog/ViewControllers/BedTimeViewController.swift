@@ -9,6 +9,18 @@ import UIKit
 import HGCircularSlider
 
 class BedTimeViewController: BaseViewController {
+    
+    var sliderSize: CGFloat {
+        screenWidth * 0.8
+    }
+    
+    var sliderLine: CGFloat {
+        screenWidth * 0.1
+    }
+    
+    var clockSize: CGFloat {
+        sliderSize * 0.57
+    }
 
     var durationText: String  = "총 수면시간 00:00" {
         didSet {
@@ -111,11 +123,12 @@ class BedTimeViewController: BaseViewController {
     
     lazy var rangeCircularSlider = {
         let slider = RangeCircularSlider()
+        
         slider.backgroundColor = .clear
         slider.startThumbImage = UIImage(systemName: "moon.zzz.fill")?.withTintColor(Constants.BaseColor.background)
         slider.endThumbImage = UIImage(systemName: "sun.max.fill")?.withTintColor(Constants.BaseColor.background)
-        slider.backtrackLineWidth = 40.0
-        slider.lineWidth = 40.0
+        slider.backtrackLineWidth = sliderLine
+        slider.lineWidth = sliderLine
         slider.trackColor = Constants.BaseColor.grayBackground
         slider.trackFillColor = Constants.BaseColor.accent
         slider.diskColor = .clear
@@ -130,9 +143,9 @@ class BedTimeViewController: BaseViewController {
         return slider
     }()
     
-    let clockImageView = {
+    lazy var clockImageView = {
         let view = UIImageView()
-        view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * 0.48, height: 200)
+        view.frame = CGRect(x: 0, y: 0, width: self.clockSize, height: self.clockSize)
         return view
     }()
     
@@ -203,12 +216,12 @@ class BedTimeViewController: BaseViewController {
         
         rangeCircularSlider.snp.makeConstraints { make in
             make.center.equalTo(contentsView)
-            make.size.equalTo(contentsView.snp.width).multipliedBy(0.95)
+            make.size.equalTo(sliderSize)
         }
         
         clockImageView.snp.makeConstraints { make in
             make.center.equalTo(contentsView)
-            make.size.equalTo(contentsView.snp.width).multipliedBy(0.57)
+            make.size.equalTo(clockSize)
         }
         
         durationLabel.snp.makeConstraints { make in
