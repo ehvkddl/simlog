@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum Constants {
+extension Constants {
     
     enum BaseColor {
         static let accent = UIColor.label

@@ -12,7 +12,7 @@ class AddDiaryCollectionViewCell: BaseCollectionViewCell {
     let containerView = {
         let view = UIView()
         view.backgroundColor = Constants.BaseColor.containerBackground
-        view.layer.cornerRadius = 15
+        view.layer.cornerRadius = Constants.cornerRadius
         return view
     }()
     

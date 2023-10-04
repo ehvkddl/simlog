@@ -55,7 +55,7 @@ class BedTimeViewController: BaseViewController {
     let contentsView = {
         let view = UIView()
         view.backgroundColor = Constants.BaseColor.containerBackground
-        view.layer.cornerRadius = 15
+        view.layer.cornerRadius = Constants.cornerRadius
         return view
     }()
     
@@ -169,7 +169,7 @@ class BedTimeViewController: BaseViewController {
         config.baseBackgroundColor = Constants.BaseColor.accent
         config.titleAlignment = .center
         btn.configuration = config
-        btn.layer.cornerRadius = 15
+        btn.layer.cornerRadius = Constants.cornerRadius
         return btn
     }()
 
