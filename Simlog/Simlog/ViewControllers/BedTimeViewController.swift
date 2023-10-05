@@ -10,6 +10,10 @@ import HGCircularSlider
 
 class BedTimeViewController: BaseViewController {
     
+    let vm = SleepViewModel()
+    
+    var saveButtonClosure: ((CGFloat, CGFloat, CGFloat) -> Void)?
+    
     var sliderSize: CGFloat {
         screenWidth * 0.8
     }
@@ -20,20 +24,6 @@ class BedTimeViewController: BaseViewController {
     
     var clockSize: CGFloat {
         sliderSize * 0.57
-    }
-
-    var durationText: String  = "총 수면시간 00:00" {
-        didSet {
-            durationLabel.text = durationText
-            
-            guard let text = durationLabel.text else { return }
-            
-            let attributeString = NSMutableAttributedString(string: text)
-            let font = UIFont.systemFont(ofSize: 14, weight: .regular)
-            
-            attributeString.addAttribute(.font, value: font, range: (text as NSString).range(of: "총 수면시간"))
-            durationLabel.attributedText = attributeString
-        }
     }
     
     lazy var dateFormatter: DateFormatter = {
@@ -157,6 +147,7 @@ class BedTimeViewController: BaseViewController {
     
     let saveButton = {
         let btn = UIButton()
+        
         var config = UIButton.Configuration.filled() // apple system button
         config.title = "저장하기"
         let transformer = UIConfigurationTextAttributesTransformer { incoming in
@@ -167,22 +158,30 @@ class BedTimeViewController: BaseViewController {
         config.titleTextAttributesTransformer = transformer
         config.baseForegroundColor = Constants.BaseColor.reverseText
         config.baseBackgroundColor = Constants.BaseColor.accent
-        config.titleAlignment = .center
         btn.configuration = config
         btn.layer.cornerRadius = Constants.cornerRadius
+        
         return btn
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateTimeTexts()
         drawTicks(count: 60)
+        setSliderValue()
+        
+        vm.sleep.bind { [self] sleep in
+            guard let sleep else { return }
+            bedTimeLabel.text = vm.getString(value: sleep.bedTime)
+            wakeupTimeLabel.text = vm.getString(value: sleep.wakeupTime)
+            setDurationString(text: vm.getDurationString())
+        }
     }
     
     override func configureView() {
         closeButton.addTarget(self, action: #selector(closeButtonClicked), for: .touchUpInside)
         rangeCircularSlider.addTarget(self, action: #selector(updateTimeTexts), for: .valueChanged)
+        saveButton.addTarget(self, action: #selector(saveButtonClicked), for: .touchUpInside)
         
         [backgroundView, contentsView].forEach { view.addSubview($0) }
         [closeButton, timeStackView, rangeCircularSlider, clockImageView, durationLabel, saveButton].forEach { contentsView.addSubview($0) }
@@ -241,33 +240,53 @@ class BedTimeViewController: BaseViewController {
 
 extension BedTimeViewController {
     
+    func setSliderValue() {
+        guard let sleep = vm.sleep.value else {
+            let start = rangeCircularSlider.startPointValue
+            let end = rangeCircularSlider.endPointValue
+
+            vm.sleep.value = Sleep(bedTime: start, wakeupTime: end)
+            
+            return
+        }
+        
+        rangeCircularSlider.startPointValue = sleep.bedTime
+        rangeCircularSlider.endPointValue = sleep.wakeupTime
+    }
+    
+    func setDurationString(text: String) {
+        durationLabel.text = text
+        
+        let attributeString = NSMutableAttributedString(string: text)
+        let font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        
+        attributeString.addAttribute(.font, value: font, range: (text as NSString).range(of: "총 수면시간"))
+        durationLabel.attributedText = attributeString
+    }
+    
+}
+
+extension BedTimeViewController {
+    
     @objc private func closeButtonClicked() {
         dismiss(animated: true)
     }
     
-    @objc private func updateTimeTexts() {
-        adjustValue(value: &rangeCircularSlider.startPointValue)
-        adjustValue(value: &rangeCircularSlider.endPointValue)
+    @objc private func saveButtonClicked() {
         
-        let bedtime = TimeInterval(rangeCircularSlider.startPointValue)
-        let bedtimeDate = Date(timeIntervalSinceReferenceDate: bedtime)
-        bedTimeLabel.text = dateFormatter.string(from: bedtimeDate)
+        dismiss(animated: true)
         
-        let wake = TimeInterval(rangeCircularSlider.endPointValue)
-        let wakeDate = Date(timeIntervalSinceReferenceDate: wake)
-        wakeupTimeLabel.text = dateFormatter.string(from: wakeDate)
+        guard let sleep = vm.sleep.value else { return }
         
-        let duration = wake - bedtime
-        let durationDate = Date(timeIntervalSinceReferenceDate: duration)
-        dateFormatter.dateFormat = "HH:mm"
-        durationText = "총 수면시간 \(dateFormatter.string(from: durationDate))"
-        dateFormatter.dateFormat = "hh:mm a"
+        self.saveButtonClosure?(sleep.bedTime, sleep.wakeupTime, sleep.sleepTime)
     }
     
-    func adjustValue(value: inout CGFloat) {
-        let minutes = value / 60
-        let adjustedMinutes =  ceil(minutes / 5.0) * 5
-        value = adjustedMinutes * 60
+    @objc private func updateTimeTexts() {
+        vm.adjustValue(value: &rangeCircularSlider.startPointValue)
+        vm.adjustValue(value: &rangeCircularSlider.endPointValue)
+        
+        vm.sleep.value?.bedTime = rangeCircularSlider.startPointValue
+        vm.sleep.value?.wakeupTime = rangeCircularSlider.endPointValue
     }
     
 }

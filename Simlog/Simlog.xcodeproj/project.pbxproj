@@ -30,6 +30,8 @@
 		EA5DC5322ACC9E4900D136F8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5312ACC9E4900D136F8 /* Constants.swift */; };
 		EA5DC5352ACC9FED00D136F8 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5342ACC9FED00D136F8 /* UIViewController+.swift */; };
 		EA5DC5602ACDD67E00D136F8 /* DailyLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC55F2ACDD67E00D136F8 /* DailyLog.swift */; };
+		EA5DC5652ACDE47C00D136F8 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5642ACDE47C00D136F8 /* Observable.swift */; };
+		EA5DC5672ACDE76900D136F8 /* SleepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5662ACDE76900D136F8 /* SleepViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		EA5DC5312ACC9E4900D136F8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EA5DC5342ACC9FED00D136F8 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		EA5DC55F2ACDD67E00D136F8 /* DailyLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLog.swift; sourceTree = "<group>"; };
+		EA5DC5642ACDE47C00D136F8 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		EA5DC5662ACDE76900D136F8 /* SleepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +101,10 @@
 				EA5DC55E2ACDD66400D136F8 /* Model */,
 				EA0869A92AC2290300285838 /* Base */,
 				EA0869982AC209BD00285838 /* ViewControllers */,
+				EA5DC5632ACDE2B000D136F8 /* ViewModels */,
 				EA0869B52AC34FF100285838 /* Cells */,
 				EA0869942AC208D400285838 /* TabBarController.swift */,
+				EA5DC5642ACDE47C00D136F8 /* Observable.swift */,
 				EA0869892AC1675800285838 /* Assets.xcassets */,
 				EA08698B2AC1675800285838 /* LaunchScreen.storyboard */,
 				EA08698E2AC1675800285838 /* Info.plist */,
@@ -158,6 +164,15 @@
 				EA5DC55F2ACDD67E00D136F8 /* DailyLog.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EA5DC5632ACDE2B000D136F8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				EA5DC5612ACDE2A400D136F8 /* DailyLogViewModel.swift */,
+				EA5DC5662ACDE76900D136F8 /* SleepViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA0869852AC1675700285838 /* CalendarViewController.swift in Sources */,
+				EA5DC5672ACDE76900D136F8 /* SleepViewModel.swift in Sources */,
 				EA0869972AC209BA00285838 /* StatisticsViewController.swift in Sources */,
 				EA0869B02AC22C0300285838 /* BaseCollectionViewCell.swift in Sources */,
 				EA0869BF2AC4A2F500285838 /* BedTimeViewController.swift in Sources */,
@@ -256,6 +272,7 @@
 				EA5DC5322ACC9E4900D136F8 /* Constants.swift in Sources */,
 				EA5DC5352ACC9FED00D136F8 /* UIViewController+.swift in Sources */,
 				EA0869832AC1675700285838 /* SceneDelegate.swift in Sources */,
+				EA5DC5652ACDE47C00D136F8 /* Observable.swift in Sources */,
 				EA0869AE2AC229CC00285838 /* Color.swift in Sources */,
 				EA0869AB2AC2293600285838 /* BaseViewController.swift in Sources */,
 				EA0869B42AC321ED00285838 /* AddDiaryViewController.swift in Sources */,

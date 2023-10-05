@@ -19,13 +19,6 @@ class AddDiaryViewController: BaseViewController {
     }()
     var dataSource: UICollectionViewDiffableDataSource<Int, String>!
     
-    let addBedTimeButton = {
-        let btn = UIButton()
-        btn.setTitle("수면 시간 추가하기", for: .normal)
-        btn.backgroundColor = .black
-        return btn
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,18 +29,12 @@ class AddDiaryViewController: BaseViewController {
     override func configureView() {
         view.backgroundColor = Constants.BaseColor.grayBackground
         
-        addBedTimeButton.addTarget(self, action: #selector(addBedTimeButtonClicked), for: .touchUpInside)
-        [collectionView, addBedTimeButton].forEach { view.addSubview($0) }
+        [collectionView].forEach { view.addSubview($0) }
     }
     
     override func setConstraints() {
         collectionView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
-        }
-        
-        addBedTimeButton.snp.makeConstraints { make in
-            make.top.equalTo(collectionView.snp.top)
-            make.centerX.equalTo(view)
         }
     }
     
@@ -65,13 +52,6 @@ extension AddDiaryViewController {
         dismiss(animated: true)
     }
     
-    @objc private func addBedTimeButtonClicked() {
-        let vc = BedTimeViewController()
-        vc.modalPresentationStyle = .overCurrentContext
-        vc.modalTransitionStyle = .crossDissolve
-        present(vc, animated: true)
-    }
-    
 }
 
 extension AddDiaryViewController {
@@ -79,13 +59,23 @@ extension AddDiaryViewController {
     func configureSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Int, String>()
         snapshot.appendSections([0])
-        snapshot.appendItems(titleLabel)
+        snapshot.appendItems(titleLabel, toSection: 0)
         dataSource.apply(snapshot)
     }
     
     func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<AddDiaryCollectionViewCell, String> { cell, indexPath, itemIdentifier in
             cell.titleLabel.text = self.titleLabel[indexPath.item]
+            cell.addButtonClosure = {
+                let vc = BedTimeViewController()
+                vc.vm.sleep.value = Sleep(bedTime: 3600.0, wakeupTime: 28800.0)
+                vc.saveButtonClosure = { bedTime, wakeupTime, sleepTime in
+                    print(bedTime, wakeupTime, sleepTime)
+                }
+                vc.modalPresentationStyle = .overCurrentContext
+                vc.modalTransitionStyle = .crossDissolve
+                self.present(vc, animated: true)
+            }
         }
         dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
             let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
