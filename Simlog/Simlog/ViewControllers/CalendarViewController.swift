@@ -50,7 +50,7 @@ class CalendarViewController: BaseViewController {
 extension CalendarViewController {
     
     @objc private func addButtonClicked() {
-        let vc = UINavigationController(rootViewController: AddDiaryViewController())
+        let vc = UINavigationController(rootViewController: AddDiaryTestViewController())
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: true)
     }

@@ -32,6 +32,9 @@
 		EA5DC5602ACDD67E00D136F8 /* DailyLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC55F2ACDD67E00D136F8 /* DailyLog.swift */; };
 		EA5DC5652ACDE47C00D136F8 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5642ACDE47C00D136F8 /* Observable.swift */; };
 		EA5DC5672ACDE76900D136F8 /* SleepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5662ACDE76900D136F8 /* SleepViewModel.swift */; };
+		EA5DC5782ACF187900D136F8 /* AddDiaryTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5772ACF187900D136F8 /* AddDiaryTestViewController.swift */; };
+		EA5DC57A2ACF18D400D136F8 /* AddDiaryTestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5792ACF18D400D136F8 /* AddDiaryTestTableViewCell.swift */; };
+		EA5DC57C2ACF191100D136F8 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC57B2ACF191100D136F8 /* BaseTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,9 @@
 		EA5DC55F2ACDD67E00D136F8 /* DailyLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLog.swift; sourceTree = "<group>"; };
 		EA5DC5642ACDE47C00D136F8 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		EA5DC5662ACDE76900D136F8 /* SleepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewModel.swift; sourceTree = "<group>"; };
+		EA5DC5772ACF187900D136F8 /* AddDiaryTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiaryTestViewController.swift; sourceTree = "<group>"; };
+		EA5DC5792ACF18D400D136F8 /* AddDiaryTestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiaryTestTableViewCell.swift; sourceTree = "<group>"; };
+		EA5DC57B2ACF191100D136F8 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,7 @@
 			children = (
 				EA0869842AC1675700285838 /* CalendarViewController.swift */,
 				EA0869B32AC321ED00285838 /* AddDiaryViewController.swift */,
+				EA5DC5772ACF187900D136F8 /* AddDiaryTestViewController.swift */,
 				EA0869BE2AC4A2F500285838 /* BedTimeViewController.swift */,
 				EA0869962AC209BA00285838 /* StatisticsViewController.swift */,
 				EA0869992AC209FA00285838 /* SettingViewController.swift */,
@@ -129,6 +136,7 @@
 			children = (
 				EA0869AA2AC2293600285838 /* BaseViewController.swift */,
 				EA0869AF2AC22C0300285838 /* BaseCollectionViewCell.swift */,
+				EA5DC57B2ACF191100D136F8 /* BaseTableViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -146,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				EA0869B62AC3503600285838 /* AddDiaryCollectionViewCell.swift */,
+				EA5DC5792ACF18D400D136F8 /* AddDiaryTestTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -264,12 +273,15 @@
 				EA5DC5672ACDE76900D136F8 /* SleepViewModel.swift in Sources */,
 				EA0869972AC209BA00285838 /* StatisticsViewController.swift in Sources */,
 				EA0869B02AC22C0300285838 /* BaseCollectionViewCell.swift in Sources */,
+				EA5DC57C2ACF191100D136F8 /* BaseTableViewCell.swift in Sources */,
 				EA0869BF2AC4A2F500285838 /* BedTimeViewController.swift in Sources */,
 				EA0869952AC208D400285838 /* TabBarController.swift in Sources */,
 				EA0869812AC1675700285838 /* AppDelegate.swift in Sources */,
 				EA0869B72AC3503600285838 /* AddDiaryCollectionViewCell.swift in Sources */,
 				EA5DC5602ACDD67E00D136F8 /* DailyLog.swift in Sources */,
 				EA5DC5322ACC9E4900D136F8 /* Constants.swift in Sources */,
+				EA5DC57A2ACF18D400D136F8 /* AddDiaryTestTableViewCell.swift in Sources */,
+				EA5DC5782ACF187900D136F8 /* AddDiaryTestViewController.swift in Sources */,
 				EA5DC5352ACC9FED00D136F8 /* UIViewController+.swift in Sources */,
 				EA0869832AC1675700285838 /* SceneDelegate.swift in Sources */,
 				EA5DC5652ACDE47C00D136F8 /* Observable.swift in Sources */,
