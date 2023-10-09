@@ -12,7 +12,6 @@ extension UIView {
     func getGradientBackground() -> CALayer {
         let gradient = CAGradientLayer()
         gradient.frame = bounds
-        print(bounds)
         gradient.startPoint = CGPoint(x:0.0, y:0.5)
         gradient.endPoint = CGPoint(x:1.0, y:0.5)
         gradient.colors = [

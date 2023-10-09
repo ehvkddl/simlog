@@ -7,8 +7,45 @@
 
 import UIKit
 
-class AddDiaryTestViewController: BaseViewController {
+enum CellType {
+    case mood
+    case weather
+    case meal
+    case sleep
+    case todo
+    case photo
+    case diary
+    
+    var title: String {
+        switch self {
+        case .mood: return "기분"
+        case .weather: return "날씨"
+        case .meal: return "식사"
+        case .sleep: return "수면"
+        case .todo: return "할일"
+        case .photo: return "사진"
+        case .diary: return "일기"
+        }
+    }
+    
+    var buttonTitle: String {
+        switch self {
+        case .mood, .weather: return ""
+        case .meal: return "식사 추가하기"
+        case .sleep: return "수면시간 기록하기"
+        case .todo: return "할 일 추가하기"
+        case .photo: return "사진 추가하기"
+        case .diary: return "일기 작성하기"
+        }
+    }
+}
 
+class AddDiaryTestViewController: BaseViewController {
+    
+    let vm = DailyLogViewModel()
+    
+    let editComponent: [CellType] = [.mood, .sleep, .diary]
+    
     lazy var tableView = {
         let view = UITableView()
         
@@ -16,6 +53,7 @@ class AddDiaryTestViewController: BaseViewController {
         view.dataSource = self
         
         view.register(AddDiaryTestTableViewCell.self, forCellReuseIdentifier: "AddDiaryTestTableViewCell")
+        view.register(AddMoodTableViewCell.self, forCellReuseIdentifier: AddMoodTableViewCell.identifier)
         
         view.rowHeight = UITableView.automaticDimension
         
@@ -61,28 +99,91 @@ extension AddDiaryTestViewController {
 extension AddDiaryTestViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return editComponent.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddDiaryTestTableViewCell") as? AddDiaryTestTableViewCell else { return UITableViewCell() }
-        cell.backgroundColor = Constants.BaseColor.grayBackground
-        cell.titleLabel.text = "title"
-        cell.addButtonClosure = {
-            let vc = BedTimeViewController()
-            vc.vm.sleep.value = nil
-            vc.saveButtonClosure = { bedTime, wakeupTime, sleepTime in
-                print(bedTime, wakeupTime, sleepTime)
+        switch editComponent[indexPath.row] {
+        case .mood:
+            guard let cell = makeCell(tableView, type: editComponent[indexPath.row], indexPath: indexPath) as? AddMoodTableViewCell else { return UITableViewCell() }
+            return cell
+            
+        case .weather:
+            return UITableViewCell()
+            
+        case .meal:
+            guard let cell = makeCell(tableView, type: editComponent[indexPath.row], indexPath: indexPath) as? AddDiaryTestTableViewCell else { return UITableViewCell() }
+            cell.setContent(by: editComponent[indexPath.row])
+            return cell
+            
+        case .sleep:
+            guard let cell = makeCell(tableView, type: editComponent[indexPath.row], indexPath: indexPath) as? AddDiaryTestTableViewCell else { return UITableViewCell() }
+            cell.addButtonClosure = {
+                let vc = BedTimeViewController()
+                vc.vm.sleep.value = self.vm.dailylog.value.sleep
+                vc.saveButtonClosure = { bedTime, wakeupTime, text in
+                    cell.addButton.setTitle(text, for: .normal)
+                    self.vm.dailylog.value.sleep = Sleep(bedTime: bedTime, wakeupTime: wakeupTime)
+                }
+                vc.modalPresentationStyle = .overCurrentContext
+                vc.modalTransitionStyle = .crossDissolve
+                self.present(vc, animated: true)
             }
-            vc.modalPresentationStyle = .overCurrentContext
-            vc.modalTransitionStyle = .crossDissolve
-            self.present(vc, animated: true)
+            return cell
+            
+        case .todo:
+            return UITableViewCell()
+            
+        case .photo:
+            return UITableViewCell()
+            
+        case .diary:
+            guard let cell = makeCell(tableView, type: editComponent[indexPath.row], indexPath: indexPath) as? AddDiaryTestTableViewCell else {
+                print("ok?")
+                return UITableViewCell() }
+            cell.addButtonClosure = {
+                let vc = DiaryViewController()
+                vc.textView.text = self.vm.dailylog.value.diary
+                vc.saveButtonClosure = { diary in
+                    tableView.beginUpdates()
+                    cell.addButton.setTitle(diary.isEmpty ? self.editComponent[indexPath.row].buttonTitle : diary, for: .normal)
+                    self.vm.dailylog.value.diary = diary
+                    tableView.endUpdates()
+                }
+                vc.modalPresentationStyle = .overCurrentContext
+                vc.modalTransitionStyle = .crossDissolve
+                self.present(vc, animated: true)
+            }
+            return cell
         }
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.reloadRows(at: [indexPath], with: .none)
+    }
+    
+}
+
+extension AddDiaryTestViewController {
+    
+    func makeCell(_ tableView: UITableView, type: CellType, indexPath: IndexPath) -> UITableViewCell {
+        switch type {
+        case .mood:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AddMoodTableViewCell.identifier) as? AddMoodTableViewCell else { return UITableViewCell() }
+            cell.backgroundColor = Constants.BaseColor.grayBackground
+            cell.cellType = editComponent[indexPath.row]
+            cell.titleLabel.text = editComponent[indexPath.row].title
+            return cell
+        case .weather:
+            return UITableViewCell()
+        case .meal, .sleep, .todo, .photo, .diary:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddDiaryTestTableViewCell") as? AddDiaryTestTableViewCell else { return UITableViewCell() }
+            cell.backgroundColor = Constants.BaseColor.grayBackground
+            cell.cellType = type
+            cell.titleLabel.text = editComponent[indexPath.row].title
+            cell.addButton.setTitle(editComponent[indexPath.row].buttonTitle, for: .normal)
+            return cell
+        }
     }
     
 }

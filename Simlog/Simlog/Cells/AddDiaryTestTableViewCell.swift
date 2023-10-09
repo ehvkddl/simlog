@@ -9,6 +9,8 @@ import UIKit
 
 class AddDiaryTestTableViewCell: BaseTableViewCell {
     
+    var cellType: CellType?
+    
     var addButtonClosure: (() -> Void)?
 
     let containerView = {
@@ -24,14 +26,20 @@ class AddDiaryTestTableViewCell: BaseTableViewCell {
         return lbl
     }()
     
-    let addButton = {
+    let contentsView = {
+        let view = UIView()
+        view.backgroundColor = .yellow
+        return view
+    }()
+    
+    lazy var addButton = {
         let btn = UIButton()
         
         var config = UIButton.Configuration.filled()
-        config.title = "수면시간 기록하기"
         
         config.baseForegroundColor = Constants.BaseColor.text
         config.baseBackgroundColor = Constants.BaseColor.ButtonBackground
+        config.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
         
         btn.configuration = config
         btn.layer.cornerRadius = Constants.cornerRadius
@@ -42,7 +50,7 @@ class AddDiaryTestTableViewCell: BaseTableViewCell {
         addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
         
         [containerView].forEach { contentView.addSubview($0) }
-        [titleLabel, addButton].forEach { containerView.addSubview($0) }
+        [titleLabel, contentsView, addButton].forEach { containerView.addSubview($0) }
     }
     
     override func setConstraints() {
@@ -52,13 +60,42 @@ class AddDiaryTestTableViewCell: BaseTableViewCell {
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.top.leading.equalTo(containerView).inset(15)
+            make.top.equalTo(containerView).inset(15)
+            make.horizontalEdges.equalTo(containerView).inset(15)
+        }
+        
+        contentsView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(8)
+            make.horizontalEdges.equalTo(containerView).inset(20)
         }
         
         addButton.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(16)
+            make.top.equalTo(contentsView.snp.bottom).offset(8)
             make.horizontalEdges.equalTo(containerView).inset(20)
             make.bottom.equalTo(containerView.snp.bottom).inset(15)
+        }
+    }
+    
+}
+
+extension AddDiaryTestTableViewCell {
+    
+    func setContent(by type: CellType) {
+        switch type {
+        case .mood:
+            break
+        case .weather:
+            break
+        case .meal:
+            break
+        case .sleep:
+            break
+        case .todo:
+            break
+        case .photo:
+            break
+        case .diary:
+            break
         }
     }
     
