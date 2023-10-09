@@ -37,6 +37,7 @@
 		EA5DC57C2ACF191100D136F8 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC57B2ACF191100D136F8 /* BaseTableViewCell.swift */; };
 		EA5DC5D82AD3229800D136F8 /* UISlider+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5D72AD3229800D136F8 /* UISlider+.swift */; };
 		EA5DC5DC2AD32B8E00D136F8 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5DB2AD32B8E00D136F8 /* UIColor+.swift */; };
+		EA5DC5E02AD32CE800D136F8 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5DF2AD32CE800D136F8 /* UIView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		EA5DC57B2ACF191100D136F8 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		EA5DC5D72AD3229800D136F8 /* UISlider+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISlider+.swift"; sourceTree = "<group>"; };
 		EA5DC5DB2AD32B8E00D136F8 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		EA5DC5DF2AD32CE800D136F8 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 				EA5DC5342ACC9FED00D136F8 /* UIViewController+.swift */,
 				EA5DC5D72AD3229800D136F8 /* UISlider+.swift */,
 				EA5DC5DB2AD32B8E00D136F8 /* UIColor+.swift */,
+				EA5DC5DF2AD32CE800D136F8 /* UIView+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				EA0869AE2AC229CC00285838 /* Color.swift in Sources */,
 				EA0869AB2AC2293600285838 /* BaseViewController.swift in Sources */,
 				EA0869B42AC321ED00285838 /* AddDiaryViewController.swift in Sources */,
+				EA5DC5E02AD32CE800D136F8 /* UIView+.swift in Sources */,
 				EA08699A2AC209FA00285838 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
