@@ -36,6 +36,7 @@
 		EA5DC5782ACF187900D136F8 /* AddDiaryTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5772ACF187900D136F8 /* AddDiaryTestViewController.swift */; };
 		EA5DC57A2ACF18D400D136F8 /* AddDiaryTestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5792ACF18D400D136F8 /* AddDiaryTestTableViewCell.swift */; };
 		EA5DC57C2ACF191100D136F8 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC57B2ACF191100D136F8 /* BaseTableViewCell.swift */; };
+		EA5DC5842ACF5B8900D136F8 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5832ACF5B8800D136F8 /* DiaryViewController.swift */; };
 		EA5DC5D82AD3229800D136F8 /* UISlider+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5D72AD3229800D136F8 /* UISlider+.swift */; };
 		EA5DC5DC2AD32B8E00D136F8 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5DB2AD32B8E00D136F8 /* UIColor+.swift */; };
 		EA5DC5E02AD32CE800D136F8 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5DF2AD32CE800D136F8 /* UIView+.swift */; };
@@ -67,6 +68,7 @@
 		EA5DC5772ACF187900D136F8 /* AddDiaryTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiaryTestViewController.swift; sourceTree = "<group>"; };
 		EA5DC5792ACF18D400D136F8 /* AddDiaryTestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiaryTestTableViewCell.swift; sourceTree = "<group>"; };
 		EA5DC57B2ACF191100D136F8 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		EA5DC5832ACF5B8800D136F8 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		EA5DC5D72AD3229800D136F8 /* UISlider+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISlider+.swift"; sourceTree = "<group>"; };
 		EA5DC5DB2AD32B8E00D136F8 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		EA5DC5DF2AD32CE800D136F8 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				EA0869B32AC321ED00285838 /* AddDiaryViewController.swift */,
 				EA5DC5772ACF187900D136F8 /* AddDiaryTestViewController.swift */,
 				EA0869BE2AC4A2F500285838 /* BedTimeViewController.swift */,
+				EA5DC5832ACF5B8800D136F8 /* DiaryViewController.swift */,
 				EA0869962AC209BA00285838 /* StatisticsViewController.swift */,
 				EA0869992AC209FA00285838 /* SettingViewController.swift */,
 			);
@@ -282,6 +285,7 @@
 			files = (
 				EA0869852AC1675700285838 /* CalendarViewController.swift in Sources */,
 				EA5DC5672ACDE76900D136F8 /* SleepViewModel.swift in Sources */,
+				EA5DC5842ACF5B8900D136F8 /* DiaryViewController.swift in Sources */,
 				EA0869972AC209BA00285838 /* StatisticsViewController.swift in Sources */,
 				EA0869B02AC22C0300285838 /* BaseCollectionViewCell.swift in Sources */,
 				EA5DC57C2ACF191100D136F8 /* BaseTableViewCell.swift in Sources */,

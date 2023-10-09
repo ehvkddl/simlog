@@ -9,7 +9,7 @@ import UIKit
 
 class DiaryViewController: BaseViewController {
     
-    var saveButtonClosure: (() -> Void)?
+    var saveButtonClosure: ((String) -> Void)?
 
     lazy var backgroundView = {
         let view = UIImageView()
@@ -36,10 +36,10 @@ class DiaryViewController: BaseViewController {
         return btn
     }()
     
-    let textView = {
+    lazy var textView = {
         let view = UITextView()
-        view.text = "일기 작성"
-        view.backgroundColor = .lightGray
+        view.font = UIFont.systemFont(ofSize: 14)
+        view.backgroundColor = Constants.BaseColor.grayBackground
         view.layer.cornerRadius = Constants.cornerRadius
         return view
     }()
@@ -49,7 +49,7 @@ class DiaryViewController: BaseViewController {
     let saveButton = {
         let btn = UIButton()
         
-        var config = UIButton.Configuration.filled() // apple system button
+        var config = UIButton.Configuration.filled()
         config.title = "저장하기"
         let transformer = UIConfigurationTextAttributesTransformer { incoming in
             var outgoing = incoming
@@ -124,6 +124,8 @@ extension DiaryViewController {
     
     @objc private func saveButtonClicked() {
         dismiss(animated: true)
+        
+        saveButtonClosure?(textView.text)
     }
     
     @objc func didTapView(_ sender: UITapGestureRecognizer) {
@@ -140,7 +142,7 @@ extension DiaryViewController {
         
         UIView.animate(withDuration: 1.0, delay: 0, options: .curveEaseInOut) {
             self.contentsView.snp.remakeConstraints { make in
-                make.center.equalToSuperview()
+                make.centerX.equalToSuperview()
                 make.width.equalToSuperview().multipliedBy(0.85)
                 make.top.equalTo(self.view.safeAreaLayoutGuide).inset(10)
                 make.bottom.equalTo(self.view).inset(keyboardHeight + 10)
