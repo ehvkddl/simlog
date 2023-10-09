@@ -12,7 +12,7 @@ class BedTimeViewController: BaseViewController {
     
     let vm = SleepViewModel()
     
-    var saveButtonClosure: ((CGFloat, CGFloat, CGFloat) -> Void)?
+    var saveButtonClosure: ((CGFloat, CGFloat, String) -> Void)?
     
     var sliderSize: CGFloat {
         screenWidth * 0.8
@@ -277,8 +277,8 @@ extension BedTimeViewController {
         dismiss(animated: true)
         
         guard let sleep = vm.sleep.value else { return }
-        
-        self.saveButtonClosure?(sleep.bedTime, sleep.wakeupTime, sleep.sleepTime)
+        let sleepTimeText = "\(vm.getString(value: sleep.bedTime)) ~ \(vm.getString(value: sleep.wakeupTime))"
+        self.saveButtonClosure?(sleep.bedTime, sleep.wakeupTime, sleepTimeText)
     }
     
     @objc private func updateTimeTexts() {
