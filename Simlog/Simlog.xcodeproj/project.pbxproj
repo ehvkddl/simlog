@@ -35,6 +35,7 @@
 		EA5DC5782ACF187900D136F8 /* AddDiaryTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5772ACF187900D136F8 /* AddDiaryTestViewController.swift */; };
 		EA5DC57A2ACF18D400D136F8 /* AddDiaryTestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5792ACF18D400D136F8 /* AddDiaryTestTableViewCell.swift */; };
 		EA5DC57C2ACF191100D136F8 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC57B2ACF191100D136F8 /* BaseTableViewCell.swift */; };
+		EA5DC5D82AD3229800D136F8 /* UISlider+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5D72AD3229800D136F8 /* UISlider+.swift */; };
 		EA5DC5DC2AD32B8E00D136F8 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5DB2AD32B8E00D136F8 /* UIColor+.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		EA5DC5772ACF187900D136F8 /* AddDiaryTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiaryTestViewController.swift; sourceTree = "<group>"; };
 		EA5DC5792ACF18D400D136F8 /* AddDiaryTestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiaryTestTableViewCell.swift; sourceTree = "<group>"; };
 		EA5DC57B2ACF191100D136F8 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		EA5DC5D72AD3229800D136F8 /* UISlider+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISlider+.swift"; sourceTree = "<group>"; };
 		EA5DC5DB2AD32B8E00D136F8 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				EA5DC5342ACC9FED00D136F8 /* UIViewController+.swift */,
+				EA5DC5D72AD3229800D136F8 /* UISlider+.swift */,
 				EA5DC5DB2AD32B8E00D136F8 /* UIColor+.swift */,
 			);
 			path = Extensions;
@@ -281,6 +284,7 @@
 				EA0869952AC208D400285838 /* TabBarController.swift in Sources */,
 				EA0869812AC1675700285838 /* AppDelegate.swift in Sources */,
 				EA0869B72AC3503600285838 /* AddDiaryCollectionViewCell.swift in Sources */,
+				EA5DC5D82AD3229800D136F8 /* UISlider+.swift in Sources */,
 				EA5DC5602ACDD67E00D136F8 /* DailyLog.swift in Sources */,
 				EA5DC5DC2AD32B8E00D136F8 /* UIColor+.swift in Sources */,
 				EA5DC5322ACC9E4900D136F8 /* Constants.swift in Sources */,
