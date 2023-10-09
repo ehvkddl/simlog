@@ -9,15 +9,14 @@ import Foundation
 
 struct DailyLog: Hashable {
     let id = UUID().uuidString
-    var date: Date
-    var mood: Int
-    var weather: [WeatherType]
+    var date: Date?
+    var mood: Int?
+    var weather: [WeatherType]?
     var meal: [Meal]?
     var sleep: Sleep?
     var todo: [Todo]?
     var photo: [Photo]?
-    var oneLineDiary: String
-    var longDiary: String?
+    var diary: String?
 }
 
 enum WeatherType: Int {
