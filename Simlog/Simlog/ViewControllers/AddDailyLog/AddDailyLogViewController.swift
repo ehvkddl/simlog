@@ -40,7 +40,7 @@ enum CellType {
     }
 }
 
-class AddDiaryTestViewController: BaseViewController {
+class AddDailyLogViewController: BaseViewController {
     
     let vm = DailyLogViewModel()
     
@@ -52,7 +52,7 @@ class AddDiaryTestViewController: BaseViewController {
         view.delegate = self
         view.dataSource = self
         
-        view.register(AddDiaryTestTableViewCell.self, forCellReuseIdentifier: "AddDiaryTestTableViewCell")
+        view.register(AddDailyLogTableViewCell.self, forCellReuseIdentifier: "AddDiaryTestTableViewCell")
         view.register(AddMoodTableViewCell.self, forCellReuseIdentifier: AddMoodTableViewCell.identifier)
         
         view.rowHeight = UITableView.automaticDimension
@@ -88,7 +88,7 @@ class AddDiaryTestViewController: BaseViewController {
 
 }
 
-extension AddDiaryTestViewController {
+extension AddDailyLogViewController {
     
     @objc private func closeButtonClicked() {
         dismiss(animated: true)
@@ -96,7 +96,7 @@ extension AddDiaryTestViewController {
     
 }
 
-extension AddDiaryTestViewController: UITableViewDelegate, UITableViewDataSource {
+extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return editComponent.count
@@ -112,12 +112,12 @@ extension AddDiaryTestViewController: UITableViewDelegate, UITableViewDataSource
             return UITableViewCell()
             
         case .meal:
-            guard let cell = makeCell(tableView, type: editComponent[indexPath.row], indexPath: indexPath) as? AddDiaryTestTableViewCell else { return UITableViewCell() }
+            guard let cell = makeCell(tableView, type: editComponent[indexPath.row], indexPath: indexPath) as? AddDailyLogTableViewCell else { return UITableViewCell() }
             cell.setContent(by: editComponent[indexPath.row])
             return cell
             
         case .sleep:
-            guard let cell = makeCell(tableView, type: editComponent[indexPath.row], indexPath: indexPath) as? AddDiaryTestTableViewCell else { return UITableViewCell() }
+            guard let cell = makeCell(tableView, type: editComponent[indexPath.row], indexPath: indexPath) as? AddDailyLogTableViewCell else { return UITableViewCell() }
             cell.addButtonClosure = {
                 let vc = BedTimeViewController()
                 vc.vm.sleep.value = self.vm.dailylog.value.sleep
@@ -138,7 +138,7 @@ extension AddDiaryTestViewController: UITableViewDelegate, UITableViewDataSource
             return UITableViewCell()
             
         case .diary:
-            guard let cell = makeCell(tableView, type: editComponent[indexPath.row], indexPath: indexPath) as? AddDiaryTestTableViewCell else {
+            guard let cell = makeCell(tableView, type: editComponent[indexPath.row], indexPath: indexPath) as? AddDailyLogTableViewCell else {
                 print("ok?")
                 return UITableViewCell() }
             cell.addButtonClosure = {
@@ -164,7 +164,7 @@ extension AddDiaryTestViewController: UITableViewDelegate, UITableViewDataSource
     
 }
 
-extension AddDiaryTestViewController {
+extension AddDailyLogViewController {
     
     func makeCell(_ tableView: UITableView, type: CellType, indexPath: IndexPath) -> UITableViewCell {
         switch type {
@@ -177,7 +177,7 @@ extension AddDiaryTestViewController {
         case .weather:
             return UITableViewCell()
         case .meal, .sleep, .todo, .photo, .diary:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddDiaryTestTableViewCell") as? AddDiaryTestTableViewCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddDiaryTestTableViewCell") as? AddDailyLogTableViewCell else { return UITableViewCell() }
             cell.backgroundColor = Constants.BaseColor.grayBackground
             cell.cellType = type
             cell.titleLabel.text = editComponent[indexPath.row].title

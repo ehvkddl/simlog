@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddDiaryTestTableViewCell: BaseTableViewCell {
+class AddDailyLogTableViewCell: BaseTableViewCell {
     
     var cellType: CellType?
     
@@ -78,7 +78,7 @@ class AddDiaryTestTableViewCell: BaseTableViewCell {
     
 }
 
-extension AddDiaryTestTableViewCell {
+extension AddDailyLogTableViewCell {
     
     func setContent(by type: CellType) {
         switch type {
@@ -101,7 +101,7 @@ extension AddDiaryTestTableViewCell {
     
 }
 
-extension AddDiaryTestTableViewCell {
+extension AddDailyLogTableViewCell {
     
     @objc func addButtonClicked() {
         self.addButtonClosure?()
