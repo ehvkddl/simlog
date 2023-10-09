@@ -39,6 +39,7 @@
 		EA5DC5D82AD3229800D136F8 /* UISlider+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5D72AD3229800D136F8 /* UISlider+.swift */; };
 		EA5DC5DC2AD32B8E00D136F8 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5DB2AD32B8E00D136F8 /* UIColor+.swift */; };
 		EA5DC5E02AD32CE800D136F8 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5DF2AD32CE800D136F8 /* UIView+.swift */; };
+		EA5DC5E62AD446CF00D136F8 /* AddDailyLogBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5E52AD446CF00D136F8 /* AddDailyLogBaseTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		EA5DC5D72AD3229800D136F8 /* UISlider+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISlider+.swift"; sourceTree = "<group>"; };
 		EA5DC5DB2AD32B8E00D136F8 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		EA5DC5DF2AD32CE800D136F8 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		EA5DC5E52AD446CF00D136F8 /* AddDailyLogBaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDailyLogBaseTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 		EA0869B52AC34FF100285838 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				EA5DC5E52AD446CF00D136F8 /* AddDailyLogBaseTableViewCell.swift */,
 				EA5DC5792ACF18D400D136F8 /* AddDailyLogTableViewCell.swift */,
 				EA5DC57D2ACF4C9900D136F8 /* AddMoodTableViewCell.swift */,
 			);
@@ -326,6 +329,7 @@
 				EA0869AE2AC229CC00285838 /* Color.swift in Sources */,
 				EA0869AB2AC2293600285838 /* BaseViewController.swift in Sources */,
 				EA5DC5E02AD32CE800D136F8 /* UIView+.swift in Sources */,
+				EA5DC5E62AD446CF00D136F8 /* AddDailyLogBaseTableViewCell.swift in Sources */,
 				EA5DC57E2ACF4C9900D136F8 /* AddMoodTableViewCell.swift in Sources */,
 				EA08699A2AC209FA00285838 /* SettingViewController.swift in Sources */,
 			);

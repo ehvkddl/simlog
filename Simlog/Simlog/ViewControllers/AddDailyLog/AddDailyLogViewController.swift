@@ -52,7 +52,7 @@ class AddDailyLogViewController: BaseViewController {
         view.delegate = self
         view.dataSource = self
         
-        view.register(AddDailyLogTableViewCell.self, forCellReuseIdentifier: "AddDiaryTestTableViewCell")
+        view.register(AddDailyLogTableViewCell.self, forCellReuseIdentifier: "AddDailyLogTableViewCell")
         view.register(AddMoodTableViewCell.self, forCellReuseIdentifier: AddMoodTableViewCell.identifier)
         
         view.rowHeight = UITableView.automaticDimension
@@ -118,6 +118,7 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
             
         case .sleep:
             guard let cell = makeCell(tableView, type: editComponent[indexPath.row], indexPath: indexPath) as? AddDailyLogTableViewCell else { return UITableViewCell() }
+            cell.setContent(by: editComponent[indexPath.row])
             cell.addButtonClosure = {
                 let vc = BedTimeViewController()
                 vc.vm.sleep.value = self.vm.dailylog.value.sleep
@@ -138,9 +139,8 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
             return UITableViewCell()
             
         case .diary:
-            guard let cell = makeCell(tableView, type: editComponent[indexPath.row], indexPath: indexPath) as? AddDailyLogTableViewCell else {
-                print("ok?")
-                return UITableViewCell() }
+            guard let cell = makeCell(tableView, type: editComponent[indexPath.row], indexPath: indexPath) as? AddDailyLogTableViewCell else { return UITableViewCell() }
+            cell.setContent(by: editComponent[indexPath.row])
             cell.addButtonClosure = {
                 let vc = DiaryViewController()
                 vc.textView.text = self.vm.dailylog.value.diary
@@ -177,7 +177,7 @@ extension AddDailyLogViewController {
         case .weather:
             return UITableViewCell()
         case .meal, .sleep, .todo, .photo, .diary:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddDiaryTestTableViewCell") as? AddDailyLogTableViewCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddDailyLogTableViewCell") as? AddDailyLogTableViewCell else { return UITableViewCell() }
             cell.backgroundColor = Constants.BaseColor.grayBackground
             cell.cellType = type
             cell.titleLabel.text = editComponent[indexPath.row].title

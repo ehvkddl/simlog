@@ -7,22 +7,7 @@
 
 import UIKit
 
-class AddMoodTableViewCell: BaseTableViewCell {
-    
-    var cellType: CellType?
-    
-    let containerView = {
-        let view = UIView()
-        view.backgroundColor = Constants.BaseColor.containerBackground
-        view.layer.cornerRadius = Constants.cornerRadius
-        return view
-    }()
-    
-    let titleLabel = {
-        let lbl = UILabel()
-        lbl.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        return lbl
-    }()
+class AddMoodTableViewCell: AddDailyLogBaseTableViewCell {
     
     let slider = {
         let slider = UISlider()
@@ -49,23 +34,16 @@ class AddMoodTableViewCell: BaseTableViewCell {
     }()
 
     override func configureCell() {
+        super.configureCell()
+        
         slider.addTarget(self, action: #selector(sliderValueChanged),for: .valueChanged)
         
-        [containerView].forEach { contentView.addSubview($0) }
-        [titleLabel, sliderBackgroundView, slider].forEach { containerView.addSubview($0) }
+        [sliderBackgroundView, slider].forEach { containerView.addSubview($0) }
         slider.addSubview(thumbLabel)
     }
     
     override func setConstraints() {
-        containerView.snp.makeConstraints { make in
-            make.horizontalEdges.equalTo(contentView).inset(16)
-            make.verticalEdges.equalTo(contentView).inset(8)
-        }
-        
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(containerView).inset(15)
-            make.horizontalEdges.equalTo(containerView).inset(15)
-        }
+        super.setConstraints()
         
         slider.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(8)

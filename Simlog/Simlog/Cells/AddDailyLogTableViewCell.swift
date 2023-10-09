@@ -7,32 +7,17 @@
 
 import UIKit
 
-class AddDailyLogTableViewCell: BaseTableViewCell {
-    
-    var cellType: CellType?
+class AddDailyLogTableViewCell: AddDailyLogBaseTableViewCell {
     
     var addButtonClosure: (() -> Void)?
-
-    let containerView = {
-        let view = UIView()
-        view.backgroundColor = Constants.BaseColor.containerBackground
-        view.layer.cornerRadius = Constants.cornerRadius
-        return view
-    }()
     
-    let titleLabel = {
-        let lbl = UILabel()
-        lbl.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        return lbl
-    }()
-    
-    let contentsView = {
+    lazy var contentsView = {
         let view = UIView()
         view.backgroundColor = .yellow
         return view
     }()
     
-    lazy var addButton = {
+    let addButton = {
         let btn = UIButton()
         
         var config = UIButton.Configuration.filled()
@@ -46,56 +31,29 @@ class AddDailyLogTableViewCell: BaseTableViewCell {
         return btn
     }()
     
-    override func configureCell() {
-        addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
-        
-        [containerView].forEach { contentView.addSubview($0) }
-        [titleLabel, contentsView, addButton].forEach { containerView.addSubview($0) }
-    }
-    
-    override func setConstraints() {
-        containerView.snp.makeConstraints { make in
-            make.horizontalEdges.equalTo(contentView).inset(16)
-            make.verticalEdges.equalTo(contentView).inset(8)
-        }
-        
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(containerView).inset(15)
-            make.horizontalEdges.equalTo(containerView).inset(15)
-        }
-        
-        contentsView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(8)
-            make.horizontalEdges.equalTo(containerView).inset(20)
-        }
-        
-        addButton.snp.makeConstraints { make in
-            make.top.equalTo(contentsView.snp.bottom).offset(8)
-            make.horizontalEdges.equalTo(containerView).inset(20)
-            make.bottom.equalTo(containerView.snp.bottom).inset(15)
-        }
-    }
-    
 }
 
 extension AddDailyLogTableViewCell {
     
     func setContent(by type: CellType) {
         switch type {
-        case .mood:
-            break
-        case .weather:
-            break
         case .meal:
             break
-        case .sleep:
-            break
+        case .sleep, .diary:
+            addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
+            
+            [addButton].forEach { containerView.addSubview($0) }
+            
+            addButton.snp.makeConstraints { make in
+                make.top.equalTo(titleLabel.snp.bottom).offset(8)
+                make.horizontalEdges.equalTo(containerView).inset(20)
+                make.bottom.equalTo(containerView.snp.bottom).inset(15)
+            }
         case .todo:
             break
         case .photo:
             break
-        case .diary:
-            break
+        default: break
         }
     }
     
