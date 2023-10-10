@@ -22,9 +22,10 @@ struct DailyLog: Hashable {
 enum WeatherType: Int {
     case clear
     case cloud
-    case wind
     case rain
     case snow
+    case thunder
+    case wind
 }
 
 struct Meal: Hashable {
