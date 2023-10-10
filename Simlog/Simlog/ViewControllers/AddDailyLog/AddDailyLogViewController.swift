@@ -142,6 +142,9 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
             
         case .weather:
             guard let cell = makeCell(tableView, type: editComponent[indexPath.row], indexPath: indexPath) as? AddWeatherTableViewCell else { return UITableViewCell() }
+            cell.cellButtonClickedClosure = { selectButtons in
+                self.vm.dailylog.value.weather = selectButtons
+            }
             return cell
             
         case .meal:

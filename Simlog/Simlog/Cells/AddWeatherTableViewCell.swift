@@ -9,7 +9,9 @@ import UIKit
 
 class AddWeatherTableViewCell: AddDailyLogBaseTableViewCell {
 
-    var cellButtonClickedClosure: (() -> Void)?
+    let vm = WeatherViewModel()
+    
+    var cellButtonClickedClosure: (([WeatherType]) -> Void)?
     
     var buttons = [
         ButtonItem(type: .clear, imageName: "sun", label: "맑음", isSelect: false),
@@ -64,6 +66,12 @@ extension AddWeatherTableViewCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         buttons[indexPath.item].isSelect.toggle()
+        
+        let button = buttons[indexPath.item]
+        vm.buttonClicked(type: button.type, isSelect: button.isSelect)
+        
+        cellButtonClickedClosure?(Array(vm.weather.value))
+        
         updateSnapshot()
     }
     

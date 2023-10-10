@@ -43,6 +43,7 @@
 		EA5DC5E62AD446CF00D136F8 /* AddDailyLogBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5E52AD446CF00D136F8 /* AddDailyLogBaseTableViewCell.swift */; };
 		EA5DC5E82AD4711000D136F8 /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5E72AD4711000D136F8 /* ButtonCollectionViewCell.swift */; };
 		EA5DC5EA2AD5A3F000D136F8 /* ButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5E92AD5A3F000D136F8 /* ButtonItem.swift */; };
+		EA5DC5EC2AD5AD8200D136F8 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5EB2AD5AD8200D136F8 /* WeatherViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		EA5DC5E52AD446CF00D136F8 /* AddDailyLogBaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDailyLogBaseTableViewCell.swift; sourceTree = "<group>"; };
 		EA5DC5E72AD4711000D136F8 /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA5DC5E92AD5A3F000D136F8 /* ButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonItem.swift; sourceTree = "<group>"; };
+		EA5DC5EB2AD5AD8200D136F8 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 			children = (
 				EA5DC5612ACDE2A400D136F8 /* DailyLogViewModel.swift */,
 				EA5DC5662ACDE76900D136F8 /* SleepViewModel.swift */,
+				EA5DC5EB2AD5AD8200D136F8 /* WeatherViewModel.swift */,
 			);
 			path = AddDailyLog;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				EA0869B02AC22C0300285838 /* BaseCollectionViewCell.swift in Sources */,
 				EA5DC57C2ACF191100D136F8 /* BaseTableViewCell.swift in Sources */,
 				EA5DC5622ACDE2A400D136F8 /* DailyLogViewModel.swift in Sources */,
+				EA5DC5EC2AD5AD8200D136F8 /* WeatherViewModel.swift in Sources */,
 				EA0869BF2AC4A2F500285838 /* BedTimeViewController.swift in Sources */,
 				EA0869952AC208D400285838 /* TabBarController.swift in Sources */,
 				EA0869812AC1675700285838 /* AppDelegate.swift in Sources */,
