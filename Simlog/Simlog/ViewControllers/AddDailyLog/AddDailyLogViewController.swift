@@ -65,6 +65,25 @@ class AddDailyLogViewController: BaseViewController {
         return view
     }()
     
+    let saveButton = {
+        let btn = UIButton()
+        
+        var config = UIButton.Configuration.filled()
+        config.title = "저장하기"
+        let transformer = UIConfigurationTextAttributesTransformer { incoming in
+            var outgoing = incoming
+            outgoing.font = UIFont.boldSystemFont(ofSize: 20)
+            return outgoing
+        }
+        config.titleTextAttributesTransformer = transformer
+        config.baseForegroundColor = Constants.BaseColor.reverseText
+        config.baseBackgroundColor = Constants.BaseColor.accent
+        btn.configuration = config
+        btn.layer.cornerRadius = Constants.cornerRadius
+        
+        return btn
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -72,12 +91,20 @@ class AddDailyLogViewController: BaseViewController {
     override func configureView() {
         view.backgroundColor = Constants.BaseColor.grayBackground
         
-        [tableView].forEach { view.addSubview($0) }
+        [tableView, saveButton].forEach { view.addSubview($0) }
     }
     
     override func setConstraints() {
         tableView.snp.makeConstraints { make in
-            make.edges.equalTo(view.safeAreaLayoutGuide)
+            make.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalTo(saveButton.snp.top).offset(-8)
+        }
+        
+        saveButton.snp.makeConstraints { make in
+            make.horizontalEdges.equalTo(view).inset(16)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(16)
+            make.height.equalTo(50)
+            make.centerX.equalTo(view)
         }
     }
     
