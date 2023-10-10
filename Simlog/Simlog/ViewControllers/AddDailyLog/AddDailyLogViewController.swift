@@ -44,7 +44,7 @@ class AddDailyLogViewController: BaseViewController {
     
     let vm = DailyLogViewModel()
     
-    let editComponent: [CellType] = [.mood, .sleep, .diary]
+    let editComponent: [CellType] = [.mood, .weather, .sleep, .diary]
     
     lazy var tableView = {
         let view = UITableView()
@@ -137,10 +137,12 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
         switch editComponent[indexPath.row] {
         case .mood:
             guard let cell = makeCell(tableView, type: editComponent[indexPath.row], indexPath: indexPath) as? AddMoodTableViewCell else { return UITableViewCell() }
+            cell.thumbLabel.text = "\(vm.dailylog.value.mood ?? 50)"
             return cell
             
         case .weather:
-            return UITableViewCell()
+            guard let cell = makeCell(tableView, type: editComponent[indexPath.row], indexPath: indexPath) as? AddWeatherTableViewCell else { return UITableViewCell() }
+            return cell
             
         case .meal:
             guard let cell = makeCell(tableView, type: editComponent[indexPath.row], indexPath: indexPath) as? AddDailyLogTableViewCell else { return UITableViewCell() }
@@ -205,8 +207,14 @@ extension AddDailyLogViewController {
             cell.cellType = editComponent[indexPath.row]
             cell.titleLabel.text = editComponent[indexPath.row].title
             return cell
+            
         case .weather:
-            return UITableViewCell()
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AddWeatherTableViewCell.description()) as? AddWeatherTableViewCell else { return UITableViewCell() }
+            cell.backgroundColor = Constants.BaseColor.grayBackground
+            cell.cellType = editComponent[indexPath.row]
+            cell.titleLabel.text = editComponent[indexPath.row].title
+            return cell
+        
         case .meal, .sleep, .todo, .photo, .diary:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AddDailyLogTableViewCell.description()) as? AddDailyLogTableViewCell else { return UITableViewCell() }
             cell.backgroundColor = Constants.BaseColor.grayBackground

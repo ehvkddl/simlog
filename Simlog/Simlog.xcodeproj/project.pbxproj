@@ -39,7 +39,10 @@
 		EA5DC5D82AD3229800D136F8 /* UISlider+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5D72AD3229800D136F8 /* UISlider+.swift */; };
 		EA5DC5DC2AD32B8E00D136F8 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5DB2AD32B8E00D136F8 /* UIColor+.swift */; };
 		EA5DC5E02AD32CE800D136F8 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5DF2AD32CE800D136F8 /* UIView+.swift */; };
+		EA5DC5E42AD4407500D136F8 /* AddWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5E32AD4407500D136F8 /* AddWeatherTableViewCell.swift */; };
 		EA5DC5E62AD446CF00D136F8 /* AddDailyLogBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5E52AD446CF00D136F8 /* AddDailyLogBaseTableViewCell.swift */; };
+		EA5DC5E82AD4711000D136F8 /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5E72AD4711000D136F8 /* ButtonCollectionViewCell.swift */; };
+		EA5DC5EA2AD5A3F000D136F8 /* ButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5E92AD5A3F000D136F8 /* ButtonItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,7 +74,10 @@
 		EA5DC5D72AD3229800D136F8 /* UISlider+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISlider+.swift"; sourceTree = "<group>"; };
 		EA5DC5DB2AD32B8E00D136F8 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		EA5DC5DF2AD32CE800D136F8 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		EA5DC5E32AD4407500D136F8 /* AddWeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWeatherTableViewCell.swift; sourceTree = "<group>"; };
 		EA5DC5E52AD446CF00D136F8 /* AddDailyLogBaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDailyLogBaseTableViewCell.swift; sourceTree = "<group>"; };
+		EA5DC5E72AD4711000D136F8 /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		EA5DC5E92AD5A3F000D136F8 /* ButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +171,8 @@
 				EA5DC5E52AD446CF00D136F8 /* AddDailyLogBaseTableViewCell.swift */,
 				EA5DC5792ACF18D400D136F8 /* AddDailyLogTableViewCell.swift */,
 				EA5DC57D2ACF4C9900D136F8 /* AddMoodTableViewCell.swift */,
+				EA5DC5E32AD4407500D136F8 /* AddWeatherTableViewCell.swift */,
+				EA5DC5E72AD4711000D136F8 /* ButtonCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -184,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				EA5DC55F2ACDD67E00D136F8 /* DailyLog.swift */,
+				EA5DC5E92AD5A3F000D136F8 /* ButtonItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -323,12 +332,15 @@
 				EA5DC5322ACC9E4900D136F8 /* Constants.swift in Sources */,
 				EA5DC57A2ACF18D400D136F8 /* AddDailyLogTableViewCell.swift in Sources */,
 				EA5DC5782ACF187900D136F8 /* AddDailyLogViewController.swift in Sources */,
+				EA5DC5E82AD4711000D136F8 /* ButtonCollectionViewCell.swift in Sources */,
 				EA5DC5352ACC9FED00D136F8 /* UIViewController+.swift in Sources */,
 				EA0869832AC1675700285838 /* SceneDelegate.swift in Sources */,
 				EA5DC5652ACDE47C00D136F8 /* Observable.swift in Sources */,
 				EA0869AE2AC229CC00285838 /* Color.swift in Sources */,
 				EA0869AB2AC2293600285838 /* BaseViewController.swift in Sources */,
+				EA5DC5EA2AD5A3F000D136F8 /* ButtonItem.swift in Sources */,
 				EA5DC5E02AD32CE800D136F8 /* UIView+.swift in Sources */,
+				EA5DC5E42AD4407500D136F8 /* AddWeatherTableViewCell.swift in Sources */,
 				EA5DC5E62AD446CF00D136F8 /* AddDailyLogBaseTableViewCell.swift in Sources */,
 				EA5DC57E2ACF4C9900D136F8 /* AddMoodTableViewCell.swift in Sources */,
 				EA08699A2AC209FA00285838 /* SettingViewController.swift in Sources */,
