@@ -52,8 +52,9 @@ class AddDailyLogViewController: BaseViewController {
         view.delegate = self
         view.dataSource = self
         
-        view.register(AddDailyLogTableViewCell.self, forCellReuseIdentifier: "AddDailyLogTableViewCell")
-        view.register(AddMoodTableViewCell.self, forCellReuseIdentifier: AddMoodTableViewCell.identifier)
+        view.register(AddDailyLogTableViewCell.self, forCellReuseIdentifier: AddDailyLogTableViewCell.description())
+        view.register(AddMoodTableViewCell.self, forCellReuseIdentifier: AddMoodTableViewCell.description())
+        view.register(AddWeatherTableViewCell.self, forCellReuseIdentifier: AddWeatherTableViewCell.description())
         
         view.rowHeight = UITableView.automaticDimension
         
@@ -169,7 +170,7 @@ extension AddDailyLogViewController {
     func makeCell(_ tableView: UITableView, type: CellType, indexPath: IndexPath) -> UITableViewCell {
         switch type {
         case .mood:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: AddMoodTableViewCell.identifier) as? AddMoodTableViewCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AddMoodTableViewCell.description()) as? AddMoodTableViewCell else { return UITableViewCell() }
             cell.backgroundColor = Constants.BaseColor.grayBackground
             cell.cellType = editComponent[indexPath.row]
             cell.titleLabel.text = editComponent[indexPath.row].title
@@ -177,7 +178,7 @@ extension AddDailyLogViewController {
         case .weather:
             return UITableViewCell()
         case .meal, .sleep, .todo, .photo, .diary:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "AddDailyLogTableViewCell") as? AddDailyLogTableViewCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AddDailyLogTableViewCell.description()) as? AddDailyLogTableViewCell else { return UITableViewCell() }
             cell.backgroundColor = Constants.BaseColor.grayBackground
             cell.cellType = type
             cell.titleLabel.text = editComponent[indexPath.row].title
