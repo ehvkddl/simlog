@@ -44,6 +44,7 @@
 		EA5DC5E82AD4711000D136F8 /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5E72AD4711000D136F8 /* ButtonCollectionViewCell.swift */; };
 		EA5DC5EA2AD5A3F000D136F8 /* ButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5E92AD5A3F000D136F8 /* ButtonItem.swift */; };
 		EA5DC5EC2AD5AD8200D136F8 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5EB2AD5AD8200D136F8 /* WeatherViewModel.swift */; };
+		EA5DC5F32AD5FA5000D136F8 /* DailyLogTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5F22AD5FA5000D136F8 /* DailyLogTB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		EA5DC5E72AD4711000D136F8 /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA5DC5E92AD5A3F000D136F8 /* ButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonItem.swift; sourceTree = "<group>"; };
 		EA5DC5EB2AD5AD8200D136F8 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		EA5DC5F22AD5FA5000D136F8 /* DailyLogTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogTB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				EA0869AC2AC2294E00285838 /* Utility */,
 				EA5DC5332ACC9FDD00D136F8 /* Extensions */,
 				EA5DC55E2ACDD66400D136F8 /* Model */,
+				EA5DC5EF2AD5F8B000D136F8 /* Database */,
 				EA0869A92AC2290300285838 /* Base */,
 				EA0869982AC209BD00285838 /* ViewControllers */,
 				EA5DC5632ACDE2B000D136F8 /* ViewModels */,
@@ -234,6 +237,31 @@
 			path = AddDailyLog;
 			sourceTree = "<group>";
 		};
+		EA5DC5EF2AD5F8B000D136F8 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				EA5DC5F02AD5F92A00D136F8 /* Table */,
+				EA5DC5F12AD5F92D00D136F8 /* Repository */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		EA5DC5F02AD5F92A00D136F8 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				EA5DC5F22AD5FA5000D136F8 /* DailyLogTB.swift */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
+		EA5DC5F12AD5F92D00D136F8 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				EA5DC5F42AD6011400D136F8 /* DailyLogRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -324,6 +352,7 @@
 				EA5DC5842ACF5B8900D136F8 /* DiaryViewController.swift in Sources */,
 				EA0869972AC209BA00285838 /* StatisticsViewController.swift in Sources */,
 				EA0869B02AC22C0300285838 /* BaseCollectionViewCell.swift in Sources */,
+				EA5DC5F32AD5FA5000D136F8 /* DailyLogTB.swift in Sources */,
 				EA5DC57C2ACF191100D136F8 /* BaseTableViewCell.swift in Sources */,
 				EA5DC5622ACDE2A400D136F8 /* DailyLogViewModel.swift in Sources */,
 				EA5DC5EC2AD5AD8200D136F8 /* WeatherViewModel.swift in Sources */,
