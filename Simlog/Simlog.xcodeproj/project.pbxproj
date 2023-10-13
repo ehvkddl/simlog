@@ -45,6 +45,7 @@
 		EA5DC5EA2AD5A3F000D136F8 /* ButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5E92AD5A3F000D136F8 /* ButtonItem.swift */; };
 		EA5DC5EC2AD5AD8200D136F8 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5EB2AD5AD8200D136F8 /* WeatherViewModel.swift */; };
 		EA5DC5F32AD5FA5000D136F8 /* DailyLogTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5F22AD5FA5000D136F8 /* DailyLogTB.swift */; };
+		EA5DC5FA2AD739E800D136F8 /* DailyLogComponentAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5F92AD739E800D136F8 /* DailyLogComponentAddButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		EA5DC5E92AD5A3F000D136F8 /* ButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonItem.swift; sourceTree = "<group>"; };
 		EA5DC5EB2AD5AD8200D136F8 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		EA5DC5F22AD5FA5000D136F8 /* DailyLogTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogTB.swift; sourceTree = "<group>"; };
+		EA5DC5F92AD739E800D136F8 /* DailyLogComponentAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogComponentAddButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				EA0869822AC1675700285838 /* SceneDelegate.swift */,
 				EA0869AC2AC2294E00285838 /* Utility */,
 				EA5DC5332ACC9FDD00D136F8 /* Extensions */,
+				EA5DC5F82AD739BA00D136F8 /* Custom */,
 				EA5DC55E2ACDD66400D136F8 /* Model */,
 				EA5DC5EF2AD5F8B000D136F8 /* Database */,
 				EA0869A92AC2290300285838 /* Base */,
@@ -262,6 +265,14 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		EA5DC5F82AD739BA00D136F8 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				EA5DC5F92AD739E800D136F8 /* DailyLogComponentAddButton.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -356,6 +367,7 @@
 				EA5DC57C2ACF191100D136F8 /* BaseTableViewCell.swift in Sources */,
 				EA5DC5622ACDE2A400D136F8 /* DailyLogViewModel.swift in Sources */,
 				EA5DC5EC2AD5AD8200D136F8 /* WeatherViewModel.swift in Sources */,
+				EA5DC5FA2AD739E800D136F8 /* DailyLogComponentAddButton.swift in Sources */,
 				EA0869BF2AC4A2F500285838 /* BedTimeViewController.swift in Sources */,
 				EA0869952AC208D400285838 /* TabBarController.swift in Sources */,
 				EA0869812AC1675700285838 /* AppDelegate.swift in Sources */,

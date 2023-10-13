@@ -18,16 +18,7 @@ class AddDailyLogTableViewCell: AddDailyLogBaseTableViewCell {
     }()
     
     let addButton = {
-        let btn = UIButton()
-        
-        var config = UIButton.Configuration.filled()
-        
-        config.baseForegroundColor = Constants.BaseColor.text
-        config.baseBackgroundColor = Constants.BaseColor.ButtonBackground
-        config.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
-        
-        btn.configuration = config
-        btn.layer.cornerRadius = Constants.cornerRadius
+        let btn = DailyLogComponentAddButton()
         return btn
     }()
     
