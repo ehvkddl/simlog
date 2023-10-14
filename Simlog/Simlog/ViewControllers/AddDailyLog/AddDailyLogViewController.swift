@@ -218,7 +218,7 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.reloadRows(at: [indexPath], with: .none)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
