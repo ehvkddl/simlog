@@ -46,6 +46,7 @@
 		EA5DC5EC2AD5AD8200D136F8 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5EB2AD5AD8200D136F8 /* WeatherViewModel.swift */; };
 		EA5DC5EE2AD5C84700D136F8 /* AddPhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5ED2AD5C84700D136F8 /* AddPhotoTableViewCell.swift */; };
 		EA5DC5F32AD5FA5000D136F8 /* DailyLogTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5F22AD5FA5000D136F8 /* DailyLogTB.swift */; };
+		EA5DC5F52AD6011400D136F8 /* DailyLogRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5F42AD6011400D136F8 /* DailyLogRepository.swift */; };
 		EA5DC5F72AD7287F00D136F8 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5F62AD7287F00D136F8 /* UITableView+.swift */; };
 		EA5DC5FA2AD739E800D136F8 /* DailyLogComponentAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5F92AD739E800D136F8 /* DailyLogComponentAddButton.swift */; };
 /* End PBXBuildFile section */
@@ -86,6 +87,7 @@
 		EA5DC5EB2AD5AD8200D136F8 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		EA5DC5ED2AD5C84700D136F8 /* AddPhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoTableViewCell.swift; sourceTree = "<group>"; };
 		EA5DC5F22AD5FA5000D136F8 /* DailyLogTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogTB.swift; sourceTree = "<group>"; };
+		EA5DC5F42AD6011400D136F8 /* DailyLogRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogRepository.swift; sourceTree = "<group>"; };
 		EA5DC5F62AD7287F00D136F8 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		EA5DC5F92AD739E800D136F8 /* DailyLogComponentAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogComponentAddButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -372,6 +374,7 @@
 				EA5DC5F32AD5FA5000D136F8 /* DailyLogTB.swift in Sources */,
 				EA5DC57C2ACF191100D136F8 /* BaseTableViewCell.swift in Sources */,
 				EA5DC5622ACDE2A400D136F8 /* DailyLogViewModel.swift in Sources */,
+				EA5DC5F52AD6011400D136F8 /* DailyLogRepository.swift in Sources */,
 				EA5DC5EC2AD5AD8200D136F8 /* WeatherViewModel.swift in Sources */,
 				EA5DC5FA2AD739E800D136F8 /* DailyLogComponentAddButton.swift in Sources */,
 				EA0869BF2AC4A2F500285838 /* BedTimeViewController.swift in Sources */,

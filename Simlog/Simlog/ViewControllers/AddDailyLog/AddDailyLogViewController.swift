@@ -103,6 +103,8 @@ class AddDailyLogViewController: BaseViewController {
     override func configureView() {
         view.backgroundColor = Constants.BaseColor.grayBackground
         
+        saveButton.addTarget(self, action: #selector(saveButtonClicked), for: .touchUpInside)
+        
         [tableView, saveButton].forEach { view.addSubview($0) }
     }
     
@@ -134,6 +136,12 @@ class AddDailyLogViewController: BaseViewController {
 extension AddDailyLogViewController {
     
     @objc private func closeButtonClicked() {
+        dismiss(animated: true)
+    }
+    
+    @objc private func saveButtonClicked() {
+        vm.saveDailyLog()
+        
         dismiss(animated: true)
     }
     
