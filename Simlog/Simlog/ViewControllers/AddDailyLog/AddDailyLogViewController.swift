@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 enum CellType {
     case mood
@@ -44,7 +45,17 @@ class AddDailyLogViewController: BaseViewController {
     
     let vm = DailyLogViewModel()
     
-    let editComponent: [CellType] = [.mood, .weather, .sleep, .diary]
+    let editComponent: [CellType] = [.mood, .weather, .sleep, .photo, .diary]
+    
+    lazy var phpicker = {
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 1
+        configuration.filter = .images
+        
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        return picker
+    }()
     
     lazy var tableView = {
         let view = UITableView()
@@ -200,3 +211,23 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
     
 }
 
+extension AddDailyLogViewController: PHPickerViewControllerDelegate {
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        guard let result = results.first else { return }
+        
+        result.itemProvider.loadObject(ofClass: UIImage.self) { object, error in
+            if let image = object as? UIImage {
+                NotificationCenter.default.post(name: NSNotification.Name("sendPhoto"),
+                                                object: image)
+                
+                guard let data = image.jpegData(compressionQuality: 0.5) else { return }
+                self.vm.dailylog.value.photo = Photo(image: data, path: "")
+            }
+            
+        }
+        
+        picker.dismiss(animated: true)
+    }
+    
+}

@@ -44,6 +44,7 @@
 		EA5DC5E82AD4711000D136F8 /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5E72AD4711000D136F8 /* ButtonCollectionViewCell.swift */; };
 		EA5DC5EA2AD5A3F000D136F8 /* ButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5E92AD5A3F000D136F8 /* ButtonItem.swift */; };
 		EA5DC5EC2AD5AD8200D136F8 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5EB2AD5AD8200D136F8 /* WeatherViewModel.swift */; };
+		EA5DC5EE2AD5C84700D136F8 /* AddPhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5ED2AD5C84700D136F8 /* AddPhotoTableViewCell.swift */; };
 		EA5DC5F32AD5FA5000D136F8 /* DailyLogTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5F22AD5FA5000D136F8 /* DailyLogTB.swift */; };
 		EA5DC5F72AD7287F00D136F8 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5F62AD7287F00D136F8 /* UITableView+.swift */; };
 		EA5DC5FA2AD739E800D136F8 /* DailyLogComponentAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5F92AD739E800D136F8 /* DailyLogComponentAddButton.swift */; };
@@ -83,6 +84,7 @@
 		EA5DC5E72AD4711000D136F8 /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA5DC5E92AD5A3F000D136F8 /* ButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonItem.swift; sourceTree = "<group>"; };
 		EA5DC5EB2AD5AD8200D136F8 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		EA5DC5ED2AD5C84700D136F8 /* AddPhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoTableViewCell.swift; sourceTree = "<group>"; };
 		EA5DC5F22AD5FA5000D136F8 /* DailyLogTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogTB.swift; sourceTree = "<group>"; };
 		EA5DC5F62AD7287F00D136F8 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		EA5DC5F92AD739E800D136F8 /* DailyLogComponentAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogComponentAddButton.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			children = (
 				EA5DC5E52AD446CF00D136F8 /* AddDailyLogBaseTableViewCell.swift */,
 				EA5DC5792ACF18D400D136F8 /* AddDailyLogTableViewCell.swift */,
+				EA5DC5ED2AD5C84700D136F8 /* AddPhotoTableViewCell.swift */,
 				EA5DC57D2ACF4C9900D136F8 /* AddMoodTableViewCell.swift */,
 				EA5DC5E32AD4407500D136F8 /* AddWeatherTableViewCell.swift */,
 				EA5DC5E72AD4711000D136F8 /* ButtonCollectionViewCell.swift */,
@@ -373,6 +376,7 @@
 				EA5DC5FA2AD739E800D136F8 /* DailyLogComponentAddButton.swift in Sources */,
 				EA0869BF2AC4A2F500285838 /* BedTimeViewController.swift in Sources */,
 				EA0869952AC208D400285838 /* TabBarController.swift in Sources */,
+				EA5DC5EE2AD5C84700D136F8 /* AddPhotoTableViewCell.swift in Sources */,
 				EA0869812AC1675700285838 /* AppDelegate.swift in Sources */,
 				EA5DC5D82AD3229800D136F8 /* UISlider+.swift in Sources */,
 				EA5DC5F72AD7287F00D136F8 /* UITableView+.swift in Sources */,
