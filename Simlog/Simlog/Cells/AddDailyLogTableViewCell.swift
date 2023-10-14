@@ -22,30 +22,28 @@ class AddDailyLogTableViewCell: AddDailyLogBaseTableViewCell {
         return btn
     }()
     
-}
-
-extension AddDailyLogTableViewCell {
+    override func configureCell() {
+        super.configureCell()
+        
+        addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
+        
+        [addButton].forEach { containerView.addSubview($0) }
+    }
     
-    func setContent(by type: CellType) {
-        switch type {
-        case .meal:
-            break
-        case .sleep, .diary:
-            addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
-            
-            [addButton].forEach { containerView.addSubview($0) }
-            
-            addButton.snp.makeConstraints { make in
-                make.top.equalTo(titleLabel.snp.bottom).offset(8)
-                make.horizontalEdges.equalTo(containerView).inset(20)
-                make.bottom.equalTo(containerView.snp.bottom).inset(15)
-            }
-        case .todo:
-            break
-        case .photo:
-            break
-        default: break
+    override func setConstraints() {
+        super.setConstraints()
+        
+        addButton.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(8)
+            make.horizontalEdges.equalTo(containerView).inset(20)
+            make.bottom.equalTo(containerView.snp.bottom).inset(15)
         }
+    }
+    
+    func apply(type: CellType, title: String, buttonTitle: String) {
+        super.apply(type: type, title: title)
+        
+        addButton.setTitle(buttonTitle, for: .normal)
     }
     
 }

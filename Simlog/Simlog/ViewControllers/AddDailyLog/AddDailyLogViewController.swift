@@ -151,18 +151,22 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
         switch editType {
         case .mood:
             let cell = tableView.dequeueReusableCell(withClass: AddMoodTableViewCell.self, for: indexPath)
+            cell.apply(type: editType, title: editType.title)
             return cell
             
         case .weather:
             let cell = tableView.dequeueReusableCell(withClass: AddWeatherTableViewCell.self, for: indexPath)
+            cell.apply(type: editType, title: editType.title)
             return cell
             
         case .meal:
             let cell = tableView.dequeueReusableCell(withClass: AddDailyLogTableViewCell.self, for: indexPath)
+            cell.apply(type: editType, title: editType.title, buttonTitle: editType.buttonTitle)
             return cell
             
         case .sleep:
             let cell = tableView.dequeueReusableCell(withClass: AddDailyLogTableViewCell.self, for: indexPath)
+            cell.apply(type: editType, title: editType.title, buttonTitle: editType.buttonTitle)
             cell.addButtonClosure = {
                 let vc = BedTimeViewController()
                 vc.vm.sleep.value = self.vm.dailylog.value.sleep
@@ -181,6 +185,7 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
             
         case .photo:
             let cell = tableView.dequeueReusableCell(withClass: AddPhotoTableViewCell.self, for: indexPath)
+            cell.apply(type: editType, title: editType.title)
             cell.photoButtonClosure = {
                 self.present(self.phpicker, animated: true)
             }
@@ -188,6 +193,7 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
             
         case .diary:
             let cell = tableView.dequeueReusableCell(withClass: AddDailyLogTableViewCell.self, for: indexPath)
+            cell.apply(type: editType, title: editType.title, buttonTitle: editType.buttonTitle)
             cell.addButtonClosure = {
                 let vc = DiaryViewController()
                 vc.textView.text = self.vm.dailylog.value.diary

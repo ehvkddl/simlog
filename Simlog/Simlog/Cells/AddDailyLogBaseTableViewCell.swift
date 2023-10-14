@@ -41,4 +41,11 @@ class AddDailyLogBaseTableViewCell: BaseTableViewCell {
         }
     }
     
+    func apply(type: CellType, title: String) {
+        selectionStyle = .none
+        backgroundColor = Constants.BaseColor.grayBackground
+        cellType = type
+        titleLabel.text = title
+    }
+    
 }
