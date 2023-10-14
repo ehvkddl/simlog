@@ -52,9 +52,10 @@ class AddDailyLogViewController: BaseViewController {
         view.delegate = self
         view.dataSource = self
         
-        view.register(AddDailyLogTableViewCell.self, forCellReuseIdentifier: AddDailyLogTableViewCell.description())
-        view.register(AddMoodTableViewCell.self, forCellReuseIdentifier: AddMoodTableViewCell.description())
-        view.register(AddWeatherTableViewCell.self, forCellReuseIdentifier: AddWeatherTableViewCell.description())
+        view.register(cellType: AddDailyLogTableViewCell.self)
+        view.register(cellType: AddMoodTableViewCell.self)
+        view.register(cellType: AddWeatherTableViewCell.self)
+        view.register(cellType: AddPhotoTableViewCell.self)
         
         view.rowHeight = UITableView.automaticDimension
         
@@ -134,27 +135,23 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch editComponent[indexPath.row] {
+        let editType = editComponent[indexPath.row]
+        
+        switch editType {
         case .mood:
-            guard let cell = makeCell(tableView, type: editComponent[indexPath.row], indexPath: indexPath) as? AddMoodTableViewCell else { return UITableViewCell() }
-            cell.thumbLabel.text = "\(vm.dailylog.value.mood ?? 50)"
+            let cell = tableView.dequeueReusableCell(withClass: AddMoodTableViewCell.self, for: indexPath)
             return cell
             
         case .weather:
-            guard let cell = makeCell(tableView, type: editComponent[indexPath.row], indexPath: indexPath) as? AddWeatherTableViewCell else { return UITableViewCell() }
-            cell.cellButtonClickedClosure = { selectButtons in
-                self.vm.dailylog.value.weather = selectButtons
-            }
+            let cell = tableView.dequeueReusableCell(withClass: AddWeatherTableViewCell.self, for: indexPath)
             return cell
             
         case .meal:
-            guard let cell = makeCell(tableView, type: editComponent[indexPath.row], indexPath: indexPath) as? AddDailyLogTableViewCell else { return UITableViewCell() }
-            cell.setContent(by: editComponent[indexPath.row])
+            let cell = tableView.dequeueReusableCell(withClass: AddDailyLogTableViewCell.self, for: indexPath)
             return cell
             
         case .sleep:
-            guard let cell = makeCell(tableView, type: editComponent[indexPath.row], indexPath: indexPath) as? AddDailyLogTableViewCell else { return UITableViewCell() }
-            cell.setContent(by: editComponent[indexPath.row])
+            let cell = tableView.dequeueReusableCell(withClass: AddDailyLogTableViewCell.self, for: indexPath)
             cell.addButtonClosure = {
                 let vc = BedTimeViewController()
                 vc.vm.sleep.value = self.vm.dailylog.value.sleep
@@ -172,11 +169,14 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
             return UITableViewCell()
             
         case .photo:
-            return UITableViewCell()
+            let cell = tableView.dequeueReusableCell(withClass: AddPhotoTableViewCell.self, for: indexPath)
+            cell.photoButtonClosure = {
+                self.present(self.phpicker, animated: true)
+            }
+            return cell
             
         case .diary:
-            guard let cell = makeCell(tableView, type: editComponent[indexPath.row], indexPath: indexPath) as? AddDailyLogTableViewCell else { return UITableViewCell() }
-            cell.setContent(by: editComponent[indexPath.row])
+            let cell = tableView.dequeueReusableCell(withClass: AddDailyLogTableViewCell.self, for: indexPath)
             cell.addButtonClosure = {
                 let vc = DiaryViewController()
                 vc.textView.text = self.vm.dailylog.value.diary
@@ -200,32 +200,3 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
     
 }
 
-extension AddDailyLogViewController {
-    
-    func makeCell(_ tableView: UITableView, type: CellType, indexPath: IndexPath) -> UITableViewCell {
-        switch type {
-        case .mood:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: AddMoodTableViewCell.description()) as? AddMoodTableViewCell else { return UITableViewCell() }
-            cell.backgroundColor = Constants.BaseColor.grayBackground
-            cell.cellType = editComponent[indexPath.row]
-            cell.titleLabel.text = editComponent[indexPath.row].title
-            return cell
-            
-        case .weather:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: AddWeatherTableViewCell.description()) as? AddWeatherTableViewCell else { return UITableViewCell() }
-            cell.backgroundColor = Constants.BaseColor.grayBackground
-            cell.cellType = editComponent[indexPath.row]
-            cell.titleLabel.text = editComponent[indexPath.row].title
-            return cell
-        
-        case .meal, .sleep, .todo, .photo, .diary:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: AddDailyLogTableViewCell.description()) as? AddDailyLogTableViewCell else { return UITableViewCell() }
-            cell.backgroundColor = Constants.BaseColor.grayBackground
-            cell.cellType = type
-            cell.titleLabel.text = editComponent[indexPath.row].title
-            cell.addButton.setTitle(editComponent[indexPath.row].buttonTitle, for: .normal)
-            return cell
-        }
-    }
-    
-}

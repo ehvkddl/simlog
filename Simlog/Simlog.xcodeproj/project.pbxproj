@@ -45,6 +45,7 @@
 		EA5DC5EA2AD5A3F000D136F8 /* ButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5E92AD5A3F000D136F8 /* ButtonItem.swift */; };
 		EA5DC5EC2AD5AD8200D136F8 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5EB2AD5AD8200D136F8 /* WeatherViewModel.swift */; };
 		EA5DC5F32AD5FA5000D136F8 /* DailyLogTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5F22AD5FA5000D136F8 /* DailyLogTB.swift */; };
+		EA5DC5F72AD7287F00D136F8 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5F62AD7287F00D136F8 /* UITableView+.swift */; };
 		EA5DC5FA2AD739E800D136F8 /* DailyLogComponentAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5F92AD739E800D136F8 /* DailyLogComponentAddButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		EA5DC5E92AD5A3F000D136F8 /* ButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonItem.swift; sourceTree = "<group>"; };
 		EA5DC5EB2AD5AD8200D136F8 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		EA5DC5F22AD5FA5000D136F8 /* DailyLogTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogTB.swift; sourceTree = "<group>"; };
+		EA5DC5F62AD7287F00D136F8 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		EA5DC5F92AD739E800D136F8 /* DailyLogComponentAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogComponentAddButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,6 +194,7 @@
 				EA5DC5D72AD3229800D136F8 /* UISlider+.swift */,
 				EA5DC5DB2AD32B8E00D136F8 /* UIColor+.swift */,
 				EA5DC5DF2AD32CE800D136F8 /* UIView+.swift */,
+				EA5DC5F62AD7287F00D136F8 /* UITableView+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				EA0869952AC208D400285838 /* TabBarController.swift in Sources */,
 				EA0869812AC1675700285838 /* AppDelegate.swift in Sources */,
 				EA5DC5D82AD3229800D136F8 /* UISlider+.swift in Sources */,
+				EA5DC5F72AD7287F00D136F8 /* UITableView+.swift in Sources */,
 				EA5DC5602ACDD67E00D136F8 /* DailyLog.swift in Sources */,
 				EA5DC5DC2AD32B8E00D136F8 /* UIColor+.swift in Sources */,
 				EA5DC5322ACC9E4900D136F8 /* Constants.swift in Sources */,
