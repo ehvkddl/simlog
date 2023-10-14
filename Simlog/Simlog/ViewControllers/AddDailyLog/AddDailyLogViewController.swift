@@ -152,11 +152,17 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
         case .mood:
             let cell = tableView.dequeueReusableCell(withClass: AddMoodTableViewCell.self, for: indexPath)
             cell.apply(type: editType, title: editType.title)
+            cell.sliderValueChangedClosure = { value in
+                self.vm.dailylog.value.mood = value
+            }
             return cell
             
         case .weather:
             let cell = tableView.dequeueReusableCell(withClass: AddWeatherTableViewCell.self, for: indexPath)
             cell.apply(type: editType, title: editType.title)
+            cell.cellButtonClickedClosure = { weathers in
+                self.vm.dailylog.value.weather = weathers
+            }
             return cell
             
         case .meal:

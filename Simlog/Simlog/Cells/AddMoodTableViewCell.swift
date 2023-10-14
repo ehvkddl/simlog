@@ -9,6 +9,8 @@ import UIKit
 
 class AddMoodTableViewCell: AddDailyLogBaseTableViewCell {
     
+    var sliderValueChangedClosure: ((Int) -> Void)?
+    
     let slider = {
         let slider = UISlider()
         slider.minimumValue = 0
@@ -72,6 +74,8 @@ extension AddMoodTableViewCell {
         thumbLabel.snp.remakeConstraints { make in
             make.center.equalTo(slider.getThumbCenter())
         }
+        
+        sliderValueChangedClosure?(Int(value))
     }
     
 }
