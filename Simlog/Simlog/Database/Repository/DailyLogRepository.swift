@@ -40,7 +40,12 @@ final class DailyLogRepository: DailyLogRepositoryProtocol {
             sleep = SleepTB(_id: sleepLog.id, bedTime: Float(sleepLog.bedTime), wakeupTime: Float(sleepLog.wakeupTime))
         }
         
-        return DailyLogTB(_id: log.id, date: Date(), mood: log.mood ?? 0, weather: weathers, sleep: sleep, diary: log.diary)
+        var photos = List<String>()
+        if let photoLog = log.photo {
+            photoLog.forEach { photos.append($0.id) }
+        }
+        
+        return DailyLogTB(_id: log.id, date: log.date, mood: log.mood ?? 0, weather: weathers, sleep: sleep, photo: photos, diary: log.diary)
     }
     
 }

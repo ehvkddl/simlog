@@ -14,7 +14,7 @@ class DailyLogTB: Object {
     @Persisted var mood: Int
     @Persisted var weather: List<Int>
     @Persisted var sleep: SleepTB?
-    @Persisted var photo: PhotoTB?
+    @Persisted var photo: List<String>
     @Persisted var diary: String?
 
     convenience init(
@@ -23,6 +23,7 @@ class DailyLogTB: Object {
         mood: Int,
         weather: List<Int>,
         sleep: SleepTB? = nil,
+        photo: List<String>,
         diary: String? = nil
     ) {
         self.init()
@@ -32,6 +33,7 @@ class DailyLogTB: Object {
         self.mood = mood
         self.weather = weather
         self.sleep = sleep
+        self.photo = photo
         self.diary = diary
     }
 }
@@ -54,11 +56,4 @@ class SleepTB: Object {
         self.bedTime = bedTime
         self.wakeupTime = wakeupTime
     }
-}
-
-class PhotoTB: Object {
-    @Persisted(primaryKey: true) var _id: String
-    @Persisted var path: String
-
-    @Persisted(originProperty: "photo") var dailyLog: LinkingObjects<DailyLogTB>
 }

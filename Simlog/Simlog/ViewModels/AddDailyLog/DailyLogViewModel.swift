@@ -21,6 +21,9 @@ class DailyLogViewModel {
         }
         
         dailyLogRepository.addDailyLog(log)
+        
+        guard let photos = log.photo, let photo = photos.first else { return }
+        PhotoManager.shared.saveImageToDocument(logID: log.id, fileName: "\(photo.id).jpg", image: photo.image)
     }
     
 }

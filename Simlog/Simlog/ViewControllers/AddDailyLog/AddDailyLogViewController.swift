@@ -242,7 +242,7 @@ extension AddDailyLogViewController: PHPickerViewControllerDelegate {
                                                 object: image)
                 
                 guard let data = image.jpegData(compressionQuality: 0.5) else { return }
-                self.vm.dailylog.value.photo = Photo(image: data, path: "")
+                self.vm.dailylog.value.photo = [Photo(image: data)]
             }
             
         }

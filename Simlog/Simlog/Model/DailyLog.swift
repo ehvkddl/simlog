@@ -64,5 +64,5 @@ enum TodoState: Int {
 
 struct Photo: Hashable {
     let id = UUID().uuidString
-    var path: String
+    var image: Data
 }
