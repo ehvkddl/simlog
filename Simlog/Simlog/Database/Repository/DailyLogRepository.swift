@@ -8,6 +8,11 @@
 import Foundation
 import RealmSwift
 
+protocol DailyLogRepositoryProtocol {
+    func fetch() -> Results<DailyLogTB>
+    func addDailyLog(_ item: DailyLog)
+}
+
 final class DailyLogRepository: DailyLogRepositoryProtocol {
     
     private let realm = try! Realm()
