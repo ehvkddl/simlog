@@ -6,20 +6,26 @@
 //
 
 import UIKit
+import SnapKit
 
 class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configure()
+        configureView()
         setConstraints()
+        configureNavigationBar()
     }
     
-    func configure() {
+    func configureView() {
         view.backgroundColor = Constants.BaseColor.background
     }
     
     func setConstraints() {}
+    
+    func configureNavigationBar() {
+        navigationController?.navigationBar.tintColor = Constants.BaseColor.accent
+    }
     
 }
