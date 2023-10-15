@@ -6,9 +6,28 @@
 //
 
 import UIKit
+import FSCalendar
 
 class CalendarViewController: BaseViewController {
 
+    lazy var calendar = {
+        let calendar = FSCalendar()
+        
+        calendar.dataSource = self
+        calendar.delegate = self
+        
+        calendar.headerHeight = 0
+        
+        calendar.locale = Locale(identifier: "ko_KR")
+        
+        calendar.appearance.weekdayTextColor = .systemGray
+        
+        calendar.appearance.titleDefaultColor = Constants.BaseColor.text
+        calendar.appearance.titleSelectionColor = Constants.BaseColor.reverseText
+        
+        return calendar
+    }()
+    
     let addButton = {
         let btn = UIButton()
         
@@ -35,10 +54,15 @@ class CalendarViewController: BaseViewController {
         
         addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
         
-        [addButton].forEach { view.addSubview($0) }
+        [calendar, addButton].forEach { view.addSubview($0) }
     }
     
     override func setConstraints() {
+        calendar.snp.makeConstraints { make in
+            make.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(view).multipliedBy(0.5)
+        }
+        
         addButton.snp.makeConstraints { make in
             make.bottom.trailing.equalTo(view.safeAreaLayoutGuide).inset(25)
             make.size.equalTo(50)
@@ -53,6 +77,13 @@ extension CalendarViewController {
         let vc = UINavigationController(rootViewController: AddDailyLogViewController())
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: true)
+    }
+    
+}
+
+extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
     }
     
 }
