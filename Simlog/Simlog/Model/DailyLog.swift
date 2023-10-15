@@ -9,7 +9,7 @@ import Foundation
 
 struct DailyLog: Hashable {
     let id = UUID().uuidString
-    var date: Date?
+    var date: Date
     var mood: Int?
     var weather: [WeatherType]?
     var meal: [Meal]?

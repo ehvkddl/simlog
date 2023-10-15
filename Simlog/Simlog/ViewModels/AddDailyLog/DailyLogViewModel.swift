@@ -9,7 +9,7 @@ import Foundation
 
 class DailyLogViewModel {
     
-    var dailylog: Observable<DailyLog> = Observable(DailyLog())
+    var dailylog: Observable<DailyLog> = Observable(DailyLog(date: Date()))
     let dailyLogRepository = DailyLogRepository()
     
     func saveDailyLog() {
