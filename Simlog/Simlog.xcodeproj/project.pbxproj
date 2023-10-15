@@ -52,6 +52,7 @@
 		EA5DC6142AD88C9C00D136F8 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC6132AD88C9C00D136F8 /* PhotoManager.swift */; };
 		EA5DC61A2ADC4C9300D136F8 /* AppDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC6192ADC4C9300D136F8 /* AppDateFormatter.swift */; };
 		EA7937792ADC6C5E0061277E /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = EA7937782ADC6C5E0061277E /* FSCalendar */; };
+		EA79377B2ADC72BA0061277E /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA79377A2ADC72BA0061277E /* CalendarViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +96,7 @@
 		EA5DC5F92AD739E800D136F8 /* DailyLogComponentAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogComponentAddButton.swift; sourceTree = "<group>"; };
 		EA5DC6132AD88C9C00D136F8 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		EA5DC6192ADC4C9300D136F8 /* AppDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDateFormatter.swift; sourceTree = "<group>"; };
+		EA79377A2ADC72BA0061277E /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 		EA5DC5632ACDE2B000D136F8 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				EA79377A2ADC72BA0061277E /* CalendarViewModel.swift */,
 				EA5DC5E22AD43E7600D136F8 /* AddDailyLog */,
 			);
 			path = ViewModels;
@@ -379,6 +382,7 @@
 				EA0869852AC1675700285838 /* CalendarViewController.swift in Sources */,
 				EA5DC5672ACDE76900D136F8 /* SleepViewModel.swift in Sources */,
 				EA5DC5842ACF5B8900D136F8 /* DiaryViewController.swift in Sources */,
+				EA79377B2ADC72BA0061277E /* CalendarViewModel.swift in Sources */,
 				EA0869972AC209BA00285838 /* StatisticsViewController.swift in Sources */,
 				EA5DC61A2ADC4C9300D136F8 /* AppDateFormatter.swift in Sources */,
 				EA0869B02AC22C0300285838 /* BaseCollectionViewCell.swift in Sources */,

@@ -9,12 +9,14 @@ import Foundation
 
 enum DateFormatType {
     case year
+    case calendarWithMonth
     case time
     case timeWithMeridiem
     
     var description: String {
         switch self {
         case .year: return "yyyy-MM-dd"
+        case .calendarWithMonth: return "yyyy년 M월"
         case .time: return "HH:mm"
         case .timeWithMeridiem: return "hh:mm a"
         }

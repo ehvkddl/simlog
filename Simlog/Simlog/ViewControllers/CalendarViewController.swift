@@ -10,6 +10,8 @@ import FSCalendar
 
 class CalendarViewController: BaseViewController {
 
+    let vm = CalendarViewModel()
+    
     lazy var calendar = {
         let calendar = FSCalendar()
         
@@ -47,6 +49,11 @@ class CalendarViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        vm.title.bind { str in
+            self.title = str
+        }
+        vm.setCurrentPageTitle(date: calendar.currentPage)
     }
 
     override func configureView() {
@@ -84,6 +91,11 @@ extension CalendarViewController {
 extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        print(date)
+    }
+    
+    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+        vm.setCurrentPageTitle(date: calendar.currentPage)
     }
     
 }
