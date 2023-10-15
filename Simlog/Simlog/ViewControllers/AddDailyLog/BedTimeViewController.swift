@@ -26,13 +26,6 @@ class BedTimeViewController: BaseViewController {
         sliderSize * 0.57
     }
     
-    lazy var dateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-        dateFormatter.dateFormat = "hh:mm a"
-        return dateFormatter
-    }()
-    
     lazy var backgroundView = {
         let view = UIImageView()
         let blurEffect = UIBlurEffect(style: .systemUltraThinMaterialLight)
@@ -172,9 +165,9 @@ class BedTimeViewController: BaseViewController {
         
         vm.sleep.bind { [self] sleep in
             guard let sleep else { return }
-            bedTimeLabel.text = vm.getString(value: sleep.bedTime)
-            wakeupTimeLabel.text = vm.getString(value: sleep.wakeupTime)
-            setDurationString(text: vm.getDurationString())
+            bedTimeLabel.text = vm.getTimeWithMeridiemString(value: sleep.bedTime)
+            wakeupTimeLabel.text = vm.getTimeWithMeridiemString(value: sleep.wakeupTime)
+            setDurationString(text: vm.getDurationTimeString())
         }
     }
     
@@ -277,7 +270,7 @@ extension BedTimeViewController {
         dismiss(animated: true)
         
         guard let sleep = vm.sleep.value else { return }
-        let sleepTimeText = "\(vm.getString(value: sleep.bedTime)) ~ \(vm.getString(value: sleep.wakeupTime))"
+        let sleepTimeText = "\(vm.getTimeWithMeridiemString(value: sleep.bedTime)) ~ \(vm.getTimeWithMeridiemString(value: sleep.wakeupTime))"
         self.saveButtonClosure?(sleep.bedTime, sleep.wakeupTime, sleepTimeText)
     }
     

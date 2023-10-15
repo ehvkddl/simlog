@@ -11,30 +11,20 @@ class SleepViewModel {
     
     var sleep: Observable<Sleep?> = Observable(nil)
     
-    lazy var dateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-        return dateFormatter
-    }()
-    
-    func getString(value: CGFloat) -> String {
-        dateFormatter.dateFormat = "hh:mm a"
-        
+    func getTimeWithMeridiemString(value: CGFloat) -> String {
         let time = TimeInterval(value)
         let timeDate = Date(timeIntervalSinceReferenceDate: time)
         
-        return dateFormatter.string(from: timeDate)
+        return AppDateFormatter.shared.toString(date: timeDate, type: .timeWithMeridiem)
     }
     
-    func getDurationString() -> String {
-        dateFormatter.dateFormat = "HH:mm"
-        
+    func getDurationTimeString() -> String {
         guard let sleep = sleep.value else { return "총 수면시간" }
         
         let duration = sleep.wakeupTime - sleep.bedTime
         let durationDate = Date(timeIntervalSinceReferenceDate: duration)
         
-        return "총 수면시간 \(dateFormatter.string(from: durationDate))"
+        return "총 수면시간 \(AppDateFormatter.shared.toString(date: durationDate, type: .time))"
     }
     
     func adjustValue(value: inout CGFloat) {
