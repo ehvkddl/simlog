@@ -27,4 +27,15 @@ extension UIColor {
                   alpha: alpha)
     }
     
+    static func moodColor(score: Int) -> UIColor {
+        switch score {
+        case 0...20: return UIColor(hexCode: "E75C56")
+        case 21...40: return UIColor(hexCode: "F6F96E")
+        case 41...60: return UIColor(hexCode: "85F675")
+        case 61...80: return UIColor(hexCode: "6F90F1")
+        case 81...100: return UIColor(hexCode: "5F90F1")
+        default: return Constants.BaseColor.ButtonBackground
+        }
+    }
+    
 }
