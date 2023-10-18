@@ -17,10 +17,10 @@ final class DailyLogRepository: DailyLogRepositoryProtocol {
     
     private let realm = try! Realm()
     
-    private lazy var dailyLog: Results<DailyLogTB>! = self.fetch()
-
     func fetch() -> Results<DailyLogTB> {
-        return realm.objects(DailyLogTB.self).sorted(byKeyPath: "_id", ascending: false)
+        return realm.objects(DailyLogTB.self).sorted(byKeyPath: "date", ascending: true)
+    }
+    
     func fetchDailyLog(on date: Date) -> Results<DailyLogTB> {
         return realm.objects(DailyLogTB.self).filter("date >= %@ AND date < %@", date, Date(timeInterval: 86400, since: date)).sorted(byKeyPath: "date", ascending: true)
     }
@@ -33,7 +33,6 @@ final class DailyLogRepository: DailyLogRepositoryProtocol {
         } catch {
             print("일기 저장 실패", error)
         }
-        print(dailyLog!)
     }
     
     private func convertToTB(_ log: DailyLog) -> DailyLogTB {
