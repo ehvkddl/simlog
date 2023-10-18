@@ -91,9 +91,17 @@ class CalendarViewController: BaseViewController {
 extension CalendarViewController {
     
     @objc private func addButtonClicked() {
-        let vc = UINavigationController(rootViewController: AddDailyLogViewController())
-        vc.modalPresentationStyle = .overFullScreen
-        present(vc, animated: true)
+        presentAddDailyLogView(date: Date())
+    }
+    
+    private func presentAddDailyLogView(date: Date) {
+        let vc = AddDailyLogViewController()
+        vc.vm.dailylog.value.date = date
+
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .overFullScreen
+        
+        present(nav, animated: true)
     }
     
 }
