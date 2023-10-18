@@ -14,10 +14,10 @@ class PhotoManager {
 
     let fileManager = FileManager.default
     
-    func saveImageToDocument(logID: String, fileName: String, image: Data) {
+    func saveImageToDocument(date: String, fileName: String, image: Data) {
         guard let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
         
-        let directoryURL = documentDirectory.appendingPathComponent("DailyLog/\(logID)/Diary")
+        let directoryURL = documentDirectory.appendingPathComponent("DailyLog/\(date)/Diary")
         
         do {
             try fileManager.createDirectory(at: directoryURL, withIntermediateDirectories: true)
