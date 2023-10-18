@@ -53,6 +53,7 @@
 		EA5DC61A2ADC4C9300D136F8 /* AppDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC6192ADC4C9300D136F8 /* AppDateFormatter.swift */; };
 		EA7937792ADC6C5E0061277E /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = EA7937782ADC6C5E0061277E /* FSCalendar */; };
 		EA79377B2ADC72BA0061277E /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA79377A2ADC72BA0061277E /* CalendarViewModel.swift */; };
+		EAF033152ADD91FF006FFF3D /* FSCalendarCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033142ADD91FF006FFF3D /* FSCalendarCustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,7 @@
 		EA5DC6132AD88C9C00D136F8 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		EA5DC6192ADC4C9300D136F8 /* AppDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDateFormatter.swift; sourceTree = "<group>"; };
 		EA79377A2ADC72BA0061277E /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		EAF033142ADD91FF006FFF3D /* FSCalendarCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSCalendarCustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 		EA0869B52AC34FF100285838 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				EAF033142ADD91FF006FFF3D /* FSCalendarCustomCell.swift */,
 				EA5DC5E52AD446CF00D136F8 /* AddDailyLogBaseTableViewCell.swift */,
 				EA5DC5792ACF18D400D136F8 /* AddDailyLogTableViewCell.swift */,
 				EA5DC5ED2AD5C84700D136F8 /* AddPhotoTableViewCell.swift */,
@@ -396,6 +399,7 @@
 				EA0869BF2AC4A2F500285838 /* BedTimeViewController.swift in Sources */,
 				EA0869952AC208D400285838 /* TabBarController.swift in Sources */,
 				EA5DC5EE2AD5C84700D136F8 /* AddPhotoTableViewCell.swift in Sources */,
+				EAF033152ADD91FF006FFF3D /* FSCalendarCustomCell.swift in Sources */,
 				EA0869812AC1675700285838 /* AppDelegate.swift in Sources */,
 				EA5DC5D82AD3229800D136F8 /* UISlider+.swift in Sources */,
 				EA5DC5F72AD7287F00D136F8 /* UITableView+.swift in Sources */,

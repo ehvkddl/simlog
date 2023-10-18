@@ -18,14 +18,21 @@ class CalendarViewController: BaseViewController {
         calendar.dataSource = self
         calendar.delegate = self
         
+        calendar.collectionView.register(FSCalendarCustomCell.self, forCellWithReuseIdentifier: FSCalendarCustomCell.description())
+        
         calendar.headerHeight = 0
         
         calendar.locale = Locale(identifier: "ko_KR")
         
         calendar.appearance.weekdayTextColor = .systemGray
         
-        calendar.appearance.titleDefaultColor = Constants.BaseColor.text
-        calendar.appearance.titleSelectionColor = Constants.BaseColor.reverseText
+        calendar.appearance.titleDefaultColor = UIColor.clear
+        calendar.appearance.titleSelectionColor = UIColor.clear
+        calendar.appearance.titleTodayColor = UIColor.clear
+        calendar.appearance.selectionColor = UIColor.clear
+        calendar.appearance.todayColor = UIColor.clear
+        
+        calendar.placeholderType = .none
         
         return calendar
     }()
@@ -91,11 +98,46 @@ extension CalendarViewController {
 extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print(date)
+        calendar.visibleCells()
+            .map { $0 as? FSCalendarCustomCell }
+            .compactMap { $0 }
+            .filter { $0._isSelected }
+            .forEach { customCell in
+                customCell.deselect()
+            }
+        
+        if let cell = calendar.cell(for:date, at: monthPosition) as? FSCalendarCustomCell {
+            cell.select()
+        }
+        
+        guard let log = vm.fetchDailyLog(on: date) else {
+            dailyLogView.isHidden = true
+            presentAddDailyLogView(date: date)
+            return
+        }
+        
+        setDailyLog(dailyLog: log)
     }
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         vm.setCurrentPageTitle(date: calendar.currentPage)
+    }
+    
+    func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
+        guard let cell = calendar.dequeueReusableCell(withIdentifier: FSCalendarCustomCell.description(), for: date, at: position) as? FSCalendarCustomCell else { return FSCalendarCell() }
+        
+        let cellDay = AppDateFormatter.shared.toString(date: date, type: .year)
+        let today = AppDateFormatter.shared.toString(date: Date(), type: .year)
+        
+        switch cellDay {
+        case today: cell.dayLabel.text = "오늘"
+        default: cell.dayLabel.text = AppDateFormatter.shared.toString(date: date, type: .day)
+        }
+        
+        guard let log = vm.fetchDailyLog(on: date) else { return cell }
+        cell.exist(mood: log.mood!)
+        
+        return cell
     }
     
 }
