@@ -98,6 +98,8 @@ class AddDailyLogViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = AppDateFormatter.shared.toString(date: vm.dailylog.value.date, locale: "ko_KR", type: .monthDayWeek)
     }
     
     override func configureView() {
