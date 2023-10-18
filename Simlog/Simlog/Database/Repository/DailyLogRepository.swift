@@ -52,9 +52,32 @@ final class DailyLogRepository: DailyLogRepositoryProtocol {
         
         return DailyLogTB(date: log.date, mood: log.mood ?? 0, weather: weathers, sleep: sleep, photo: photos, diary: log.diary)
     }
+    
+    func convertToMD(_ record: DailyLogTB) -> DailyLog {
+        var weathers = [WeatherType]()
+        if !record.weather.isEmpty {
+            record.weather.forEach {
+                guard let type = WeatherType(rawValue: $0) else {
+                    print("database 변환 실패")
+                    return
+                }
+                weathers.append(type)
+            }
         }
         
-        return DailyLogTB(_id: log.id, date: log.date, mood: log.mood ?? 0, weather: weathers, sleep: sleep, photo: photos, diary: log.diary)
+        var sleep: Sleep?
+        if let sleepRecord = record.sleep {
+            sleep = Sleep(bedTime: CGFloat(sleepRecord.bedTime), wakeupTime: CGFloat(sleepRecord.wakeupTime))
+        }
+        
+        var photos = [Photo]()
+        if !record.photo.isEmpty {
+            record.photo.forEach {
+                photos.append(Photo(fileName: $0))
+            }
+        }
+        
+        return DailyLog(date: record.date, mood: record.mood, weather: weathers, sleep: sleep, photo: photos, diary: record.diary)
     }
     
 }
