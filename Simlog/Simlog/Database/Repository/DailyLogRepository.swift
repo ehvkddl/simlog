@@ -21,6 +21,8 @@ final class DailyLogRepository: DailyLogRepositoryProtocol {
 
     func fetch() -> Results<DailyLogTB> {
         return realm.objects(DailyLogTB.self).sorted(byKeyPath: "_id", ascending: false)
+    func fetchDailyLog(on date: Date) -> Results<DailyLogTB> {
+        return realm.objects(DailyLogTB.self).filter("date >= %@ AND date < %@", date, Date(timeInterval: 86400, since: date)).sorted(byKeyPath: "date", ascending: true)
     }
     
     func addDailyLog(_ item: DailyLog) {
