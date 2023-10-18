@@ -73,8 +73,11 @@ class CalendarViewController: BaseViewController {
     
     override func setConstraints() {
         calendar.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            make.height.equalTo(view).multipliedBy(0.5)
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.width.equalTo(view).multipliedBy(0.93)
+            make.height.equalTo(450)
+            make.centerX.equalTo(view)
+        }
         }
         
         addButton.snp.makeConstraints { make in
