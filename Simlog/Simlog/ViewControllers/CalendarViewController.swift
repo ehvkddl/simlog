@@ -54,8 +54,17 @@ class CalendarViewController: BaseViewController {
         return btn
     }()
     
+    let dailyLogView = {
+        let view = DailyLogView()
+        view.isHidden = true
+        view.layer.cornerRadius = Constants.cornerRadius
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        vm.fetch()
         
         vm.title.bind { str in
             self.title = str
@@ -68,7 +77,7 @@ class CalendarViewController: BaseViewController {
         
         addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
         
-        [calendar, addButton].forEach { view.addSubview($0) }
+        [calendar, dailyLogView, addButton].forEach { view.addSubview($0) }
     }
     
     override func setConstraints() {
@@ -78,6 +87,12 @@ class CalendarViewController: BaseViewController {
             make.height.equalTo(450)
             make.centerX.equalTo(view)
         }
+        
+        dailyLogView.snp.makeConstraints { make in
+            make.top.equalTo(calendar.snp.bottom)
+            make.width.equalTo(calendar)
+            make.bottom.equalTo(view)
+            make.centerX.equalTo(view)
         }
         
         addButton.snp.makeConstraints { make in
@@ -102,6 +117,12 @@ extension CalendarViewController {
         nav.modalPresentationStyle = .overFullScreen
         
         present(nav, animated: true)
+    }
+    
+    private func setDailyLog(dailyLog log: DailyLog) {
+        dailyLogView.isHidden = false
+        dailyLogView.log = log
+        dailyLogView.setValue()
     }
     
 }
@@ -132,6 +153,7 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         vm.setCurrentPageTitle(date: calendar.currentPage)
+        dailyLogView.isHidden = true
     }
     
     func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {

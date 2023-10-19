@@ -54,6 +54,12 @@
 		EA7937792ADC6C5E0061277E /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = EA7937782ADC6C5E0061277E /* FSCalendar */; };
 		EA79377B2ADC72BA0061277E /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA79377A2ADC72BA0061277E /* CalendarViewModel.swift */; };
 		EAF033152ADD91FF006FFF3D /* FSCalendarCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033142ADD91FF006FFF3D /* FSCalendarCustomCell.swift */; };
+		EAF033172ADF39B9006FFF3D /* DailyLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033162ADF39B9006FFF3D /* DailyLogView.swift */; };
+		EAF033192ADF3A04006FFF3D /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033182ADF3A04006FFF3D /* BaseView.swift */; };
+		EAF0331B2AE03F23006FFF3D /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF0331A2AE03F23006FFF3D /* ImageCollectionViewCell.swift */; };
+		EAF0331D2AE05B6F006FFF3D /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF0331C2AE05B6F006FFF3D /* WeatherTableViewCell.swift */; };
+		EAF033212AE06CA8006FFF3D /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033202AE06CA8006FFF3D /* LabelTableViewCell.swift */; };
+		EAF033362AE0F26A006FFF3D /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033352AE0F26A006FFF3D /* PhotoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +105,12 @@
 		EA5DC6192ADC4C9300D136F8 /* AppDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDateFormatter.swift; sourceTree = "<group>"; };
 		EA79377A2ADC72BA0061277E /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		EAF033142ADD91FF006FFF3D /* FSCalendarCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSCalendarCustomCell.swift; sourceTree = "<group>"; };
+		EAF033162ADF39B9006FFF3D /* DailyLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogView.swift; sourceTree = "<group>"; };
+		EAF033182ADF3A04006FFF3D /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		EAF0331A2AE03F23006FFF3D /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		EAF0331C2AE05B6F006FFF3D /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
+		EAF033202AE06CA8006FFF3D /* LabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
+		EAF033352AE0F26A006FFF3D /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +185,7 @@
 		EA0869A92AC2290300285838 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				EAF033182ADF3A04006FFF3D /* BaseView.swift */,
 				EA0869AA2AC2293600285838 /* BaseViewController.swift */,
 				EA0869AF2AC22C0300285838 /* BaseCollectionViewCell.swift */,
 				EA5DC57B2ACF191100D136F8 /* BaseTableViewCell.swift */,
@@ -201,6 +214,10 @@
 				EA5DC57D2ACF4C9900D136F8 /* AddMoodTableViewCell.swift */,
 				EA5DC5E32AD4407500D136F8 /* AddWeatherTableViewCell.swift */,
 				EA5DC5E72AD4711000D136F8 /* ButtonCollectionViewCell.swift */,
+				EAF0331A2AE03F23006FFF3D /* ImageCollectionViewCell.swift */,
+				EAF0331C2AE05B6F006FFF3D /* WeatherTableViewCell.swift */,
+				EAF033202AE06CA8006FFF3D /* LabelTableViewCell.swift */,
+				EAF033352AE0F26A006FFF3D /* PhotoTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -291,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				EA5DC5F92AD739E800D136F8 /* DailyLogComponentAddButton.swift */,
+				EAF033162ADF39B9006FFF3D /* DailyLogView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -387,8 +405,10 @@
 				EA5DC5842ACF5B8900D136F8 /* DiaryViewController.swift in Sources */,
 				EA79377B2ADC72BA0061277E /* CalendarViewModel.swift in Sources */,
 				EA0869972AC209BA00285838 /* StatisticsViewController.swift in Sources */,
+				EAF0331B2AE03F23006FFF3D /* ImageCollectionViewCell.swift in Sources */,
 				EA5DC61A2ADC4C9300D136F8 /* AppDateFormatter.swift in Sources */,
 				EA0869B02AC22C0300285838 /* BaseCollectionViewCell.swift in Sources */,
+				EAF033192ADF3A04006FFF3D /* BaseView.swift in Sources */,
 				EA5DC5F32AD5FA5000D136F8 /* DailyLogTB.swift in Sources */,
 				EA5DC57C2ACF191100D136F8 /* BaseTableViewCell.swift in Sources */,
 				EA5DC5622ACDE2A400D136F8 /* DailyLogViewModel.swift in Sources */,
@@ -400,6 +420,7 @@
 				EA0869952AC208D400285838 /* TabBarController.swift in Sources */,
 				EA5DC5EE2AD5C84700D136F8 /* AddPhotoTableViewCell.swift in Sources */,
 				EAF033152ADD91FF006FFF3D /* FSCalendarCustomCell.swift in Sources */,
+				EAF033212AE06CA8006FFF3D /* LabelTableViewCell.swift in Sources */,
 				EA0869812AC1675700285838 /* AppDelegate.swift in Sources */,
 				EA5DC5D82AD3229800D136F8 /* UISlider+.swift in Sources */,
 				EA5DC5F72AD7287F00D136F8 /* UITableView+.swift in Sources */,
@@ -407,14 +428,17 @@
 				EA5DC5DC2AD32B8E00D136F8 /* UIColor+.swift in Sources */,
 				EA5DC5322ACC9E4900D136F8 /* Constants.swift in Sources */,
 				EA5DC57A2ACF18D400D136F8 /* AddDailyLogTableViewCell.swift in Sources */,
+				EAF0331D2AE05B6F006FFF3D /* WeatherTableViewCell.swift in Sources */,
 				EA5DC5782ACF187900D136F8 /* AddDailyLogViewController.swift in Sources */,
 				EA5DC5E82AD4711000D136F8 /* ButtonCollectionViewCell.swift in Sources */,
 				EA5DC5352ACC9FED00D136F8 /* UIViewController+.swift in Sources */,
+				EAF033362AE0F26A006FFF3D /* PhotoTableViewCell.swift in Sources */,
 				EA0869832AC1675700285838 /* SceneDelegate.swift in Sources */,
 				EA5DC5652ACDE47C00D136F8 /* Observable.swift in Sources */,
 				EA0869AE2AC229CC00285838 /* Color.swift in Sources */,
 				EA0869AB2AC2293600285838 /* BaseViewController.swift in Sources */,
 				EA5DC5EA2AD5A3F000D136F8 /* ButtonItem.swift in Sources */,
+				EAF033172ADF39B9006FFF3D /* DailyLogView.swift in Sources */,
 				EA5DC5E02AD32CE800D136F8 /* UIView+.swift in Sources */,
 				EA5DC5E42AD4407500D136F8 /* AddWeatherTableViewCell.swift in Sources */,
 				EA5DC5E62AD446CF00D136F8 /* AddDailyLogBaseTableViewCell.swift in Sources */,
