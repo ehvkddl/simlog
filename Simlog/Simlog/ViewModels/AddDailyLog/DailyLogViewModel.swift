@@ -24,7 +24,7 @@ class DailyLogViewModel {
         
         guard let photos = log.photo, let photo = photos.first, let image = photo.image else { return }
         let date = AppDateFormatter.shared.toString(date: log.date, type: .year)
-        PhotoManager.shared.saveImageToDocument(date: date,fileName: "\(photo.fileName).jpg", image: image)
+        PhotoManager.shared.saveImageToDocument(date: date, fileName: photo.fileName, image: image)
     }
     
 }
