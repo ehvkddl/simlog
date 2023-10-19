@@ -15,6 +15,7 @@ enum DateFormatType {
     case dayWithWeek
     case time
     case timeWithMeridiem
+    case timeWithLanguage
     
     var description: String {
         switch self {
@@ -25,6 +26,7 @@ enum DateFormatType {
         case .dayWithWeek: return "d EE"
         case .time: return "HH:mm"
         case .timeWithMeridiem: return "hh:mm a"
+        case .timeWithLanguage: return "h시간 m분"
         }
     }
 }
