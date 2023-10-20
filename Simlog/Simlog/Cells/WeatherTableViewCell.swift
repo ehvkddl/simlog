@@ -25,12 +25,15 @@ class WeatherTableViewCell: BaseTableViewCell {
         
         collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: ImageCollectionViewCell.description())
         
+        collectionView.backgroundColor = .clear
         collectionView.isScrollEnabled = false
         
         return collectionView
     }()
     
     override func configureCell() {
+        super.configureCell()
+        
         [weatherCollectionView].forEach { contentView.addSubview($0) }
     }
     

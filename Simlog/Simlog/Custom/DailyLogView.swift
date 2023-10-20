@@ -34,7 +34,7 @@ class DailyLogView: BaseView {
     }()
     
     lazy var logTableView = {
-        let view = UITableView()
+        let view = ResizedTableView()
         
         view.dataSource = self
         
@@ -43,19 +43,29 @@ class DailyLogView: BaseView {
         view.register(cellType: PhotoTableViewCell.self)
         
         view.rowHeight = UITableView.automaticDimension
-        
+        view.backgroundColor = .clear
         view.separatorStyle = .none
+        view.isScrollEnabled = false
         view.showsVerticalScrollIndicator = false
         
         return view
     }()
     
     override func configureView() {
+        logTableView.reloadDataWithCompletion {
+            self.logTableView.snp.remakeConstraints { make in
+                make.top.equalTo(self.dateLabel)
+                make.leading.equalTo(self.separator.snp.trailing).offset(15)
+                make.trailing.equalTo(self).inset(self.padding)
+                make.bottom.equalTo(self).inset(self.padding)
+                make.height.equalTo(self.logTableView.contentSize.height)
+            }
+        }
+        
         [dateLabel, moodColor, separator, logTableView].forEach { addSubview($0) }
     }
     
     override func setConstraints() {
-//        dateLabel.setContentHuggingPriority(.init(rawValue: 751), for: .horizontal)
         dateLabel.snp.makeConstraints { make in
             make.top.leading.equalTo(self).inset(padding)
             make.width.equalTo(40)
@@ -75,7 +85,6 @@ class DailyLogView: BaseView {
             make.width.equalTo(0.3)
         }
         
-//        logTableView.setContentHuggingPriority(.init(rawValue: 750), for: .horizontal)
         logTableView.snp.makeConstraints { make in
             make.top.equalTo(dateLabel)
             make.leading.equalTo(separator.snp.trailing).offset(15)
@@ -96,7 +105,7 @@ extension DailyLogView {
         
         logComponentType.removeAll(keepingCapacity: true)
         
-        if log.weather != nil {
+        if let weathers = log.weather, !weathers.isEmpty {
             logComponentType.append(.weather)
         }
         
@@ -104,7 +113,7 @@ extension DailyLogView {
             logComponentType.append(.sleep)
         }
         
-        if log.photo != nil {
+        if let photos = log.photo, !photos.isEmpty {
             logComponentType.append(.photo)
         }
         
@@ -120,7 +129,7 @@ extension DailyLogView {
 extension DailyLogView: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        logComponentType.count
+        return logComponentType.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

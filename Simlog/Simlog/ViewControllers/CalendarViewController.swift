@@ -12,6 +12,14 @@ class CalendarViewController: BaseViewController {
 
     let vm = CalendarViewModel()
     
+    let scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.showsVerticalScrollIndicator = false
+        return view
+    }()
+    
+    let contentView = UIView()
+    
     lazy var calendar = {
         let calendar = FSCalendar()
         
@@ -77,22 +85,33 @@ class CalendarViewController: BaseViewController {
         
         addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
         
-        [calendar, dailyLogView, addButton].forEach { view.addSubview($0) }
+        [scrollView, addButton].forEach { view.addSubview($0) }
+        scrollView.addSubview(contentView)
+        [calendar, dailyLogView].forEach { contentView.addSubview($0) }
     }
     
     override func setConstraints() {
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalTo(view)
+        }
+        
+        contentView.snp.makeConstraints { make in
+            make.edges.equalTo(scrollView)
+            make.width.equalTo(scrollView.snp.width)
+        }
+        
         calendar.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
-            make.width.equalTo(view).multipliedBy(0.93)
+            make.top.equalTo(contentView)
+            make.width.equalTo(contentView).multipliedBy(0.93)
             make.height.equalTo(450)
-            make.centerX.equalTo(view)
+            make.centerX.equalTo(contentView)
         }
         
         dailyLogView.snp.makeConstraints { make in
             make.top.equalTo(calendar.snp.bottom)
             make.width.equalTo(calendar)
-            make.bottom.equalTo(view)
-            make.centerX.equalTo(view)
+            make.bottom.equalTo(contentView.snp.bottom)
+            make.centerX.equalTo(contentView.snp.centerX)
         }
         
         addButton.snp.makeConstraints { make in

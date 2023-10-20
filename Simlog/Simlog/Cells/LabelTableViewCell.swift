@@ -16,6 +16,8 @@ class LabelTableViewCell: BaseTableViewCell {
     }()
     
     override func configureCell() {
+        super.configureCell()
+        
         [label].forEach { contentView.addSubview($0) }
     }
     

@@ -60,6 +60,7 @@
 		EAF0331D2AE05B6F006FFF3D /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF0331C2AE05B6F006FFF3D /* WeatherTableViewCell.swift */; };
 		EAF033212AE06CA8006FFF3D /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033202AE06CA8006FFF3D /* LabelTableViewCell.swift */; };
 		EAF033362AE0F26A006FFF3D /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033352AE0F26A006FFF3D /* PhotoTableViewCell.swift */; };
+		EAF033382AE211E1006FFF3D /* ContentSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033372AE211E1006FFF3D /* ContentSizedTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +112,7 @@
 		EAF0331C2AE05B6F006FFF3D /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 		EAF033202AE06CA8006FFF3D /* LabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
 		EAF033352AE0F26A006FFF3D /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		EAF033372AE211E1006FFF3D /* ContentSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSizedTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +311,7 @@
 			children = (
 				EA5DC5F92AD739E800D136F8 /* DailyLogComponentAddButton.swift */,
 				EAF033162ADF39B9006FFF3D /* DailyLogView.swift */,
+				EAF033372AE211E1006FFF3D /* ContentSizedTableView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				EA5DC5E82AD4711000D136F8 /* ButtonCollectionViewCell.swift in Sources */,
 				EA5DC5352ACC9FED00D136F8 /* UIViewController+.swift in Sources */,
 				EAF033362AE0F26A006FFF3D /* PhotoTableViewCell.swift in Sources */,
+				EAF033382AE211E1006FFF3D /* ContentSizedTableView.swift in Sources */,
 				EA0869832AC1675700285838 /* SceneDelegate.swift in Sources */,
 				EA5DC5652ACDE47C00D136F8 /* Observable.swift in Sources */,
 				EA0869AE2AC229CC00285838 /* Color.swift in Sources */,

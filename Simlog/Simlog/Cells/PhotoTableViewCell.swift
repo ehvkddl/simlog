@@ -16,6 +16,8 @@ class PhotoTableViewCell: BaseTableViewCell {
     }()
     
     override func configureCell() {
+        super.configureCell()
+        
         [photoView].forEach { contentView.addSubview($0) }
     }
     
@@ -23,6 +25,7 @@ class PhotoTableViewCell: BaseTableViewCell {
         photoView.snp.makeConstraints { make in
             make.verticalEdges.equalTo(contentView).inset(10)
             make.size.equalTo(contentView.bounds.width)
+            make.center.equalTo(contentView)
         }
     }
     
