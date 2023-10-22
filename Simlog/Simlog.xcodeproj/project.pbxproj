@@ -61,6 +61,7 @@
 		EAF033212AE06CA8006FFF3D /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033202AE06CA8006FFF3D /* LabelTableViewCell.swift */; };
 		EAF033362AE0F26A006FFF3D /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033352AE0F26A006FFF3D /* PhotoTableViewCell.swift */; };
 		EAF033382AE211E1006FFF3D /* ContentSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033372AE211E1006FFF3D /* ContentSizedTableView.swift */; };
+		EAF0333A2AE5E1BD006FFF3D /* OperateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033392AE5E1BD006FFF3D /* OperateButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +114,7 @@
 		EAF033202AE06CA8006FFF3D /* LabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
 		EAF033352AE0F26A006FFF3D /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		EAF033372AE211E1006FFF3D /* ContentSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSizedTableView.swift; sourceTree = "<group>"; };
+		EAF033392AE5E1BD006FFF3D /* OperateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperateButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,8 +312,9 @@
 			isa = PBXGroup;
 			children = (
 				EA5DC5F92AD739E800D136F8 /* DailyLogComponentAddButton.swift */,
-				EAF033162ADF39B9006FFF3D /* DailyLogView.swift */,
 				EAF033372AE211E1006FFF3D /* ContentSizedTableView.swift */,
+				EAF033392AE5E1BD006FFF3D /* OperateButton.swift */,
+				EAF033162ADF39B9006FFF3D /* DailyLogView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAF0333A2AE5E1BD006FFF3D /* OperateButton.swift in Sources */,
 				EA0869852AC1675700285838 /* CalendarViewController.swift in Sources */,
 				EA5DC5672ACDE76900D136F8 /* SleepViewModel.swift in Sources */,
 				EA5DC5842ACF5B8900D136F8 /* DiaryViewController.swift in Sources */,

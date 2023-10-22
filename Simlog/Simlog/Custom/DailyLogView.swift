@@ -51,18 +51,24 @@ class DailyLogView: BaseView {
         return view
     }()
     
+    let editButton = OperateButton(image: UIImage(systemName: "square.and.pencil"))
+    
+    let deleteButton = OperateButton(image: UIImage(systemName: "trash"))
+    
     override func configureView() {
         logTableView.reloadDataWithCompletion {
+            let tableViewHeight = self.logTableView.contentSize.height
+            
             self.logTableView.snp.remakeConstraints { make in
                 make.top.equalTo(self.dateLabel)
                 make.leading.equalTo(self.separator.snp.trailing).offset(15)
                 make.trailing.equalTo(self).inset(self.padding)
-                make.bottom.equalTo(self).inset(self.padding)
-                make.height.equalTo(self.logTableView.contentSize.height)
+                make.bottom.equalTo(self.separator)
+                make.height.equalTo(tableViewHeight < 100 ? 100 : tableViewHeight)
             }
         }
         
-        [dateLabel, moodColor, separator, logTableView].forEach { addSubview($0) }
+        [dateLabel, moodColor, separator, logTableView, editButton, deleteButton].forEach { addSubview($0) }
     }
     
     override func setConstraints() {
@@ -70,26 +76,39 @@ class DailyLogView: BaseView {
             make.top.leading.equalTo(self).inset(padding)
             make.width.equalTo(40)
         }
-        
+
         moodColor.snp.makeConstraints { make in
             make.top.equalTo(dateLabel.snp.bottom)
             make.width.equalTo(dateLabel)
             make.height.equalTo(15)
             make.centerX.equalTo(dateLabel)
         }
-        
+
         separator.snp.makeConstraints { make in
             make.top.equalTo(self).inset(padding)
             make.leading.equalTo(dateLabel.snp.trailing).offset(15)
-            make.bottom.equalTo(self).inset(padding)
             make.width.equalTo(0.3)
         }
-        
+
         logTableView.snp.makeConstraints { make in
             make.top.equalTo(dateLabel)
             make.leading.equalTo(separator.snp.trailing).offset(15)
             make.trailing.equalTo(self).inset(padding)
+            make.bottom.equalTo(separator)
+        }
+
+        editButton.snp.makeConstraints { make in
+            make.top.equalTo(separator.snp.bottom).offset(10)
+            make.leading.equalTo(dateLabel.snp.leading)
             make.bottom.equalTo(self).inset(padding)
+            make.size.equalTo(25)
+        }
+
+        deleteButton.snp.makeConstraints { make in
+            make.top.equalTo(editButton)
+            make.leading.equalTo(editButton.snp.trailing).offset(10)
+            make.bottom.equalTo(editButton)
+            make.size.equalTo(25)
         }
     }
     

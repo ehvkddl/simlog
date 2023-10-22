@@ -65,7 +65,6 @@ class CalendarViewController: BaseViewController {
     let dailyLogView = {
         let view = DailyLogView()
         view.isHidden = true
-        view.layer.cornerRadius = Constants.cornerRadius
         return view
     }()
     
@@ -84,6 +83,8 @@ class CalendarViewController: BaseViewController {
         super.configureView()
         
         addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
+        dailyLogView.editButton.addTarget(self, action: #selector(editDailyLogClicked), for: .touchUpInside)
+        dailyLogView.deleteButton.addTarget(self, action: #selector(deleteDailyLogClicked), for: .touchUpInside)
         
         [scrollView, addButton].forEach { view.addSubview($0) }
         scrollView.addSubview(contentView)
@@ -110,8 +111,9 @@ class CalendarViewController: BaseViewController {
         dailyLogView.snp.makeConstraints { make in
             make.top.equalTo(calendar.snp.bottom)
             make.width.equalTo(calendar)
-            make.bottom.equalTo(contentView.snp.bottom)
+            make.bottom.equalTo(contentView.snp.bottom).inset(50)
             make.centerX.equalTo(contentView.snp.centerX)
+            make.height.greaterThanOrEqualTo(100)
         }
         
         addButton.snp.makeConstraints { make in
@@ -142,6 +144,12 @@ extension CalendarViewController {
         dailyLogView.isHidden = false
         dailyLogView.log = log
         dailyLogView.setValue()
+    }
+    
+    @objc private func editDailyLogClicked() {
+    }
+    
+    @objc private func deleteDailyLogClicked() {
     }
     
 }
