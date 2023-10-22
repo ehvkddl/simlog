@@ -163,6 +163,7 @@
 				EA5DC55E2ACDD66400D136F8 /* Model */,
 				EA5DC5EF2AD5F8B000D136F8 /* Database */,
 				EA0869A92AC2290300285838 /* Base */,
+				EAF0333C2AE5E364006FFF3D /* Views */,
 				EA0869982AC209BD00285838 /* ViewControllers */,
 				EA5DC5632ACDE2B000D136F8 /* ViewModels */,
 				EA0869B52AC34FF100285838 /* Cells */,
@@ -314,9 +315,16 @@
 				EA5DC5F92AD739E800D136F8 /* DailyLogComponentAddButton.swift */,
 				EAF033372AE211E1006FFF3D /* ContentSizedTableView.swift */,
 				EAF033392AE5E1BD006FFF3D /* OperateButton.swift */,
-				EAF033162ADF39B9006FFF3D /* DailyLogView.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		EAF0333C2AE5E364006FFF3D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EAF033162ADF39B9006FFF3D /* DailyLogView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
