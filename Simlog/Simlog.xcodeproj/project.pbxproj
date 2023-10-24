@@ -63,6 +63,7 @@
 		EAF033382AE211E1006FFF3D /* ContentSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033372AE211E1006FFF3D /* ContentSizedTableView.swift */; };
 		EAF0333A2AE5E1BD006FFF3D /* OperateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033392AE5E1BD006FFF3D /* OperateButton.swift */; };
 		EAF0333E2AE5E778006FFF3D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF0333D2AE5E778006FFF3D /* Utils.swift */; };
+		EAF033452AE79025006FFF3D /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033442AE79025006FFF3D /* PaddingLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +118,7 @@
 		EAF033372AE211E1006FFF3D /* ContentSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSizedTableView.swift; sourceTree = "<group>"; };
 		EAF033392AE5E1BD006FFF3D /* OperateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperateButton.swift; sourceTree = "<group>"; };
 		EAF0333D2AE5E778006FFF3D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		EAF033442AE79025006FFF3D /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +320,7 @@
 				EA5DC5F92AD739E800D136F8 /* DailyLogComponentAddButton.swift */,
 				EAF033372AE211E1006FFF3D /* ContentSizedTableView.swift */,
 				EAF033392AE5E1BD006FFF3D /* OperateButton.swift */,
+				EAF033442AE79025006FFF3D /* PaddingLabel.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				EAF033362AE0F26A006FFF3D /* PhotoTableViewCell.swift in Sources */,
 				EAF033382AE211E1006FFF3D /* ContentSizedTableView.swift in Sources */,
 				EA0869832AC1675700285838 /* SceneDelegate.swift in Sources */,
+				EAF033452AE79025006FFF3D /* PaddingLabel.swift in Sources */,
 				EA5DC5652ACDE47C00D136F8 /* Observable.swift in Sources */,
 				EA0869AE2AC229CC00285838 /* Color.swift in Sources */,
 				EA0869AB2AC2293600285838 /* BaseViewController.swift in Sources */,

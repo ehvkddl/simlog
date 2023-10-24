@@ -10,7 +10,7 @@ import UIKit
 class LabelTableViewCell: BaseTableViewCell {
     
     let label = {
-        let lbl = UILabel()
+        let lbl = PaddingLabel()
         lbl.numberOfLines = 0
         return lbl
     }()
@@ -37,10 +37,12 @@ extension LabelTableViewCell {
         
         switch type {
         case .sleep:
+            label.padding = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             label.textColor = .systemGray
             label.font = UIFont.systemFont(ofSize: 13)
         case .diary:
-            label.backgroundColor = Constants.BaseColor.grayBackground
+            label.padding = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+            label.backgroundColor = Constants.BaseColor.cellBackground
         default: break
         }
     }
