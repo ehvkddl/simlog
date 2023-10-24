@@ -25,7 +25,7 @@ class FSCalendarCustomCell: FSCalendarCell {
     let moodImage = {
         let img = UIImageView()
         img.image = UIImage(systemName: "circle.fill")
-        img.tintColor = Constants.BaseColor.grayBackground
+        img.tintColor = Constants.BaseColor.cellBackground
         return img
     }()
     
@@ -42,7 +42,7 @@ class FSCalendarCustomCell: FSCalendarCell {
     
     override func prepareForReuse() {
         dayLabel.backgroundColor = .clear
-        moodImage.tintColor = Constants.BaseColor.grayBackground
+        moodImage.tintColor = Constants.BaseColor.cellBackground
     }
     
     func configureCell() {

@@ -29,7 +29,7 @@ class DailyLogView: BaseView {
     
     let separator = {
         let view = UIView()
-        view.backgroundColor = Constants.BaseColor.grayBackground
+        view.backgroundColor = Constants.BaseColor.cellBackground
         return view
     }()
     
@@ -47,6 +47,8 @@ class DailyLogView: BaseView {
         view.separatorStyle = .none
         view.isScrollEnabled = false
         view.showsVerticalScrollIndicator = false
+        
+        view.allowsSelection = false
         
         return view
     }()
