@@ -64,6 +64,7 @@
 		EAF0333A2AE5E1BD006FFF3D /* OperateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033392AE5E1BD006FFF3D /* OperateButton.swift */; };
 		EAF0333E2AE5E778006FFF3D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF0333D2AE5E778006FFF3D /* Utils.swift */; };
 		EAF033452AE79025006FFF3D /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033442AE79025006FFF3D /* PaddingLabel.swift */; };
+		EAF0334D2AE79548006FFF3D /* Loaf in Frameworks */ = {isa = PBXBuildFile; productRef = EAF0334C2AE79548006FFF3D /* Loaf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +133,7 @@
 				EA08699D2AC227A000285838 /* Alamofire in Frameworks */,
 				EA0869A82AC227EB00285838 /* SnapKit in Frameworks */,
 				EA7937792ADC6C5E0061277E /* FSCalendar in Frameworks */,
+				EAF0334D2AE79548006FFF3D /* Loaf in Frameworks */,
 				EA0869BA2AC4719B00285838 /* HGCircularSlider in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,6 +359,7 @@
 				EA0869A72AC227EB00285838 /* SnapKit */,
 				EA0869B92AC4719B00285838 /* HGCircularSlider */,
 				EA7937782ADC6C5E0061277E /* FSCalendar */,
+				EAF0334C2AE79548006FFF3D /* Loaf */,
 			);
 			productName = Simlog;
 			productReference = EA08697D2AC1675700285838 /* Simlog.app */;
@@ -393,6 +396,7 @@
 				EA0869A62AC227EA00285838 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				EA0869B82AC4719B00285838 /* XCRemoteSwiftPackageReference "HGCircularSlider" */,
 				EA7937772ADC6C5D0061277E /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				EAF0334B2AE79548006FFF3D /* XCRemoteSwiftPackageReference "Loaf" */,
 			);
 			productRefGroup = EA08697E2AC1675700285838 /* Products */;
 			projectDirPath = "";
@@ -733,6 +737,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		EAF0334B2AE79548006FFF3D /* XCRemoteSwiftPackageReference "Loaf" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/schmidyy/Loaf.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -770,6 +782,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EA7937772ADC6C5D0061277E /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
+		};
+		EAF0334C2AE79548006FFF3D /* Loaf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EAF0334B2AE79548006FFF3D /* XCRemoteSwiftPackageReference "Loaf" */;
+			productName = Loaf;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
