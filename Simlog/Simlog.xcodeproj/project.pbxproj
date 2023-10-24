@@ -62,6 +62,7 @@
 		EAF033362AE0F26A006FFF3D /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033352AE0F26A006FFF3D /* PhotoTableViewCell.swift */; };
 		EAF033382AE211E1006FFF3D /* ContentSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033372AE211E1006FFF3D /* ContentSizedTableView.swift */; };
 		EAF0333A2AE5E1BD006FFF3D /* OperateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033392AE5E1BD006FFF3D /* OperateButton.swift */; };
+		EAF0333E2AE5E778006FFF3D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF0333D2AE5E778006FFF3D /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +116,7 @@
 		EAF033352AE0F26A006FFF3D /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		EAF033372AE211E1006FFF3D /* ContentSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSizedTableView.swift; sourceTree = "<group>"; };
 		EAF033392AE5E1BD006FFF3D /* OperateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperateButton.swift; sourceTree = "<group>"; };
+		EAF0333D2AE5E778006FFF3D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 			children = (
 				EA0869AD2AC229CC00285838 /* Color.swift */,
 				EA5DC5312ACC9E4900D136F8 /* Constants.swift */,
+				EAF0333D2AE5E778006FFF3D /* Utils.swift */,
 				EA5DC6132AD88C9C00D136F8 /* PhotoManager.swift */,
 				EA5DC6192ADC4C9300D136F8 /* AppDateFormatter.swift */,
 			);
@@ -456,6 +459,7 @@
 				EA5DC5EA2AD5A3F000D136F8 /* ButtonItem.swift in Sources */,
 				EAF033172ADF39B9006FFF3D /* DailyLogView.swift in Sources */,
 				EA5DC5E02AD32CE800D136F8 /* UIView+.swift in Sources */,
+				EAF0333E2AE5E778006FFF3D /* Utils.swift in Sources */,
 				EA5DC5E42AD4407500D136F8 /* AddWeatherTableViewCell.swift in Sources */,
 				EA5DC5E62AD446CF00D136F8 /* AddDailyLogBaseTableViewCell.swift in Sources */,
 				EA5DC57E2ACF4C9900D136F8 /* AddMoodTableViewCell.swift in Sources */,
