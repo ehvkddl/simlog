@@ -165,6 +165,12 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
             cell.sliderValueChangedClosure = { value in
                 self.vm.dailylog.value.mood = value
             }
+            
+            if let mood = vm.dailylog.value.mood {
+                cell.slider.value = Float(mood)
+                cell.slider.setLabelTextColor()
+            }
+            
             return cell
             
         case .weather:
