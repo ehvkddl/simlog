@@ -15,10 +15,15 @@ extension UIView {
         gradient.startPoint = CGPoint(x:0.0, y:0.5)
         gradient.endPoint = CGPoint(x:1.0, y:0.5)
         gradient.colors = [
-            UIColor(hexCode: "E75C56").cgColor,
-            UIColor(hexCode: "F6F96E").cgColor,
-            UIColor(hexCode: "85F675").cgColor,
-            UIColor(hexCode: "5F90F1").cgColor
+            Constants.BaseColor.SLRed.cgColor,
+            Constants.BaseColor.SLOrange.cgColor,
+            Constants.BaseColor.SLYellow.cgColor,
+            Constants.BaseColor.SLYellowgreen.cgColor,
+            Constants.BaseColor.SLGreen.cgColor,
+            Constants.BaseColor.SLBluegreen.cgColor,
+            Constants.BaseColor.SLMint.cgColor,
+            Constants.BaseColor.SLBlue.cgColor,
+            Constants.BaseColor.SLPurple.cgColor
         ]
         
         return gradient
