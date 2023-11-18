@@ -65,6 +65,7 @@
 		EAF0333E2AE5E778006FFF3D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF0333D2AE5E778006FFF3D /* Utils.swift */; };
 		EAF033452AE79025006FFF3D /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033442AE79025006FFF3D /* PaddingLabel.swift */; };
 		EAF0334D2AE79548006FFF3D /* Loaf in Frameworks */ = {isa = PBXBuildFile; productRef = EAF0334C2AE79548006FFF3D /* Loaf */; };
+		EAF0334F2AE890A1006FFF3D /* Calendar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF0334E2AE890A1006FFF3D /* Calendar+.swift */; };
 		EAF0335A2AE9AD4C006FFF3D /* SLSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033592AE9AD4C006FFF3D /* SLSlider.swift */; };
 		EAF0335C2AEFDCF0006FFF3D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAF0335B2AEFDCF0006FFF3D /* GoogleService-Info.plist */; };
 		EAF0335F2AEFDF07006FFF3D /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = EAF0335E2AEFDF07006FFF3D /* FirebaseAnalyticsWithoutAdIdSupport */; };
@@ -124,6 +125,7 @@
 		EAF033392AE5E1BD006FFF3D /* OperateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperateButton.swift; sourceTree = "<group>"; };
 		EAF0333D2AE5E778006FFF3D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		EAF033442AE79025006FFF3D /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		EAF0334E2AE890A1006FFF3D /* Calendar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+.swift"; sourceTree = "<group>"; };
 		EAF033592AE9AD4C006FFF3D /* SLSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLSlider.swift; sourceTree = "<group>"; };
 		EAF0335B2AEFDCF0006FFF3D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -251,6 +253,7 @@
 				EA5DC5DB2AD32B8E00D136F8 /* UIColor+.swift */,
 				EA5DC5DF2AD32CE800D136F8 /* UIView+.swift */,
 				EA5DC5F62AD7287F00D136F8 /* UITableView+.swift */,
+				EAF0334E2AE890A1006FFF3D /* Calendar+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				EA0869852AC1675700285838 /* CalendarViewController.swift in Sources */,
 				EA5DC5672ACDE76900D136F8 /* SleepViewModel.swift in Sources */,
 				EA5DC5842ACF5B8900D136F8 /* DiaryViewController.swift in Sources */,
+				EAF0334F2AE890A1006FFF3D /* Calendar+.swift in Sources */,
 				EA79377B2ADC72BA0061277E /* CalendarViewModel.swift in Sources */,
 				EA0869972AC209BA00285838 /* StatisticsViewController.swift in Sources */,
 				EAF0331B2AE03F23006FFF3D /* ImageCollectionViewCell.swift in Sources */,

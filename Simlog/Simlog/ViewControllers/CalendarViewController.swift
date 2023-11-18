@@ -169,13 +169,23 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
             cell.select()
         }
         
-        guard let log = vm.fetchDailyLog(on: date) else {
-            dailyLogView.isHidden = true
-            presentAddDailyLogView(date: date)
-            return
+        switch Calendar.compareToday(to: date) {
+        case .orderedDescending, .orderedSame:
+            guard let log = vm.fetchDailyLog(on: date) else {
+                presentAddDailyLogView(date: date)
+                dailyLogView.isHidden = true
+                selectedLog = nil
+                scrollToTop()
+                return
+            }
+            
+            setDailyLog(dailyLog: log)
+            selectedLog = log
+            
+        default:
+            Loaf("미래는 일기를 작성할 수 없어요.", state: .info, location: .top, sender: self).show()
+            break
         }
-        
-        setDailyLog(dailyLog: log)
     }
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
@@ -186,12 +196,15 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
         guard let cell = calendar.dequeueReusableCell(withIdentifier: FSCalendarCustomCell.description(), for: date, at: position) as? FSCalendarCustomCell else { return FSCalendarCell() }
         
-        let cellDay = AppDateFormatter.shared.toString(date: date, type: .year)
-        let today = AppDateFormatter.shared.toString(date: Date(), type: .year)
-        
-        switch cellDay {
-        case today: cell.dayLabel.text = "오늘"
-        default: cell.dayLabel.text = AppDateFormatter.shared.toString(date: date, type: .day)
+        switch Calendar.compareToday(to: date) {
+        case .orderedDescending:
+            cell.dayLabel.text = AppDateFormatter.shared.toString(date: date, type: .day)
+        case .orderedSame:
+            cell.dayLabel.text = "오늘"
+        case .orderedAscending:
+            cell.dayLabel.text = AppDateFormatter.shared.toString(date: date, type: .day)
+            cell.moodImage.image = UIImage(systemName: "circle.dotted")
+        default: break
         }
         
         guard let log = vm.fetchDailyLog(on: date) else { return cell }
