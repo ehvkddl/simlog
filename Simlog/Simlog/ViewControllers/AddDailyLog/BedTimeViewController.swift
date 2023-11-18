@@ -191,8 +191,14 @@ class BedTimeViewController: BaseViewController {
         
         contentsView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.85)
-            make.height.equalToSuperview().multipliedBy(0.7)
+            print(screenWidth, screenHeight)
+            if screenWidth >= 375 && screenHeight > 810 {
+                make.width.equalToSuperview().multipliedBy(0.85)
+                make.height.equalToSuperview().multipliedBy(0.7)
+            } else {
+                make.width.equalToSuperview().multipliedBy(0.95)
+                make.height.equalToSuperview().multipliedBy(0.9)
+            }
         }
         
         closeButton.snp.makeConstraints { make in
