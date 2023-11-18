@@ -7,6 +7,7 @@
 
 import UIKit
 import FSCalendar
+import Loaf
 
 class CalendarViewController: BaseViewController {
 
@@ -128,7 +129,18 @@ class CalendarViewController: BaseViewController {
 extension CalendarViewController {
     
     @objc private func addButtonClicked() {
-        presentAddDailyLogView(date: Date())
+        let dateStr = AppDateFormatter.shared.toString(date: Date(), type: .year)
+        guard let date = AppDateFormatter.shared.toDate(date: dateStr, type: .year) else { return }
+        
+        guard let dailyLog = vm.fetchDailyLog(on: date) else {
+            presentAddDailyLogView(date: date)
+            return
+        }
+        
+        Loaf("오늘의 일기는 이미 작성했어요.", state: .info, location: .top, sender: self).show()
+        setDailyLog(dailyLog: dailyLog)
+    }
+    
     }
     
     private func presentAddDailyLogView(date: Date) {

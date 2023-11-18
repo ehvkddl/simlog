@@ -7,6 +7,7 @@
 
 import UIKit
 import PhotosUI
+import Loaf
 
 enum CellType {
     case mood
@@ -139,9 +140,14 @@ extension AddDailyLogViewController {
     }
     
     @objc private func saveButtonClicked() {
-        vm.saveDailyLog()
-        
-        dismiss(animated: true)
+        do {
+            try vm.saveDailyLog()
+            saveButtonClickedClosure?()
+            dismiss(animated: true)
+        } catch {
+            Loaf(error.localizedDescription, state: .error, location: .top, sender: self).show()
+            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        }
     }
     
 }
