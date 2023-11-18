@@ -136,7 +136,11 @@ class AddDailyLogViewController: BaseViewController {
 extension AddDailyLogViewController {
     
     @objc private func closeButtonClicked() {
-        dismiss(animated: true)
+        showAlert(
+            title: "일기 작성을 종료하시겠어요?",
+            message: "아직 내용이 저장되지 않았어요!") {
+                self.dismiss(animated: true)
+            }
     }
     
     @objc private func saveButtonClicked() {

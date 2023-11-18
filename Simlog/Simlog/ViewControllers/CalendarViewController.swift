@@ -13,6 +13,8 @@ class CalendarViewController: BaseViewController {
 
     let vm = CalendarViewModel()
     
+    var selectedLog: DailyLog?
+    
     let scrollView: UIScrollView = {
         let view = UIScrollView()
         view.showsVerticalScrollIndicator = false
@@ -163,6 +165,17 @@ extension CalendarViewController {
     }
     
     @objc private func deleteDailyLogClicked() {
+        guard let selectedLog else { return }
+        showAlert(
+            title: AppDateFormatter.shared.toString(date: selectedLog.date, type: .year),
+            message: "정말로 일기를 삭제하시겠어요?"
+        ) {
+            self.vm.deleteDailyLog(selectedLog)
+            self.dailyLogView.isHidden = true
+            self.calendar.reloadData()
+        }
+    }
+    
     private func scrollToTop() {
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
     }
