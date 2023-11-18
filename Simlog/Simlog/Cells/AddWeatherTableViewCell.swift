@@ -36,6 +36,10 @@ class AddWeatherTableViewCell: AddDailyLogBaseTableViewCell {
 
         configureCollectionViewCell()
         updateSnapshot()
+        
+        vm.weather.bind { [self] weathers in
+            updateSnapshot()
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -71,8 +75,6 @@ extension AddWeatherTableViewCell: UICollectionViewDelegate {
         vm.buttonClicked(type: button.type, isSelect: button.isSelect)
         
         cellButtonClickedClosure?(Array(vm.weather.value))
-        
-        updateSnapshot()
     }
     
 }
