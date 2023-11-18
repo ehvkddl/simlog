@@ -31,4 +31,22 @@ extension UIViewController {
         }
     }
     
+    func showAlert(
+        title: String,
+        message: String,
+        okHandler: (() -> Void)? = nil
+    ) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let cancel = UIAlertAction(title: "아니요", style: .cancel)
+        let ok = UIAlertAction(title: "네", style: .destructive) { _ in
+            okHandler?()
+        }
+        
+        alert.addAction(cancel)
+        alert.addAction(ok)
+        
+        present(alert, animated: true)
+    }
+    
 }
