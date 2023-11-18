@@ -26,6 +26,7 @@ class FSCalendarCustomCell: FSCalendarCell {
         let img = UIImageView()
         img.image = UIImage(systemName: "circle.fill")
         img.tintColor = Constants.BaseColor.cellBackground
+        img.contentMode = .scaleAspectFit
         return img
     }()
     
@@ -40,8 +41,13 @@ class FSCalendarCustomCell: FSCalendarCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        dayLabel.layer.cornerRadius = dayLabel.frame.height / 2
+    }
+    
     override func prepareForReuse() {
         dayLabel.backgroundColor = .clear
+        moodImage.image = UIImage(systemName: "circle.fill")
         moodImage.tintColor = Constants.BaseColor.cellBackground
     }
     
@@ -54,6 +60,7 @@ class FSCalendarCustomCell: FSCalendarCell {
         dayLabel.snp.makeConstraints { make in
             make.top.equalTo(contentView).inset(2)
             make.width.equalTo(30)
+            make.height.equalTo(18)
             make.centerX.equalTo(contentView)
         }
         
@@ -63,7 +70,6 @@ class FSCalendarCustomCell: FSCalendarCell {
             make.bottom.equalTo(contentView).inset(2)
             make.centerX.equalTo(contentView)
             make.width.equalTo(contentView).multipliedBy(0.85)
-            make.height.equalTo(moodImage.snp.width).multipliedBy(1)
         }
     }
     
