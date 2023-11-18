@@ -199,9 +199,9 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
             cell.addButtonClosure = {
                 let vc = BedTimeViewController()
                 vc.vm.sleep.value = self.vm.dailylog.value.sleep
-                vc.saveButtonClosure = { bedTime, wakeupTime, text in
+                vc.saveButtonClosure = { sleep, text in
                     cell.addButton.setTitle(text, for: .normal)
-                    self.vm.dailylog.value.sleep = Sleep(bedTime: bedTime, wakeupTime: wakeupTime)
+                    self.vm.dailylog.value.sleep = sleep
                 }
                 vc.modalPresentationStyle = .overCurrentContext
                 vc.modalTransitionStyle = .crossDissolve
