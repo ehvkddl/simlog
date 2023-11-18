@@ -52,4 +52,14 @@ class AppDateFormatter {
         return dateFormatter.string(from: date)
     }
     
+    func toDate(date: String,
+                locale: String = Locale.current.identifier,
+                timeZone: String = TimeZone.current.identifier,
+                type: DateFormatType) -> Date? {
+        dateFormatter.timeZone = TimeZone(abbreviation: timeZone)
+        dateFormatter.locale = Locale(identifier: locale)
+        dateFormatter.dateFormat = type.description
+        return dateFormatter.date(from: date)
+    }
+    
 }
