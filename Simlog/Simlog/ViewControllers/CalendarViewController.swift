@@ -93,7 +93,8 @@ class CalendarViewController: BaseViewController {
     
     override func setConstraints() {
         scrollView.snp.makeConstraints { make in
-            make.edges.equalTo(view)
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.horizontalEdges.bottom.equalTo(view)
         }
         
         contentView.snp.makeConstraints { make in
@@ -150,6 +151,8 @@ extension CalendarViewController {
     }
     
     @objc private func deleteDailyLogClicked() {
+    private func scrollToTop() {
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
     }
     
 }
@@ -190,6 +193,7 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         vm.setCurrentPageTitle(date: calendar.currentPage)
+        scrollToTop()
         dailyLogView.isHidden = true
     }
     
