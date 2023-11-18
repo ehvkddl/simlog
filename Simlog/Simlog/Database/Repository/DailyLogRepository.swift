@@ -35,6 +35,34 @@ final class DailyLogRepository: DailyLogRepositoryProtocol {
         }
     }
     
+    func deleteDailyLog(_ item: DailyLog) {
+        if let sleep = item.sleep {
+            deleteSleep(sleep)
+        }
+        
+        guard let record = realm.object(ofType: DailyLogTB.self, forPrimaryKey: item.id) else { return }
+        do {
+            try realm.write {
+                realm.delete(record)
+            }
+        } catch {
+            print("delete 실패", error)
+        }
+    }
+    
+    func deleteSleep(_ item: Sleep) {
+//        let record = SleepTB(_id: item.id, bedTime: Float(item.bedTime), wakeupTime: Float(item.wakeupTime))
+        guard let record = realm.object(ofType: SleepTB.self, forPrimaryKey: item.id) else { return }
+        
+        do {
+            try realm.write {
+                realm.delete(record)
+            }
+        } catch {
+            print("delete 실패", error)
+        }
+    }
+    
     private func convertToTB(_ log: DailyLog) -> DailyLogTB {
         var weathers = List<Int>()
         if let weahterLog = log.weather {

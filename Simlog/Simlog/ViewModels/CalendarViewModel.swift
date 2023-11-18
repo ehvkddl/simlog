@@ -30,4 +30,8 @@ class CalendarViewModel {
         return dailyLog
     }
     
+    func deleteDailyLog(_ item: DailyLog) {
+        dailyLogRepository.deleteDailyLog(item)
+    }
+    
 }
