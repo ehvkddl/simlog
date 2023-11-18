@@ -46,6 +46,8 @@ class AddDailyLogViewController: BaseViewController {
     
     let vm = DailyLogViewModel()
     
+    var saveButtonClickedClosure: (() -> Void)?
+    
     let editComponent: [CellType] = [.mood, .weather, .sleep, .photo, .diary]
     
     lazy var phpicker = {
