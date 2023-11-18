@@ -20,7 +20,11 @@ class DailyLogViewModel {
             return
         }
         
-        dailyLogRepository.addDailyLog(log)
+        if dailyLogRepository.fetchDailyLog(with: log.id) {
+            dailyLogRepository.updateDailyLog(log)
+        } else {
+            dailyLogRepository.addDailyLog(log)
+        }
         
         guard let photos = log.photo, let photo = photos.first, let image = photo.image else { return }
         let date = AppDateFormatter.shared.toString(date: log.date, type: .year)

@@ -35,6 +35,16 @@ final class DailyLogRepository: DailyLogRepositoryProtocol {
         }
     }
     
+    func updateDailyLog(_ item: DailyLog) {
+        do {
+            try realm.write {
+                realm.add(convertToTB(item), update: .modified)
+            }
+        } catch {
+            print("update 실패", error)
+        }
+    }
+    
     func deleteDailyLog(_ item: DailyLog) {
         if let sleep = item.sleep {
             deleteSleep(sleep)
