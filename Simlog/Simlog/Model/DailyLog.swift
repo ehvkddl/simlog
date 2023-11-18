@@ -8,6 +8,7 @@
 import Foundation
 
 struct DailyLog: Hashable {
+    var id = UUID().uuidString
     var date: Date
     var mood: Int?
     var weather: [WeatherType]?
@@ -37,6 +38,7 @@ enum WeatherType: Int {
 }
 
 struct Sleep: Hashable {
+    var id = UUID().uuidString
     var bedTime: CGFloat
     var wakeupTime: CGFloat
     var sleepTime: CGFloat {

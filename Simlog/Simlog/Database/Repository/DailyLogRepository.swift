@@ -71,7 +71,7 @@ final class DailyLogRepository: DailyLogRepositoryProtocol {
         
         var sleep: SleepTB?
         if let sleepLog = log.sleep {
-            sleep = SleepTB(bedTime: Float(sleepLog.bedTime), wakeupTime: Float(sleepLog.wakeupTime))
+            sleep = SleepTB(_id: sleepLog.id, bedTime: Float(sleepLog.bedTime), wakeupTime: Float(sleepLog.wakeupTime))
         }
         
         var photos = List<String>()
@@ -79,7 +79,7 @@ final class DailyLogRepository: DailyLogRepositoryProtocol {
             photoLog.forEach { photos.append($0.fileName) }
         }
         
-        return DailyLogTB(date: log.date, mood: log.mood ?? 0, weather: weathers, sleep: sleep, photo: photos, diary: log.diary)
+        return DailyLogTB(_id: log.id, date: log.date, mood: log.mood ?? 0, weather: weathers, sleep: sleep, photo: photos, diary: log.diary)
     }
     
     func convertToMD(_ record: DailyLogTB) -> DailyLog {
@@ -96,7 +96,7 @@ final class DailyLogRepository: DailyLogRepositoryProtocol {
         
         var sleep: Sleep?
         if let sleepRecord = record.sleep {
-            sleep = Sleep(bedTime: CGFloat(sleepRecord.bedTime), wakeupTime: CGFloat(sleepRecord.wakeupTime))
+            sleep = Sleep(id: sleepRecord._id, bedTime: CGFloat(sleepRecord.bedTime), wakeupTime: CGFloat(sleepRecord.wakeupTime))
         }
         
         var photos = [Photo]()
@@ -106,7 +106,7 @@ final class DailyLogRepository: DailyLogRepositoryProtocol {
             }
         }
         
-        return DailyLog(date: record.date, mood: record.mood, weather: weathers, sleep: sleep, photo: photos, diary: record.diary)
+        return DailyLog(id: record._id, date: record.date, mood: record.mood, weather: weathers, sleep: sleep, photo: photos, diary: record.diary)
     }
     
 }

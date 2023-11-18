@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 class DailyLogTB: Object {
-    @Persisted(primaryKey: true) var _id: ObjectId
+    @Persisted(primaryKey: true) var _id: String
     @Persisted var date: Date
     @Persisted var mood: Int
     @Persisted var weather: List<Int>
@@ -18,6 +18,7 @@ class DailyLogTB: Object {
     @Persisted var diary: String?
 
     convenience init(
+        _id: String,
         date: Date,
         mood: Int,
         weather: List<Int>,
@@ -27,6 +28,7 @@ class DailyLogTB: Object {
     ) {
         self.init()
         
+        self._id = _id
         self.date = date
         self.mood = mood
         self.weather = weather
@@ -37,18 +39,20 @@ class DailyLogTB: Object {
 }
 
 class SleepTB: Object {
-    @Persisted(primaryKey: true) var _id: ObjectId
+    @Persisted(primaryKey: true) var _id: String
     @Persisted var bedTime: Float
     @Persisted var wakeupTime: Float
     
     @Persisted(originProperty: "sleep") var dailyLog: LinkingObjects<DailyLogTB>
     
     convenience init(
+        _id: String,
         bedTime: Float,
         wakeupTime: Float
     ) {
         self.init()
         
+        self._id = _id
         self.bedTime = bedTime
         self.wakeupTime = wakeupTime
     }
