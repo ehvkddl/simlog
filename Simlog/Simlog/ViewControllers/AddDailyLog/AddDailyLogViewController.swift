@@ -188,6 +188,15 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
             cell.cellButtonClickedClosure = { weathers in
                 self.vm.dailylog.value.weather = weathers
             }
+            
+            if let weather = vm.dailylog.value.weather {
+                weather.forEach {
+                    cell.buttons[$0.rawValue].isSelect = true
+                }
+                
+                cell.vm.weather.value = Set(weather)
+            }
+            
             return cell
             
         case .meal:
@@ -209,6 +218,22 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
                 vc.modalTransitionStyle = .crossDissolve
                 self.present(vc, animated: true)
             }
+            
+            if let sleep = vm.dailylog.value.sleep {
+                let bedTime = Date(timeIntervalSinceReferenceDate: sleep.bedTime)
+                let bedTimeStr = AppDateFormatter.shared.toString(date: bedTime, timeZone: "UTC", type: .timeWithMeridiem)
+                
+                let wakeTime = Date(timeIntervalSinceReferenceDate: sleep.wakeupTime)
+                let wakeTimeStr = AppDateFormatter.shared.toString(date: wakeTime, timeZone: "UTC", type: .timeWithMeridiem)
+                
+                let duration = Date(timeIntervalSinceReferenceDate: sleep.sleepTime)
+                let durationStr = AppDateFormatter.shared.toString(date: duration, timeZone: "UTC", type: .timeWithLanguage)
+                
+                let text = "\(bedTimeStr) ~ \(wakeTimeStr)"
+                
+                cell.addButton.setTitle(text, for: .normal)
+            }
+            
             return cell
             
         case .todo:
@@ -220,6 +245,13 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
             cell.photoButtonClosure = {
                 self.present(self.phpicker, animated: true)
             }
+            
+            if let photos = vm.dailylog.value.photo, let photo = photos.first {
+                let date = AppDateFormatter.shared.toString(date: vm.dailylog.value.date, type: .year)
+                let image = PhotoManager.shared.loadImageFromDocument(date: date, fileName: photo.fileName)
+                cell.photoButton.setImage(image, for: .normal)
+            }
+            
             return cell
             
         case .diary:
@@ -238,6 +270,11 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
                 vc.modalTransitionStyle = .crossDissolve
                 self.present(vc, animated: true)
             }
+            
+            if let diary = vm.dailylog.value.diary {
+                cell.addButton.setTitle(diary, for: .normal)
+            }
+            
             return cell
         }
     }

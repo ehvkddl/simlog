@@ -143,11 +143,9 @@ extension CalendarViewController {
         setDailyLog(dailyLog: dailyLog)
     }
     
-    }
     
-    private func presentAddDailyLogView(date: Date) {
+    private func presentAddDailyLogView(date: Date?, log: DailyLog? = nil) {
         let vc = AddDailyLogViewController()
-        vc.vm.dailylog.value.date = date
         
         vc.saveButtonClickedClosure = {
             self.dailyLogView.isHidden = true
@@ -155,6 +153,13 @@ extension CalendarViewController {
             self.scrollToTop()
         }
         
+        if let date {
+            vc.vm.dailylog.value.date = date
+        }
+        
+        if let log {
+            vc.vm.dailylog.value = log
+        }
 
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .overFullScreen
@@ -169,6 +174,7 @@ extension CalendarViewController {
     }
     
     @objc private func editDailyLogClicked() {
+        presentAddDailyLogView(date: nil, log: selectedLog)
     }
     
     @objc private func deleteDailyLogClicked() {
