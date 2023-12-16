@@ -12,12 +12,10 @@ class AddMoodTableViewCell: AddDailyLogBaseTableViewCell {
     var sliderValueChangedClosure: ((Int) -> Void)?
     
     let slider = {
-        let slider = UISlider()
+        let slider = SLSlider()
         slider.minimumValue = 0
         slider.maximumValue = 100
         slider.value = 50
-        slider.minimumTrackTintColor = .clear
-        slider.maximumTrackTintColor = .clear
         return slider
     }()
     
@@ -40,8 +38,7 @@ class AddMoodTableViewCell: AddDailyLogBaseTableViewCell {
         
         slider.addTarget(self, action: #selector(sliderValueChanged),for: .valueChanged)
         
-        [sliderBackgroundView, slider].forEach { containerView.addSubview($0) }
-        slider.addSubview(thumbLabel)
+        containerView.addSubview(slider)
     }
     
     override func setConstraints() {
@@ -53,14 +50,6 @@ class AddMoodTableViewCell: AddDailyLogBaseTableViewCell {
             make.bottom.equalTo(containerView.snp.bottom).offset(-15)
             make.centerX.equalTo(containerView)
         }
-        
-        sliderBackgroundView.snp.makeConstraints { make in
-            make.edges.equalTo(slider)
-        }
-        
-        thumbLabel.snp.remakeConstraints { make in
-            make.center.equalTo(slider.getThumbCenter())
-        }
     }
     
 }
@@ -69,12 +58,8 @@ extension AddMoodTableViewCell {
     
     @objc func sliderValueChanged(_ sender: UISlider) {
         let value = sender.value
-
-        thumbLabel.text = String(Int(value))
-        thumbLabel.snp.remakeConstraints { make in
-            make.center.equalTo(slider.getThumbCenter())
-        }
-        
+        slider.setLabelTextColor()
+        slider.layoutIfNeeded()
         sliderValueChangedClosure?(Int(value))
     }
     

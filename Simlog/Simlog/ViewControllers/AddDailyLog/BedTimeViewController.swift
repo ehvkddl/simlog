@@ -12,7 +12,7 @@ class BedTimeViewController: BaseViewController {
     
     let vm = SleepViewModel()
     
-    var saveButtonClosure: ((CGFloat, CGFloat, String) -> Void)?
+    var saveButtonClosure: ((Sleep, String) -> Void)?
     
     var sliderSize: CGFloat {
         screenWidth * 0.8
@@ -191,8 +191,14 @@ class BedTimeViewController: BaseViewController {
         
         contentsView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.85)
-            make.height.equalToSuperview().multipliedBy(0.7)
+            print(screenWidth, screenHeight)
+            if screenWidth >= 375 && screenHeight > 810 {
+                make.width.equalToSuperview().multipliedBy(0.85)
+                make.height.equalToSuperview().multipliedBy(0.7)
+            } else {
+                make.width.equalToSuperview().multipliedBy(0.95)
+                make.height.equalToSuperview().multipliedBy(0.9)
+            }
         }
         
         closeButton.snp.makeConstraints { make in
@@ -271,7 +277,7 @@ extension BedTimeViewController {
         
         guard let sleep = vm.sleep.value else { return }
         let sleepTimeText = "\(vm.getTimeWithMeridiemString(value: sleep.bedTime)) ~ \(vm.getTimeWithMeridiemString(value: sleep.wakeupTime))"
-        self.saveButtonClosure?(sleep.bedTime, sleep.wakeupTime, sleepTimeText)
+        self.saveButtonClosure?(sleep, sleepTimeText)
     }
     
     @objc private func updateTimeTexts() {

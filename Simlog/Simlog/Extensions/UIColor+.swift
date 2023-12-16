@@ -27,4 +27,19 @@ extension UIColor {
                   alpha: alpha)
     }
     
+    static func moodColor(score: Int) -> UIColor {
+        switch score {
+        case 0...10: return Constants.BaseColor.SLRed
+        case 11...21: return Constants.BaseColor.SLOrange
+        case 22...32: return Constants.BaseColor.SLYellow
+        case 33...43: return Constants.BaseColor.SLYellowgreen
+        case 44...54: return Constants.BaseColor.SLGreen
+        case 55...65: return Constants.BaseColor.SLBluegreen
+        case 66...76: return Constants.BaseColor.SLMint
+        case 77...87: return Constants.BaseColor.SLBlue
+        case 88...100: return Constants.BaseColor.SLPurple
+        default: return Constants.BaseColor.ButtonBackground
+        }
+    }
+    
 }

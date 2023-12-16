@@ -8,14 +8,25 @@
 import Foundation
 import RealmSwift
 
+protocol DailyLogRepositoryProtocol {
+    func fetch() -> Results<DailyLogTB>
+    func addDailyLog(_ item: DailyLog)
+}
+
 final class DailyLogRepository: DailyLogRepositoryProtocol {
     
     private let realm = try! Realm()
     
-    private lazy var dailyLog: Results<DailyLogTB>! = self.fetch()
-
     func fetch() -> Results<DailyLogTB> {
-        return realm.objects(DailyLogTB.self).sorted(byKeyPath: "_id", ascending: false)
+        return realm.objects(DailyLogTB.self).sorted(byKeyPath: "date", ascending: true)
+    }
+    
+    func fetchDailyLog(on date: Date) -> Results<DailyLogTB> {
+        return realm.objects(DailyLogTB.self).filter("date >= %@ AND date < %@", date, Date(timeInterval: 86400, since: date)).sorted(byKeyPath: "date", ascending: true)
+    }
+    
+    func fetchDailyLog(with id: String) -> Bool {
+        return realm.object(ofType: DailyLogTB.self, forPrimaryKey: id) == nil ? false : true
     }
     
     func addDailyLog(_ item: DailyLog) {
@@ -26,7 +37,44 @@ final class DailyLogRepository: DailyLogRepositoryProtocol {
         } catch {
             print("일기 저장 실패", error)
         }
-        print(dailyLog!)
+    }
+    
+    func updateDailyLog(_ item: DailyLog) {
+        do {
+            try realm.write {
+                realm.add(convertToTB(item), update: .modified)
+            }
+        } catch {
+            print("update 실패", error)
+        }
+    }
+    
+    func deleteDailyLog(_ item: DailyLog) {
+        if let sleep = item.sleep {
+            deleteSleep(sleep)
+        }
+        
+        guard let record = realm.object(ofType: DailyLogTB.self, forPrimaryKey: item.id) else { return }
+        do {
+            try realm.write {
+                realm.delete(record)
+            }
+        } catch {
+            print("delete 실패", error)
+        }
+    }
+    
+    func deleteSleep(_ item: Sleep) {
+//        let record = SleepTB(_id: item.id, bedTime: Float(item.bedTime), wakeupTime: Float(item.wakeupTime))
+        guard let record = realm.object(ofType: SleepTB.self, forPrimaryKey: item.id) else { return }
+        
+        do {
+            try realm.write {
+                realm.delete(record)
+            }
+        } catch {
+            print("delete 실패", error)
+        }
     }
     
     private func convertToTB(_ log: DailyLog) -> DailyLogTB {
@@ -42,10 +90,37 @@ final class DailyLogRepository: DailyLogRepositoryProtocol {
         
         var photos = List<String>()
         if let photoLog = log.photo {
-            photoLog.forEach { photos.append($0.id) }
+            photoLog.forEach { photos.append($0.fileName) }
         }
         
         return DailyLogTB(_id: log.id, date: log.date, mood: log.mood ?? 0, weather: weathers, sleep: sleep, photo: photos, diary: log.diary)
+    }
+    
+    func convertToMD(_ record: DailyLogTB) -> DailyLog {
+        var weathers = [WeatherType]()
+        if !record.weather.isEmpty {
+            record.weather.forEach {
+                guard let type = WeatherType(rawValue: $0) else {
+                    print("database 변환 실패")
+                    return
+                }
+                weathers.append(type)
+            }
+        }
+        
+        var sleep: Sleep?
+        if let sleepRecord = record.sleep {
+            sleep = Sleep(id: sleepRecord._id, bedTime: CGFloat(sleepRecord.bedTime), wakeupTime: CGFloat(sleepRecord.wakeupTime))
+        }
+        
+        var photos = [Photo]()
+        if !record.photo.isEmpty {
+            record.photo.forEach {
+                photos.append(Photo(fileName: $0))
+            }
+        }
+        
+        return DailyLog(id: record._id, date: record.date, mood: record.mood, weather: weathers, sleep: sleep, photo: photos, diary: record.diary)
     }
     
 }

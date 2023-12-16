@@ -26,6 +26,9 @@ class BaseViewController: UIViewController {
     
     func configureNavigationBar() {
         navigationController?.navigationBar.tintColor = Constants.BaseColor.accent
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
 }

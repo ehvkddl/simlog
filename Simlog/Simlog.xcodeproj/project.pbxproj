@@ -51,6 +51,25 @@
 		EA5DC5FA2AD739E800D136F8 /* DailyLogComponentAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC5F92AD739E800D136F8 /* DailyLogComponentAddButton.swift */; };
 		EA5DC6142AD88C9C00D136F8 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC6132AD88C9C00D136F8 /* PhotoManager.swift */; };
 		EA5DC61A2ADC4C9300D136F8 /* AppDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5DC6192ADC4C9300D136F8 /* AppDateFormatter.swift */; };
+		EA7937792ADC6C5E0061277E /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = EA7937782ADC6C5E0061277E /* FSCalendar */; };
+		EA79377B2ADC72BA0061277E /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA79377A2ADC72BA0061277E /* CalendarViewModel.swift */; };
+		EAF033152ADD91FF006FFF3D /* FSCalendarCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033142ADD91FF006FFF3D /* FSCalendarCustomCell.swift */; };
+		EAF033172ADF39B9006FFF3D /* DailyLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033162ADF39B9006FFF3D /* DailyLogView.swift */; };
+		EAF033192ADF3A04006FFF3D /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033182ADF3A04006FFF3D /* BaseView.swift */; };
+		EAF0331B2AE03F23006FFF3D /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF0331A2AE03F23006FFF3D /* ImageCollectionViewCell.swift */; };
+		EAF0331D2AE05B6F006FFF3D /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF0331C2AE05B6F006FFF3D /* WeatherTableViewCell.swift */; };
+		EAF033212AE06CA8006FFF3D /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033202AE06CA8006FFF3D /* LabelTableViewCell.swift */; };
+		EAF033362AE0F26A006FFF3D /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033352AE0F26A006FFF3D /* PhotoTableViewCell.swift */; };
+		EAF033382AE211E1006FFF3D /* ContentSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033372AE211E1006FFF3D /* ContentSizedTableView.swift */; };
+		EAF0333A2AE5E1BD006FFF3D /* OperateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033392AE5E1BD006FFF3D /* OperateButton.swift */; };
+		EAF0333E2AE5E778006FFF3D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF0333D2AE5E778006FFF3D /* Utils.swift */; };
+		EAF033452AE79025006FFF3D /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033442AE79025006FFF3D /* PaddingLabel.swift */; };
+		EAF0334D2AE79548006FFF3D /* Loaf in Frameworks */ = {isa = PBXBuildFile; productRef = EAF0334C2AE79548006FFF3D /* Loaf */; };
+		EAF0334F2AE890A1006FFF3D /* Calendar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF0334E2AE890A1006FFF3D /* Calendar+.swift */; };
+		EAF0335A2AE9AD4C006FFF3D /* SLSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF033592AE9AD4C006FFF3D /* SLSlider.swift */; };
+		EAF0335C2AEFDCF0006FFF3D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAF0335B2AEFDCF0006FFF3D /* GoogleService-Info.plist */; };
+		EAF0335F2AEFDF07006FFF3D /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = EAF0335E2AEFDF07006FFF3D /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		EAF033612AEFDF07006FFF3D /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = EAF033602AEFDF07006FFF3D /* FirebaseCrashlytics */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +113,21 @@
 		EA5DC5F92AD739E800D136F8 /* DailyLogComponentAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogComponentAddButton.swift; sourceTree = "<group>"; };
 		EA5DC6132AD88C9C00D136F8 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		EA5DC6192ADC4C9300D136F8 /* AppDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDateFormatter.swift; sourceTree = "<group>"; };
+		EA79377A2ADC72BA0061277E /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		EAF033142ADD91FF006FFF3D /* FSCalendarCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSCalendarCustomCell.swift; sourceTree = "<group>"; };
+		EAF033162ADF39B9006FFF3D /* DailyLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLogView.swift; sourceTree = "<group>"; };
+		EAF033182ADF3A04006FFF3D /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		EAF0331A2AE03F23006FFF3D /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		EAF0331C2AE05B6F006FFF3D /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
+		EAF033202AE06CA8006FFF3D /* LabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
+		EAF033352AE0F26A006FFF3D /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		EAF033372AE211E1006FFF3D /* ContentSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSizedTableView.swift; sourceTree = "<group>"; };
+		EAF033392AE5E1BD006FFF3D /* OperateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperateButton.swift; sourceTree = "<group>"; };
+		EAF0333D2AE5E778006FFF3D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		EAF033442AE79025006FFF3D /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		EAF0334E2AE890A1006FFF3D /* Calendar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+.swift"; sourceTree = "<group>"; };
+		EAF033592AE9AD4C006FFF3D /* SLSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLSlider.swift; sourceTree = "<group>"; };
+		EAF0335B2AEFDCF0006FFF3D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +140,10 @@
 				EA0869A02AC227B500285838 /* Kingfisher in Frameworks */,
 				EA08699D2AC227A000285838 /* Alamofire in Frameworks */,
 				EA0869A82AC227EB00285838 /* SnapKit in Frameworks */,
+				EA7937792ADC6C5E0061277E /* FSCalendar in Frameworks */,
+				EAF0334D2AE79548006FFF3D /* Loaf in Frameworks */,
+				EAF033612AEFDF07006FFF3D /* FirebaseCrashlytics in Frameworks */,
+				EAF0335F2AEFDF07006FFF3D /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				EA0869BA2AC4719B00285838 /* HGCircularSlider in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,6 +179,7 @@
 				EA5DC55E2ACDD66400D136F8 /* Model */,
 				EA5DC5EF2AD5F8B000D136F8 /* Database */,
 				EA0869A92AC2290300285838 /* Base */,
+				EAF0333C2AE5E364006FFF3D /* Views */,
 				EA0869982AC209BD00285838 /* ViewControllers */,
 				EA5DC5632ACDE2B000D136F8 /* ViewModels */,
 				EA0869B52AC34FF100285838 /* Cells */,
@@ -149,6 +188,7 @@
 				EA0869892AC1675800285838 /* Assets.xcassets */,
 				EA08698B2AC1675800285838 /* LaunchScreen.storyboard */,
 				EA08698E2AC1675800285838 /* Info.plist */,
+				EAF0335B2AEFDCF0006FFF3D /* GoogleService-Info.plist */,
 			);
 			path = Simlog;
 			sourceTree = "<group>";
@@ -167,6 +207,7 @@
 		EA0869A92AC2290300285838 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				EAF033182ADF3A04006FFF3D /* BaseView.swift */,
 				EA0869AA2AC2293600285838 /* BaseViewController.swift */,
 				EA0869AF2AC22C0300285838 /* BaseCollectionViewCell.swift */,
 				EA5DC57B2ACF191100D136F8 /* BaseTableViewCell.swift */,
@@ -179,6 +220,7 @@
 			children = (
 				EA0869AD2AC229CC00285838 /* Color.swift */,
 				EA5DC5312ACC9E4900D136F8 /* Constants.swift */,
+				EAF0333D2AE5E778006FFF3D /* Utils.swift */,
 				EA5DC6132AD88C9C00D136F8 /* PhotoManager.swift */,
 				EA5DC6192ADC4C9300D136F8 /* AppDateFormatter.swift */,
 			);
@@ -188,12 +230,17 @@
 		EA0869B52AC34FF100285838 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				EAF033142ADD91FF006FFF3D /* FSCalendarCustomCell.swift */,
 				EA5DC5E52AD446CF00D136F8 /* AddDailyLogBaseTableViewCell.swift */,
 				EA5DC5792ACF18D400D136F8 /* AddDailyLogTableViewCell.swift */,
 				EA5DC5ED2AD5C84700D136F8 /* AddPhotoTableViewCell.swift */,
 				EA5DC57D2ACF4C9900D136F8 /* AddMoodTableViewCell.swift */,
 				EA5DC5E32AD4407500D136F8 /* AddWeatherTableViewCell.swift */,
 				EA5DC5E72AD4711000D136F8 /* ButtonCollectionViewCell.swift */,
+				EAF0331A2AE03F23006FFF3D /* ImageCollectionViewCell.swift */,
+				EAF0331C2AE05B6F006FFF3D /* WeatherTableViewCell.swift */,
+				EAF033202AE06CA8006FFF3D /* LabelTableViewCell.swift */,
+				EAF033352AE0F26A006FFF3D /* PhotoTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -206,6 +253,7 @@
 				EA5DC5DB2AD32B8E00D136F8 /* UIColor+.swift */,
 				EA5DC5DF2AD32CE800D136F8 /* UIView+.swift */,
 				EA5DC5F62AD7287F00D136F8 /* UITableView+.swift */,
+				EAF0334E2AE890A1006FFF3D /* Calendar+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -222,6 +270,7 @@
 		EA5DC5632ACDE2B000D136F8 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				EA79377A2ADC72BA0061277E /* CalendarViewModel.swift */,
 				EA5DC5E22AD43E7600D136F8 /* AddDailyLog */,
 			);
 			path = ViewModels;
@@ -283,8 +332,20 @@
 			isa = PBXGroup;
 			children = (
 				EA5DC5F92AD739E800D136F8 /* DailyLogComponentAddButton.swift */,
+				EAF033372AE211E1006FFF3D /* ContentSizedTableView.swift */,
+				EAF033392AE5E1BD006FFF3D /* OperateButton.swift */,
+				EAF033442AE79025006FFF3D /* PaddingLabel.swift */,
+				EAF033592AE9AD4C006FFF3D /* SLSlider.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		EAF0333C2AE5E364006FFF3D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EAF033162ADF39B9006FFF3D /* DailyLogView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +358,7 @@
 				EA0869792AC1675700285838 /* Sources */,
 				EA08697A2AC1675700285838 /* Frameworks */,
 				EA08697B2AC1675700285838 /* Resources */,
+				EAF033622AEFE256006FFF3D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -310,6 +372,10 @@
 				EA0869A42AC227D200285838 /* RealmSwift */,
 				EA0869A72AC227EB00285838 /* SnapKit */,
 				EA0869B92AC4719B00285838 /* HGCircularSlider */,
+				EA7937782ADC6C5E0061277E /* FSCalendar */,
+				EAF0334C2AE79548006FFF3D /* Loaf */,
+				EAF0335E2AEFDF07006FFF3D /* FirebaseAnalyticsWithoutAdIdSupport */,
+				EAF033602AEFDF07006FFF3D /* FirebaseCrashlytics */,
 			);
 			productName = Simlog;
 			productReference = EA08697D2AC1675700285838 /* Simlog.app */;
@@ -345,6 +411,9 @@
 				EA0869A12AC227D200285838 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				EA0869A62AC227EA00285838 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				EA0869B82AC4719B00285838 /* XCRemoteSwiftPackageReference "HGCircularSlider" */,
+				EA7937772ADC6C5D0061277E /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				EAF0334B2AE79548006FFF3D /* XCRemoteSwiftPackageReference "Loaf" */,
+				EAF0335D2AEFDF07006FFF3D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = EA08697E2AC1675700285838 /* Products */;
 			projectDirPath = "";
@@ -362,22 +431,53 @@
 			files = (
 				EA08698D2AC1675800285838 /* LaunchScreen.storyboard in Resources */,
 				EA08698A2AC1675800285838 /* Assets.xcassets in Resources */,
+				EAF0335C2AEFDCF0006FFF3D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EAF033622AEFE256006FFF3D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EA0869792AC1675700285838 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAF0333A2AE5E1BD006FFF3D /* OperateButton.swift in Sources */,
 				EA0869852AC1675700285838 /* CalendarViewController.swift in Sources */,
 				EA5DC5672ACDE76900D136F8 /* SleepViewModel.swift in Sources */,
 				EA5DC5842ACF5B8900D136F8 /* DiaryViewController.swift in Sources */,
+				EAF0334F2AE890A1006FFF3D /* Calendar+.swift in Sources */,
+				EA79377B2ADC72BA0061277E /* CalendarViewModel.swift in Sources */,
 				EA0869972AC209BA00285838 /* StatisticsViewController.swift in Sources */,
+				EAF0331B2AE03F23006FFF3D /* ImageCollectionViewCell.swift in Sources */,
 				EA5DC61A2ADC4C9300D136F8 /* AppDateFormatter.swift in Sources */,
 				EA0869B02AC22C0300285838 /* BaseCollectionViewCell.swift in Sources */,
+				EAF033192ADF3A04006FFF3D /* BaseView.swift in Sources */,
 				EA5DC5F32AD5FA5000D136F8 /* DailyLogTB.swift in Sources */,
 				EA5DC57C2ACF191100D136F8 /* BaseTableViewCell.swift in Sources */,
 				EA5DC5622ACDE2A400D136F8 /* DailyLogViewModel.swift in Sources */,
@@ -388,22 +488,31 @@
 				EA0869BF2AC4A2F500285838 /* BedTimeViewController.swift in Sources */,
 				EA0869952AC208D400285838 /* TabBarController.swift in Sources */,
 				EA5DC5EE2AD5C84700D136F8 /* AddPhotoTableViewCell.swift in Sources */,
+				EAF033152ADD91FF006FFF3D /* FSCalendarCustomCell.swift in Sources */,
+				EAF033212AE06CA8006FFF3D /* LabelTableViewCell.swift in Sources */,
 				EA0869812AC1675700285838 /* AppDelegate.swift in Sources */,
 				EA5DC5D82AD3229800D136F8 /* UISlider+.swift in Sources */,
+				EAF0335A2AE9AD4C006FFF3D /* SLSlider.swift in Sources */,
 				EA5DC5F72AD7287F00D136F8 /* UITableView+.swift in Sources */,
 				EA5DC5602ACDD67E00D136F8 /* DailyLog.swift in Sources */,
 				EA5DC5DC2AD32B8E00D136F8 /* UIColor+.swift in Sources */,
 				EA5DC5322ACC9E4900D136F8 /* Constants.swift in Sources */,
 				EA5DC57A2ACF18D400D136F8 /* AddDailyLogTableViewCell.swift in Sources */,
+				EAF0331D2AE05B6F006FFF3D /* WeatherTableViewCell.swift in Sources */,
 				EA5DC5782ACF187900D136F8 /* AddDailyLogViewController.swift in Sources */,
 				EA5DC5E82AD4711000D136F8 /* ButtonCollectionViewCell.swift in Sources */,
 				EA5DC5352ACC9FED00D136F8 /* UIViewController+.swift in Sources */,
+				EAF033362AE0F26A006FFF3D /* PhotoTableViewCell.swift in Sources */,
+				EAF033382AE211E1006FFF3D /* ContentSizedTableView.swift in Sources */,
 				EA0869832AC1675700285838 /* SceneDelegate.swift in Sources */,
+				EAF033452AE79025006FFF3D /* PaddingLabel.swift in Sources */,
 				EA5DC5652ACDE47C00D136F8 /* Observable.swift in Sources */,
 				EA0869AE2AC229CC00285838 /* Color.swift in Sources */,
 				EA0869AB2AC2293600285838 /* BaseViewController.swift in Sources */,
 				EA5DC5EA2AD5A3F000D136F8 /* ButtonItem.swift in Sources */,
+				EAF033172ADF39B9006FFF3D /* DailyLogView.swift in Sources */,
 				EA5DC5E02AD32CE800D136F8 /* UIView+.swift in Sources */,
+				EAF0333E2AE5E778006FFF3D /* Utils.swift in Sources */,
 				EA5DC5E42AD4407500D136F8 /* AddWeatherTableViewCell.swift in Sources */,
 				EA5DC5E62AD446CF00D136F8 /* AddDailyLogBaseTableViewCell.swift in Sources */,
 				EA5DC57E2ACF4C9900D136F8 /* AddMoodTableViewCell.swift in Sources */,
@@ -545,8 +654,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 62QY899CB7;
+				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = R5LJ29W6V2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Simlog/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -576,8 +686,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 62QY899CB7;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = R5LJ29W6V2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Simlog/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -665,6 +775,30 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		EA7937772ADC6C5D0061277E /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		EAF0334B2AE79548006FFF3D /* XCRemoteSwiftPackageReference "Loaf" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/schmidyy/Loaf.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.0;
+			};
+		};
+		EAF0335D2AEFDF07006FFF3D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -697,6 +831,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EA0869B82AC4719B00285838 /* XCRemoteSwiftPackageReference "HGCircularSlider" */;
 			productName = HGCircularSlider;
+		};
+		EA7937782ADC6C5E0061277E /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA7937772ADC6C5D0061277E /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+		EAF0334C2AE79548006FFF3D /* Loaf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EAF0334B2AE79548006FFF3D /* XCRemoteSwiftPackageReference "Loaf" */;
+			productName = Loaf;
+		};
+		EAF0335E2AEFDF07006FFF3D /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EAF0335D2AEFDF07006FFF3D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		EAF033602AEFDF07006FFF3D /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EAF0335D2AEFDF07006FFF3D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -7,6 +7,7 @@
 
 import UIKit
 import PhotosUI
+import Loaf
 
 enum CellType {
     case mood
@@ -44,6 +45,8 @@ enum CellType {
 class AddDailyLogViewController: BaseViewController {
     
     let vm = DailyLogViewModel()
+    
+    var saveButtonClickedClosure: (() -> Void)?
     
     let editComponent: [CellType] = [.mood, .weather, .sleep, .photo, .diary]
     
@@ -98,6 +101,8 @@ class AddDailyLogViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = AppDateFormatter.shared.toString(date: vm.dailylog.value.date, locale: "ko_KR", type: .monthDayWeek)
     }
     
     override func configureView() {
@@ -126,9 +131,6 @@ class AddDailyLogViewController: BaseViewController {
         super.configureNavigationBar()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(closeButtonClicked))
-
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
 
 }
@@ -136,13 +138,22 @@ class AddDailyLogViewController: BaseViewController {
 extension AddDailyLogViewController {
     
     @objc private func closeButtonClicked() {
-        dismiss(animated: true)
+        showAlert(
+            title: "일기 작성을 종료하시겠어요?",
+            message: "아직 내용이 저장되지 않았어요!") {
+                self.dismiss(animated: true)
+            }
     }
     
     @objc private func saveButtonClicked() {
-        vm.saveDailyLog()
-        
-        dismiss(animated: true)
+        do {
+            try vm.saveDailyLog()
+            saveButtonClickedClosure?()
+            dismiss(animated: true)
+        } catch {
+            Loaf(error.localizedDescription, state: .error, location: .top, sender: self).show()
+            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        }
     }
     
 }
@@ -163,6 +174,12 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
             cell.sliderValueChangedClosure = { value in
                 self.vm.dailylog.value.mood = value
             }
+            
+            if let mood = vm.dailylog.value.mood {
+                cell.slider.value = Float(mood)
+                cell.slider.setLabelTextColor()
+            }
+            
             return cell
             
         case .weather:
@@ -171,6 +188,15 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
             cell.cellButtonClickedClosure = { weathers in
                 self.vm.dailylog.value.weather = weathers
             }
+            
+            if let weather = vm.dailylog.value.weather {
+                weather.forEach {
+                    cell.buttons[$0.rawValue].isSelect = true
+                }
+                
+                cell.vm.weather.value = Set(weather)
+            }
+            
             return cell
             
         case .meal:
@@ -184,14 +210,30 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
             cell.addButtonClosure = {
                 let vc = BedTimeViewController()
                 vc.vm.sleep.value = self.vm.dailylog.value.sleep
-                vc.saveButtonClosure = { bedTime, wakeupTime, text in
+                vc.saveButtonClosure = { sleep, text in
                     cell.addButton.setTitle(text, for: .normal)
-                    self.vm.dailylog.value.sleep = Sleep(bedTime: bedTime, wakeupTime: wakeupTime)
+                    self.vm.dailylog.value.sleep = sleep
                 }
                 vc.modalPresentationStyle = .overCurrentContext
                 vc.modalTransitionStyle = .crossDissolve
                 self.present(vc, animated: true)
             }
+            
+            if let sleep = vm.dailylog.value.sleep {
+                let bedTime = Date(timeIntervalSinceReferenceDate: sleep.bedTime)
+                let bedTimeStr = AppDateFormatter.shared.toString(date: bedTime, timeZone: "UTC", type: .timeWithMeridiem)
+                
+                let wakeTime = Date(timeIntervalSinceReferenceDate: sleep.wakeupTime)
+                let wakeTimeStr = AppDateFormatter.shared.toString(date: wakeTime, timeZone: "UTC", type: .timeWithMeridiem)
+                
+                let duration = Date(timeIntervalSinceReferenceDate: sleep.sleepTime)
+                let durationStr = AppDateFormatter.shared.toString(date: duration, timeZone: "UTC", type: .timeWithLanguage)
+                
+                let text = "\(bedTimeStr) ~ \(wakeTimeStr)"
+                
+                cell.addButton.setTitle(text, for: .normal)
+            }
+            
             return cell
             
         case .todo:
@@ -203,6 +245,13 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
             cell.photoButtonClosure = {
                 self.present(self.phpicker, animated: true)
             }
+            
+            if let photos = vm.dailylog.value.photo, let photo = photos.first {
+                let date = AppDateFormatter.shared.toString(date: vm.dailylog.value.date, type: .year)
+                let image = PhotoManager.shared.loadImageFromDocument(date: date, fileName: photo.fileName)
+                cell.photoButton.setImage(image, for: .normal)
+            }
+            
             return cell
             
         case .diary:
@@ -221,6 +270,11 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
                 vc.modalTransitionStyle = .crossDissolve
                 self.present(vc, animated: true)
             }
+            
+            if let diary = vm.dailylog.value.diary {
+                cell.addButton.setTitle(diary, for: .normal)
+            }
+            
             return cell
         }
     }
@@ -242,7 +296,7 @@ extension AddDailyLogViewController: PHPickerViewControllerDelegate {
                                                 object: image)
                 
                 guard let data = image.jpegData(compressionQuality: 0.5) else { return }
-                self.vm.dailylog.value.photo = [Photo(image: data)]
+                self.vm.dailylog.value.photo = [Photo(image: data, fileName: UUID().uuidString)]
             }
             
         }

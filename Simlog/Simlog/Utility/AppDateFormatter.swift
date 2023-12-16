@@ -9,14 +9,24 @@ import Foundation
 
 enum DateFormatType {
     case year
+    case calendarWithMonth
+    case monthDayWeek
+    case day
+    case dayWithWeek
     case time
     case timeWithMeridiem
+    case timeWithLanguage
     
     var description: String {
         switch self {
         case .year: return "yyyy-MM-dd"
+        case .calendarWithMonth: return "yyyy년 M월"
+        case .monthDayWeek: return "M월 d일 EEEE"
+        case .day: return "d"
+        case .dayWithWeek: return "d EE"
         case .time: return "HH:mm"
         case .timeWithMeridiem: return "hh:mm a"
+        case .timeWithLanguage: return "h시간 m분"
         }
     }
 }
@@ -28,13 +38,28 @@ class AppDateFormatter {
     
     private lazy var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         return dateFormatter
     }()
   
-    func toString(date: Date, type: DateFormatType) -> String {
+    func toString(date: Date,
+                  locale: String = Locale.current.identifier,
+                  timeZone: String = TimeZone.current.identifier,
+                  type: DateFormatType) -> String
+    {
+        dateFormatter.timeZone = TimeZone(abbreviation: timeZone)
+        dateFormatter.locale = Locale(identifier: locale)
         dateFormatter.dateFormat = type.description
         return dateFormatter.string(from: date)
+    }
+    
+    func toDate(date: String,
+                locale: String = Locale.current.identifier,
+                timeZone: String = TimeZone.current.identifier,
+                type: DateFormatType) -> Date? {
+        dateFormatter.timeZone = TimeZone(abbreviation: timeZone)
+        dateFormatter.locale = Locale(identifier: locale)
+        dateFormatter.dateFormat = type.description
+        return dateFormatter.date(from: date)
     }
     
 }

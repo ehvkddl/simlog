@@ -7,23 +7,39 @@
 
 import Foundation
 
+enum DailyLogError: Error {
+    case moodScoreNil
+}
+
+extension DailyLogError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .moodScoreNil: return "기분 점수는 필수 입력 요소예요."
+        }
+    }
+}
+
 class DailyLogViewModel {
     
     var dailylog: Observable<DailyLog> = Observable(DailyLog(date: Date()))
     let dailyLogRepository = DailyLogRepository()
     
-    func saveDailyLog() {
+    func saveDailyLog() throws {
         let log = dailylog.value
         
         guard log.mood != nil else {
-            print("기분 점수는 필수 입력 요소입니다.")
-            return
+            throw DailyLogError.moodScoreNil
         }
         
-        dailyLogRepository.addDailyLog(log)
+        if dailyLogRepository.fetchDailyLog(with: log.id) {
+            dailyLogRepository.updateDailyLog(log)
+        } else {
+            dailyLogRepository.addDailyLog(log)
+        }
         
-        guard let photos = log.photo, let photo = photos.first else { return }
-        PhotoManager.shared.saveImageToDocument(logID: log.id, fileName: "\(photo.id).jpg", image: photo.image)
+        guard let photos = log.photo, let photo = photos.first, let image = photo.image else { return }
+        let date = AppDateFormatter.shared.toString(date: log.date, type: .year)
+        PhotoManager.shared.saveImageToDocument(date: date, fileName: photo.fileName, image: image)
     }
     
 }

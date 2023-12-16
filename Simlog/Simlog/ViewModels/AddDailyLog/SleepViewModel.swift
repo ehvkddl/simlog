@@ -15,7 +15,7 @@ class SleepViewModel {
         let time = TimeInterval(value)
         let timeDate = Date(timeIntervalSinceReferenceDate: time)
         
-        return AppDateFormatter.shared.toString(date: timeDate, type: .timeWithMeridiem)
+        return AppDateFormatter.shared.toString(date: timeDate, timeZone: "UTC", type: .timeWithMeridiem)
     }
     
     func getDurationTimeString() -> String {
@@ -24,7 +24,7 @@ class SleepViewModel {
         let duration = sleep.wakeupTime - sleep.bedTime
         let durationDate = Date(timeIntervalSinceReferenceDate: duration)
         
-        return "총 수면시간 \(AppDateFormatter.shared.toString(date: durationDate, type: .time))"
+        return "총 수면시간 \(AppDateFormatter.shared.toString(date: durationDate, timeZone: "UTC", type: .time))"
     }
     
     func adjustValue(value: inout CGFloat) {
