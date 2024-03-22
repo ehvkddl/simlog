@@ -39,6 +39,7 @@ class DiaryViewController: BaseViewController {
     lazy var textView = {
         let view = UITextView()
         view.font = UIFont.systemFont(ofSize: 14)
+        view.textContainerInset = UIEdgeInsets(top: 17, left: 10, bottom: 17, right: 10);
         view.backgroundColor = Constants.BaseColor.grayBackground
         view.layer.cornerRadius = Constants.cornerRadius
         return view
