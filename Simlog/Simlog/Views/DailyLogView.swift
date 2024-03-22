@@ -58,14 +58,14 @@ class DailyLogView: BaseView {
     let deleteButton = OperateButton(image: UIImage(systemName: "trash"))
     
     override func configureView() {
-        logTableView.reloadDataWithCompletion {
-            let tableViewHeight = self.logTableView.contentSize.height
+        logTableView.reloadDataWithCompletion { [unowned self] in
+            let tableViewHeight = logTableView.contentSize.height
             
-            self.logTableView.snp.remakeConstraints { make in
-                make.top.equalTo(self.dateLabel)
-                make.leading.equalTo(self.separator.snp.trailing).offset(15)
-                make.trailing.equalTo(self).inset(self.padding)
-                make.bottom.equalTo(self.separator)
+            logTableView.snp.remakeConstraints { make in
+                make.top.equalTo(dateLabel)
+                make.leading.equalTo(separator.snp.trailing).offset(15)
+                make.trailing.equalTo(self).inset(padding)
+                make.bottom.equalTo(separator)
                 make.height.equalTo(tableViewHeight < 100 ? 100 : tableViewHeight)
             }
         }
