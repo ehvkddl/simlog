@@ -16,8 +16,8 @@ class AddPhotoTableViewCell: AddDailyLogBaseTableViewCell {
         btn.setImage(UIImage(systemName: "photo"), for: .normal)
         btn.tintColor = Constants.BaseColor.accent
         btn.layer.cornerRadius = Constants.cornerRadius
-        btn.contentMode = .scaleAspectFill
-        btn.clipsToBounds = true
+        btn.imageView?.contentMode = .scaleAspectFill
+        btn.imageView?.clipsToBounds = true
         return btn
     }()
     
