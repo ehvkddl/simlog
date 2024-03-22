@@ -26,7 +26,27 @@ enum DateFormatType {
         case .dayWithWeek: return "d EE"
         case .time: return "HH:mm"
         case .timeWithMeridiem: return "hh:mm a"
-        case .timeWithLanguage: return "h시간 m분"
+        case .timeWithLanguage: return "HH시간 mm분"
+        }
+    }
+}
+
+class DateFormatterManager {
+    static let shared = DateFormatterManager()
+    
+    private lazy var formatters: [DateFormatType: DateFormatter] = [:]
+    
+    private init() {}
+    
+    func formatter(for type: DateFormatType) -> DateFormatter {
+        if let formatter = formatters[type] {
+            return formatter
+        } else {
+            let formatter = DateFormatter()
+            formatter.dateFormat = type.description
+            formatter.locale = Locale(identifier: "ko_KR") // 로케일 설정
+            formatters[type] = formatter
+            return formatter
         }
     }
 }
@@ -36,30 +56,42 @@ class AppDateFormatter {
     static let shared = AppDateFormatter()
     private init() {}
     
-    private lazy var dateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        return dateFormatter
-    }()
+    private lazy var dateFormatter: DateFormatter = DateFormatter()
   
     func toString(date: Date,
                   locale: String = Locale.current.identifier,
                   timeZone: String = TimeZone.current.identifier,
                   type: DateFormatType) -> String
     {
-        dateFormatter.timeZone = TimeZone(abbreviation: timeZone)
-        dateFormatter.locale = Locale(identifier: locale)
-        dateFormatter.dateFormat = type.description
-        return dateFormatter.string(from: date)
+        var result: String = ""
+        let queue = DispatchQueue(label: "DateFormatterQueue")
+        
+        queue.sync {
+            dateFormatter.timeZone = TimeZone(abbreviation: timeZone)
+            dateFormatter.locale = Locale(identifier: locale)
+            dateFormatter.dateFormat = type.description
+            result = dateFormatter.string(from: date)
+        }
+        
+        return result
     }
     
     func toDate(date: String,
                 locale: String = Locale.current.identifier,
                 timeZone: String = TimeZone.current.identifier,
-                type: DateFormatType) -> Date? {
-        dateFormatter.timeZone = TimeZone(abbreviation: timeZone)
-        dateFormatter.locale = Locale(identifier: locale)
-        dateFormatter.dateFormat = type.description
-        return dateFormatter.date(from: date)
+                type: DateFormatType) -> Date?
+    {
+        var result: Date = Date()
+        let queue = DispatchQueue(label: "DateFormatterQueue")
+        
+        queue.sync {
+            dateFormatter.timeZone = TimeZone(abbreviation: timeZone)
+            dateFormatter.locale = Locale(identifier: locale)
+            dateFormatter.dateFormat = type.description
+            result = dateFormatter.date(from: date) ?? Date()
+        }
+        
+        return result
     }
     
 }

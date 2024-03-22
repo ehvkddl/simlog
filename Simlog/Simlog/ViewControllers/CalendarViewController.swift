@@ -74,6 +74,12 @@ class CalendarViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // FIXME: - 파일 위치 확인용
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        print(documentDirectory)
+        
+        definesPresentationContext = true
+
         vm.fetch()
         
         vm.title.bind { str in
@@ -143,6 +149,10 @@ extension CalendarViewController {
         setDailyLog(dailyLog: dailyLog)
     }
     
+//    @objc private func settingButtonClicked() {
+//        let vc = SettingViewController()
+//        navigationController?.pushViewController(vc, animated: true)
+//    }
     
     private func presentAddDailyLogView(date: Date?, log: DailyLog? = nil) {
         let vc = AddDailyLogViewController()

@@ -11,6 +11,8 @@ class SettingViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "설정 "
     }
 
 }
