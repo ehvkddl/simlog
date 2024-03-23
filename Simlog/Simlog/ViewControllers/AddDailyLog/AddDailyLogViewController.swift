@@ -102,7 +102,7 @@ class AddDailyLogViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = AppDateFormatter.shared.toString(date: vm.dailylog.value.date, locale: "ko_KR", type: .monthDayWeek)
+        title = DateFormatterManager.shared.formatter(for: .monthDayWeek, locale: "ko_KR").string(from: vm.dailylog.value.date)
     }
     
     override func configureView() {
@@ -221,13 +221,13 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
             
             if let sleep = vm.dailylog.value.sleep {
                 let bedTime = Date(timeIntervalSinceReferenceDate: sleep.bedTime)
-                let bedTimeStr = AppDateFormatter.shared.toString(date: bedTime, timeZone: "UTC", type: .timeWithMeridiem)
+                let bedTimeStr = DateFormatterManager.shared.formatter(for: .timeWithMeridiem, timeZone: "UTC").string(from: bedTime)
                 
                 let wakeTime = Date(timeIntervalSinceReferenceDate: sleep.wakeupTime)
-                let wakeTimeStr = AppDateFormatter.shared.toString(date: wakeTime, timeZone: "UTC", type: .timeWithMeridiem)
+                let wakeTimeStr = DateFormatterManager.shared.formatter(for: .timeWithMeridiem, timeZone: "UTC").string(from: wakeTime)
                 
                 let duration = Date(timeIntervalSinceReferenceDate: sleep.sleepTime)
-                let durationStr = AppDateFormatter.shared.toString(date: duration, timeZone: "UTC", type: .timeWithLanguage)
+                let durationStr = DateFormatterManager.shared.formatter(for: .timeWithLanguage, timeZone: "UTC").string(from: duration)
                 
                 let text = "\(bedTimeStr) ~ \(wakeTimeStr)"
                 
@@ -247,7 +247,7 @@ extension AddDailyLogViewController: UITableViewDelegate, UITableViewDataSource 
             }
             
             if let photos = vm.dailylog.value.photo, let photo = photos.first {
-                let date = AppDateFormatter.shared.toString(date: vm.dailylog.value.date, type: .year)
+                let date = DateFormatterManager.shared.formatter(for: .year).string(from: vm.dailylog.value.date)
                 let image = PhotoManager.shared.loadImageFromDocument(date: date, fileName: photo.fileName)
                 cell.photoButton.setImage(image, for: .normal)
             }

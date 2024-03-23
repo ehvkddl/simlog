@@ -137,8 +137,7 @@ class CalendarViewController: BaseViewController {
 extension CalendarViewController {
     
     @objc private func addButtonClicked() {
-        let dateStr = AppDateFormatter.shared.toString(date: Date(), type: .year)
-        guard let date = AppDateFormatter.shared.toDate(date: dateStr, type: .year) else { return }
+        let date = Date()
         
         guard let dailyLog = vm.fetchDailyLog(on: date) else {
             presentAddDailyLogView(date: date)
@@ -190,7 +189,7 @@ extension CalendarViewController {
     @objc private func deleteDailyLogClicked() {
         guard let selectedLog else { return }
         showAlert(
-            title: AppDateFormatter.shared.toString(date: selectedLog.date, type: .year),
+            title: DateFormatterManager.shared.formatter(for: .year).string(from: selectedLog.date),
             message: "정말로 일기를 삭제하시겠어요?"
         ) {
             self.vm.deleteDailyLog(selectedLog)
@@ -250,11 +249,11 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
         
         switch Calendar.compareToday(to: date) {
         case .orderedDescending:
-            cell.dayLabel.text = AppDateFormatter.shared.toString(date: date, type: .day)
+            cell.dayLabel.text = DateFormatterManager.shared.formatter(for: .day).string(from: date)
         case .orderedSame:
             cell.dayLabel.text = "오늘"
         case .orderedAscending:
-            cell.dayLabel.text = AppDateFormatter.shared.toString(date: date, type: .day)
+            cell.dayLabel.text = DateFormatterManager.shared.formatter(for: .day).string(from: date)
             cell.moodImage.image = UIImage(systemName: "circle.dotted")
         default: break
         }
