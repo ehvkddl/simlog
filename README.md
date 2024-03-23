@@ -179,9 +179,13 @@ DateFormatter는 locale, timezone, calendar 등의 다양한 설정을 처리하
 
 #### ✅ 해결
 
-필요할 때마다 새로 생성하는 대신, DateFormatter 인스턴스를 한 번 생성하고 필요할 때마다 재사용.
+##### 시도 #1
 
-DateFormatter를 singleton으로 생성하여 앱 전체에서 재사용하도록 AppDateFormatter 생성. 하지만, singleton pattern은 동시성 문제를 일으킬 수 있기 때문에 DispatchQueue를 사용하여 한 번에 하나의 스레드에서만 DateFormatter를 수정하고 사용하도록 함.
+Formatter가 필요할 때마다 새로 생성하는 대신, DateFormatter 인스턴스를 한 번 생성하고 필요할 때마다 재사용.
+
+<details>
+<summary>before</summary>
+<div markdown="1">
 
 ```swift
 class AppDateFormatter {
@@ -227,6 +231,40 @@ class AppDateFormatter {
         return result
     }
     
+}
+```
+
+</div>
+</details>
+
+##### 시도 #2
+
+시도 1은 동일한 DateFormatter 인스턴스의 dateFormat, locale, timeZone 속성을 변경함. simlog에서 사용하는 DateFormatType이 8가지나 되는데 계속 변경된다면 비효율적이라고 생각.  
+시도 2에서는 DateFormatType마다 각각의 인스턴스를 가지도록 함. formatters라는 딕셔너리를 만들어 Formatter가 존재하지 않으면 인스턴스를 새로 생성해서 저장하고, 존재한다면 재사용 하도록 함.
+
+```swift
+class DateFormatterManager {
+    static let shared = DateFormatterManager()
+    
+    private lazy var formatters: [DateFormatType: DateFormatter] = [:]
+    
+    private init() {}
+    
+    func formatter(for type: DateFormatType,
+                   locale: String = Locale.current.identifier,
+                   timeZone: String = TimeZone.current.identifier
+    ) -> DateFormatter {
+        guard let formatter = formatters[type] else {
+            let formatter = DateFormatter()
+            formatter.dateFormat = type.description
+            formatter.locale = Locale(identifier: locale)
+            formatter.timeZone = TimeZone(abbreviation: timeZone)
+            formatters[type] = formatter
+            return formatter
+        }
+        
+        return formatter
+    }
 }
 ```
 
