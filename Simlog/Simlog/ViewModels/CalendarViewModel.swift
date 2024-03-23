@@ -16,7 +16,7 @@ class CalendarViewModel {
     var logs: Results<DailyLogTB>!
     
     func setCurrentPageTitle(date: Date) {
-        title.value = AppDateFormatter.shared.toString(date: date, type: .calendarWithMonth)
+        title.value = DateFormatterManager.shared.formatter(for: .calendarWithMonth).string(from: date)
     }
     
     func fetch() {

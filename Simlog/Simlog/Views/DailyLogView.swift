@@ -121,7 +121,7 @@ extension DailyLogView {
     func setValue() {
         guard let log = self.log else { return }
         
-        dateLabel.text = AppDateFormatter.shared.toString(date: log.date, locale: "ko_KR", type: .dayWithWeek)
+        dateLabel.text = DateFormatterManager.shared.formatter(for: .dayWithWeek, locale: "ko_KR").string(from: log.date)
         moodColor.backgroundColor = UIColor.moodColor(score: log.mood ?? -1)
         
         logComponentType.removeAll(keepingCapacity: true)
@@ -176,13 +176,13 @@ extension DailyLogView: UITableViewDataSource {
             guard let sleep = log.sleep else { return UITableViewCell() }
             
             let bedTime = Date(timeIntervalSinceReferenceDate: sleep.bedTime)
-            let bedTimeStr = AppDateFormatter.shared.toString(date: bedTime, timeZone: "UTC", type: .timeWithMeridiem)
+            let bedTimeStr = DateFormatterManager.shared.formatter(for: .timeWithMeridiem, timeZone: "UTC").string(from: bedTime)
             
             let wakeTime = Date(timeIntervalSinceReferenceDate: sleep.wakeupTime)
-            let wakeTimeStr = AppDateFormatter.shared.toString(date: wakeTime, timeZone: "UTC", type: .timeWithMeridiem)
+            let wakeTimeStr = DateFormatterManager.shared.formatter(for: .timeWithMeridiem, timeZone: "UTC").string(from: wakeTime)
             
             let duration = Date(timeIntervalSinceReferenceDate: sleep.sleepTime)
-            let durationStr = AppDateFormatter.shared.toString(date: duration, timeZone: "UTC", type: .timeWithLanguage)
+            let durationStr = DateFormatterManager.shared.formatter(for: .timeWithLanguage, timeZone: "UTC").string(from: duration)
             
             cell.label.text = "\(bedTimeStr) ~ \(wakeTimeStr)\n총 수면시간 \(durationStr)"
             cell.configureCell(type: cellType)
@@ -194,7 +194,7 @@ extension DailyLogView: UITableViewDataSource {
             
             guard let photos = log.photo else { return UITableViewCell() }
             
-            let date = AppDateFormatter.shared.toString(date: log.date, type: .year)
+            let date = DateFormatterManager.shared.formatter(for: .year).string(from: log.date)
             guard let photo = photos.first else { return UITableViewCell() }
             cell.photoView.image = PhotoManager.shared.loadImageFromDocument(date: date, fileName: photo.fileName)
             
